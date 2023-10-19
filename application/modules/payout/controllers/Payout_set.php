@@ -64,12 +64,16 @@ class Payout_set extends CI_Controller {
     $cashback['bebas_pay_input_date'] = date('Y-m-d');
     $logs['limit'] = 3;
 
+    $month = $this->Bulan_model->get_month();
 
     $paramsPage = $params;
+    $data['student_id'] = $siswa['student_id'];
     $data['period'] = $this->Period_model->get($params);
     $data['siswa'] = $this->Student_model->get(array('student_id'=>$siswa['student_id'], 'group'=>TRUE));
     $data['student'] = $this->Bulan_model->get($pay);
     $data['bulan'] = $this->Bulan_model->get(array('student_id'=>$siswa['student_id']));
+    //$data['bulan'] = $this->Bulan_model->get(array('student_id'=>$siswa['student_id'], 'grup'=>TRUE));
+    //$data['bulan'] = $this->Bulan_model->get(array('student_id'=>$siswa['student_id'], 'grup' =>TRUE, 'paymentt'=>TRUE ));
     $data['bebas'] = $this->Bebas_model->get($pay);
     $data['free'] = $this->Bebas_pay_model->get($params);
     $data['dom'] = $this->Bebas_pay_model->get($params);
@@ -108,6 +112,8 @@ class Payout_set extends CI_Controller {
     foreach ($data['dom'] as $row) {
       $data['pay_bill'] += $row['bebas_pay_bill'];
     }
+
+    $data['students'] = $this->Student_model->get(array('status'=>1));
 
     $config['base_url'] = site_url('manage/payment/index');
     $config['suffix'] = '?' . http_build_query($_GET, '', "&");

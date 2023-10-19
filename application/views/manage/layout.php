@@ -37,7 +37,7 @@
    
 
  </head>
- <body class="hold-transition skin-blue fixed sidebar-mini" <?php echo isset($ngapp) ? $ngapp : null; ?>>
+ <body class="hold-transition fixed sidebar-mini" <?php echo isset($ngapp) ? $ngapp : null; ?>>
   <div class="wrapper">
 
     <header class="main-header">
