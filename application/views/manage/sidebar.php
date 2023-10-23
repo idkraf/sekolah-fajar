@@ -136,6 +136,12 @@
             <li class="">
               <a href=""><i class="fa fa-circle-o"></i> Siswa</a>
             </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'bukti') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/bukti'); ?>">
+                <i class="fa fa-money"></i> <span>Bukti Bayar</span>
+                <span class="pull-right-container"></span>
+              </a>
+            </li>
             <li class="<?php echo ($this->uri->segment(2) == 'payout') ? 'active' : '' ?> ">
               <a href="<?php echo site_url('manage/payout') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'payout') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Pembayaran</a>
             </li>
@@ -178,8 +184,11 @@
           </a>
           
           <ul class="treeview-menu">
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Data pegawai</a>
+            
+            <li class="<?php echo ($this->uri->segment(2) == 'pegawai') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/pegawai'); ?>">
+                <i class="fa fa-circle-o"></i> Data pegawai
+              </a>
             </li>
             <li class="">
               <a href=""><i class="fa fa-circle-o"></i> Penggajian</a>
