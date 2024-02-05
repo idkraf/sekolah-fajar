@@ -422,10 +422,12 @@ class Barang_set extends CI_Controller
             }
         }
     }
-    public function delete($getId)
+    //public function delete($getId)
+    public function delete()
     {
-        $id = encode_php_tags($getId);
-        if ($this->admin->delete('barang', 'id_barang', $id)) {
+        //$id = encode_php_tags($getId);
+        $id = $this->input->post('deleteid'); 
+        if ($this->admin->delete('barang', 'id', $id)) {
             $this->session->set_flashdata('success', 'Data berhasil dihapus');
         } else {
             $this->session->set_flashdata('failed', 'Data gagal dihapus');

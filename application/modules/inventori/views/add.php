@@ -49,11 +49,11 @@
                         <div class="row">
                             <div class="col-lg-10">
                                 <h4 class="h5 align-middle m-0 font-weight-bold text-primary">
-                                    Tambah Barang
+                                    Tambah Barang Inventori
                                 </h4>
                             </div>
                             <div class="col-auto">
-                                <a href="<?= base_url('manage/barang') ?>" class="btn btn-sm btn-secondary btn-icon-split">
+                                <a href="<?= base_url('manage/inventori') ?>" class="btn btn-sm btn-secondary btn-icon-split">
                                     <span class="icon">
                                         <i class="fa fa-arrow-left"></i>
                                     </span>
