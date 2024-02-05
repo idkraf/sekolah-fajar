@@ -21,7 +21,7 @@ class Payout_student extends CI_Controller {
 
     $data['f'] = $f;
 
-    $siswa['student_id'] = '';
+    $siswa['student_id'] = $this->session->userdata('uid_student');
     $params = array();
     $param = array();
     $pay = array();
@@ -56,6 +56,9 @@ class Payout_student extends CI_Controller {
     $data['dom'] = $this->Bebas_pay_model->get($params);
     $data['bill'] = $this->Bulan_model->get_total($params);
     $data['in'] = $this->Bulan_model->get_total($param);
+    
+    //$data['bulan'] = $this->Bulan_model->get($pay);
+    //$data['bebas'] = $this->Bebas_model->get($pay);
 
     $data['total'] = 0;
     foreach ($data['bill'] as $key) {
@@ -76,7 +79,7 @@ class Payout_student extends CI_Controller {
     $config['suffix'] = '?' . http_build_query($_GET, '', "&");
     $config['total_rows'] = count($this->Bulan_model->get($paramsPage));
 
-    $data['title'] = 'Cek Pembayaran Siswa';
+    $data['title'] = 'Cek Pembayaran';
     $data['main'] = 'payout/payout_student_list';
     $this->load->view('student/layout', $data);
   }

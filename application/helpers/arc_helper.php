@@ -96,6 +96,7 @@ function logo() {
     $result = $CI->Setting_model->get(array('id' => 6));
     return $result['setting_value'];
 }
+
 function majors() {
     $CI = & get_instance();
     $CI->load->model('setting/Setting_model');
@@ -103,5 +104,25 @@ function majors() {
     return $result['setting_value'];
 }
 
+function aturan($identifier, $rule_id) {
+    //$identifier adalah permission_id
+    //1 dashboard
+    //2 akademik
+    //3 smart School
+    //4 Pembayaran spp
+    //5 kepegawaian
+    //6 perpustakaan
+    //7 aset
+    //8 kantin
+    //9 bpbk
+    //10 uks
+    //11 po
+    
+    $CI = & get_instance();    
+    return $CI->db
+    ->where('role_has_permissions.permission_id', $identifier)
+    ->where('role_has_permissions.role_id', $rule_id)
+    ->count_all_results('role_has_permissions');
+}
 
 ?>

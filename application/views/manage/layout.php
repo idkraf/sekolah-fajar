@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php echo $this->config->item('app_name') ?> <?php echo isset($title) ? ' | ' . $title : null; ?></title>
+  <title><?php echo isset($title) ? '' . $title : null; ?></title>
   <link rel="icon" type="image/png" href="<?php echo media_url('img/smplogo.png') ?>">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -12,8 +12,8 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo media_url() ?>/css/font-awesome.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo media_url() ?>/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="<?php echo media_url() ?>/css/style.css">
+  <link rel="stylesheet" href="<?php echo media_url() ?>css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?php echo media_url() ?>css/style.css">
   <link rel="stylesheet" href="<?php echo media_url() ?>/css/_all-skins.min.css">
   <link rel="stylesheet" href="<?php echo media_url() ?>/css/load-font-googleapis.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -26,6 +26,13 @@
    <!-- Daterange picker -->
    <link rel="stylesheet" href="<?php echo media_url() ?>/css/daterangepicker.css">
    <link href="<?php echo base_url('/media/js/fullcalendar/fullcalendar.css');?>" rel="stylesheet">
+   <link href="<?php echo base_url('/media/js/forms/selects/select2.min.css');?>" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" type="text/css"
+          href="<?php echo media_url() ?>/css/tables/datatable/datatables.min.css">
+    <!--link rel="stylesheet" type="text/css"
+          href="<//?php echo media_url() ?>/css/tables/extensions/buttons.dataTables.min.css"-->
+    <link rel="stylesheet" type="text/css"
+          href="<?php echo media_url() ?>css/buttons.dataTables.min.css">
 
    <script src="<?php echo media_url() ?>/js/jquery.min.js"></script>
    <script src="<?php echo media_url() ?>/js/angular.min.js"></script>
@@ -35,6 +42,10 @@
    
    <script src="<?php echo base_url('/media/js/fullcalendar/fullcalendar.js');?>"></script>
    
+  <script type="text/javascript">var baseurl = '<?php echo base_url() ?>';            
+    var crsf_token = '<?= $this->security->get_csrf_token_name() ?>';
+    var crsf_hash = '<?= $this->security->get_csrf_hash(); ?>';
+  </script>
 
  </head>
  <body class="hold-transition fixed sidebar-mini" <?php echo isset($ngapp) ? $ngapp : null; ?>>
@@ -139,22 +150,27 @@
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="<?php echo media_url() ?>/js/bootstrap.min.js"></script>
-<script src="<?php echo media_url() ?>/js/moment.min.js"></script>
+<script src="<?php echo media_url() ?>js/bootstrap.min.js"></script>
+<script src="<?php echo media_url() ?>js/moment.min.js"></script>
 
-<script src="<?php echo media_url() ?>/js/fullcalendar.min.js"></script>
+<script src="<?php echo media_url() ?>js/fullcalendar.min.js"></script>
+
+<script src="<?php echo media_url(); ?>js/tables/datatable/datatables.min.js"></script>
 
 
 <!-- daterangepicker -->
-<script src="<?php echo media_url() ?>/js/daterangepicker.js"></script>
+<script src="<?php echo media_url() ?>js/daterangepicker.js"></script>
 <!-- datepicker -->
-<script src="<?php echo media_url() ?>/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo media_url() ?>js/bootstrap-datepicker.min.js"></script>
 <!-- SlimScroll -->
-<script src="<?php echo media_url() ?>/js/jquery.slimscroll.min.js"></script>
+<script src="<?php echo media_url() ?>js/jquery.slimscroll.min.js"></script>
 <!-- AdminLTE App -->
-<script src="<?php echo media_url() ?>/js/adminlte.min.js"></script>
+<script src="<?php echo media_url() ?>js/adminlte.min.js"></script>
 <!-- Notyfy JS -->
-<script src="<?php echo media_url() ?>/js/jquery.toast.js"></script>
+<script src="<?php echo media_url() ?>js/jquery.toast.js"></script>
+
+<script src="<?php echo media_url() ?>js/select2.min.js"></script>
+   
 <script>
   // $(".input-group.date").datepicker({autoclose: true, todayHighlight: true});
   $(".years").datepicker({
@@ -168,6 +184,37 @@
     format: "yyyy-mm-dd",
     autoclose: true,
     todayHighlight: true
+  });
+  
+  $('.select2').select2();
+  //universal list item delete from table
+  $(document).on('click', ".delete-object", function (e) {
+      e.preventDefault();
+      $('#object-id').val($(this).attr('data-object-id'));
+
+      $(this).closest('tr').attr('id', $(this).attr('data-object-id'));
+      $('#delete_model').modal({backdrop: 'static', keyboard: false});
+
+  });
+  $(document).on('click', ".delete-object2", function (e) {
+      e.preventDefault();
+      $('#object-id2').val($(this).attr('data-object-id'));
+      $(this).closest('tr').attr('id', $(this).attr('data-object-id'));
+      $('#delete_model2').modal({backdrop: 'static', keyboard: false});
+
+  });
+
+  $("#delete-confirm").on("click", function () {
+      var o_data = 'deleteid=' + $('#object-id').val();
+      var action_url = $('#delete_model #action-url').val();
+      $('#' + $('#object-id').val()).remove();
+      removeObject(o_data, action_url);
+  });
+  $("#delete-confirm2").on("click", function () {
+      var o_data = 'deleteid=' + $('#object-id2').val();
+      var action_url = $('#delete_model2 #action-url2').val();
+      $('#' + $('#object-id2').val()).remove();
+      removeObject(o_data, action_url);
   });
 </script>
 

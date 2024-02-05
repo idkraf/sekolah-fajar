@@ -255,21 +255,34 @@
 													$i =1;
 													foreach ($student as $row):
 														if ($f['n'] AND $f['r'] == $row['student_nis']) {
-															?>
+															?>													
 															<tr>
 																<td><?php echo $i ?> <?php echo $row['payment_payment_id'] ?> </td>
 																<td><?php echo $row['pos_name'].' - T.A '.$row['period_start'].'/'.$row['period_end'] ?></td>
-																<td><?php echo ($total == $pay) ? 'Rp. -' : 'Rp. '.number_format($total-$pay,0,',','.') ?></td>
-																
+																<td>																	
+																	<?php
+																		$semua = 0;
+																		$dibayar = 0;
+																		foreach ($bulan as $key) {
+																			if ($key['payment_payment_id'] == $row['payment_payment_id']) {																				
+																				$semua += $key['bulan_bill'];																					
+																				if ($key['bulan_status'] == 1) {
+																					$dibayar += $key['bulan_bill'];
+																				}
+																			}
+																		}
+																		$jumlah = $semua - $dibayar;
+																	?>
+																	<?php echo 'Rp. '.number_format($jumlah,0,',','.') ?>
+																</td>																
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 1 && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name']. $key['month_name'] ?>">																				
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name']. $key['month_name'] ?>">																				
 																					<?php echo ($key['bulan_status']==1) 
-																					? '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
+																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
-																					//. $key['month_name'] . $row['pos_name']
 																					?>
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
@@ -277,18 +290,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -299,7 +311,8 @@
 																									<div class="form-group">
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
-																									</div>
+																									</div>																									
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -315,13 +328,12 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 2   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																			
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
-																					? '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
+																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
-																					//. $key['month_name'] . $row['pos_name']
 																					?>
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
@@ -329,18 +341,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -352,6 +363,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																																																	
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -367,9 +380,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 3   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -380,18 +393,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -403,6 +415,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																																															
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -419,9 +433,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 4   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -432,18 +446,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -455,6 +468,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																																												
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -471,9 +486,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 5   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -484,18 +499,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -507,6 +521,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																																										
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -523,9 +539,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 6   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -536,18 +552,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -559,6 +574,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																																								
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -575,9 +592,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 7   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -588,18 +605,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -611,6 +627,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																																					
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -628,9 +646,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 8   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -641,18 +659,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -664,6 +681,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																																			
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -680,9 +699,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 9   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -693,18 +712,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -716,6 +734,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																																	
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -732,9 +752,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 10   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -745,18 +765,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -768,6 +787,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																															
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -784,9 +805,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 11   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -797,18 +818,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -820,6 +840,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																													
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -836,9 +858,9 @@
 																
 																	<?php foreach ($bulan as $key) : ?>
 																		<?php if ($key['month_month_id'] == 12   && $key['payment_payment_id'] == $row['payment_payment_id']) { ?>
-																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>">
+																			<td class="<?php echo ($key['bulan_status'] ==1) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																				
-																				<a data-toggle="modal" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
+																				<a data-toggle="<?php echo ($key['bulan_bill'] ==0) ? 'none' : 'modal' ?>" data-target="#<?php echo $row['pos_name'].$key['month_name'] ?>">
 																					<?php echo ($key['bulan_status']==1) 
 																					? number_format($key['bulan_bill'], 0, ',', '.') . '<br>' . '('.pretty_date($key['bulan_date_pay'],'d/m/y',false).')'																		
 																					: number_format($key['bulan_bill'], 0, ',', '.')
@@ -849,18 +871,17 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title">Pembayaran <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
-																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/pay') ?>" method="post" accept-charset="utf-8">
+																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
-																									<input class="form-control" required="" type="hidden" name="kas_noref" value="SPTK201702001019102301">
-																									<input class="form-control" required="" type="hidden" name="kas_account" id="kas_account_sep" value="99">
 																									<input class="form-control" required="" type="hidden" name="student_id" value="<?php echo $row['student_student_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																									<!--input class="form-control" required="" type="hidden" name="payment_period" value="11"-->
 																									<input class="form-control" required="" type="hidden" name="bulan_id" value="<?php echo $key['month_month_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payment_id" value="<?php echo $key['payment_payment_id'] ?>">
 																									<input class="form-control" required="" type="hidden" name="payout_id" value="<?php echo $key['bulan_id'] ?>">
+																									
+																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
 																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
@@ -872,6 +893,8 @@
 																										<label>Jumlah Bayar</label>
 																										<input class="form-control" readonly="" type="text" name="payout_value" placeholder="Jumlah Bayar" value="<?php echo $key['bulan_bill'] ?>">
 																									</div>
+																													
+																								<?php }  ?>
 																								</div>
 																								<div class="modal-footer">																																														<button type="submit" class="btn btn-success">Simpan</button>
 																									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -919,7 +942,7 @@
 														if ($f['n'] AND $f['r'] == $row['student_nis']) {
 															$sisa = $row['bebas_bill']-$row['bebas_total_pay'];
 															?>
-															<tr class="<?php echo ($row['bebas_bill'] == $row['bebas_total_pay']) ? 'success' : 'danger' ?>">
+															<tr class="<?php echo ($row['bebas_bill'] == $row['bebas_total_pay']) ? 'success' : 'danger' ?>" style=" <?php echo ($key['bulan_bill'] ==0) ? 'background-color: #f5f5f5!important;' : '' ?>">
 																<td style="background-color: #fff !important;"><?php echo $i ?></td>
 																<td style="background-color: #fff !important;"><?php echo $row['pos_name'].' - T.A '.$row['period_start'].'/'.$row['period_end'] ?></td>
 																<td><?php echo 'Rp. ' . number_format($sisa, 0, ',', '.') ?></td>
@@ -1000,17 +1023,20 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<div class="col-sm-3">
-						<select required="" name="unit_id" id="unit_id" onchange="change_class()" class="form-control">
-							<option value="">-- Pilih Unit --</option>
-							<option value="2"> TK</option>
-							<option value="3"> SD</option>
-							<option value="4"> SMP</option>
-						</select>    
+						<select id="us" class="form-control">
+							<option value="0">---Pilih Unit---</option>
+							<?php foreach ($majors as $row): ?>
+								<option value="<?php echo $row['majors_id'] ?>"><?php echo $row['majors_name'] ?></option>
+							<?php endforeach ?>
+						</select>
 					</div>
 					<div id="div_class">
 						<div class="col-sm-3">
-							<select required="" name="kelas_id" id="kelas_id" class="form-control">
-								<option value="">-- Pilih Kelas --</option>
+							<select id="pr" class="form-control">
+								<option value="0">-- Pilih Kelas --</option>
+								<?php foreach ($kelas as $row): ?>
+									<option value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
+								<?php endforeach; ?>
 							</select>
 						</div>
 					</div>
@@ -1018,33 +1044,15 @@
 				<br>
 				<div id="div_student">
 					<div class="box-body table-responsive">
-						<table id="dtable" class="table table-hover dataTable no-footer" role="grid">
-							<tr>
+						<table id="dtable" class="table table-hover dataTable no-footer" width="100%">
+							<thead>
 								<th>No</th>
 								<th>NIS</th>
 								<th>Nama</th>
 								<th>Kelas</th>
 								<th>Aksi</th>
-							</tr>	
+							</thead>	
 							<tbody>
-
-							<?php
-								$i =1;
-								foreach ($students as $row):
-										?>
-										<tr>
-											<td><?php echo $i ?></td>
-											<td><?php echo $row['student_nis']; ?></td>
-											<td><?php echo $row['student_full_name']; ?></td>
-											<td><?php echo $row['class_name']; ?></td>
-											<td align="center">
-												<button type="button" data-dismiss="modal" class="btn btn-primary btn-xs" onclick="ambil_data('<?php echo $row['student_nis']; ?>')">Pilih</button>
-											</td>
-										</tr>
-										<?php 
-										$i++;
-									endforeach; 
-									?>	
 							</tbody>
 						</table>
 					</div>
@@ -1057,7 +1065,7 @@
 	</div>
 </div>
 
-<script>
+<script type="text/javascript">
 	$(".loader").hide();
 
     function ambil_data(nis){
@@ -1070,7 +1078,9 @@
       
       function change_class(){
           
-            var majors_id = $("#unit_id").val()
+            var majors_id = $("#unit_id").val();
+			
+			$("#div_class").html("");
             
             $.ajax({ 
             url: '/manage/payout/change_class/',
@@ -1267,9 +1277,7 @@
 				
 			});
 		}
-</script>
 
-<script type="text/javascript">
 	function startCalculate(){
 		interval=setInterval("Calculate()",10);
 	}
@@ -1290,16 +1298,13 @@
 	function stopCalc(){
 		clearInterval(interval);
 	}
-</script>
-<script>
+	
 	$(document).ready(function() {
 		$("#selectall").change(function() {
 			$(".checkbox").prop('checked', $(this).prop("checked"));
 		});
 	});
-</script>
 
-<script type="text/javascript">
 	(function(a){
 		a.createModal=function(b){
 			defaults={
@@ -1346,4 +1351,53 @@
 			return false;        
 		});    
 	});
+
+	$(document).ready(function () {
+		draw_data();
+		$('#us').change(function() {
+			//console.log($(this).val());
+			draw_data();
+		});
+		$('#pr').change(function() {
+			//console.log($(this).val());
+			draw_data();
+		});
+
+		function draw_data() {
+			$us = $("#us").val();
+			console.log($us);
+			$pr = $("#pr").val();
+			console.log($pr);
+			$('#dtable').DataTable({
+				'processing': true,
+				'serverSide': true,
+				'stateSave': true,
+				paging: false,
+				destroy: true,
+				//responsive: true,
+				'order': [],
+				'ajax': {
+					'url': "<?php echo site_url('manage/payout/ajax_list') ?>",
+					'type': 'POST',
+					'data': {
+						'us': $us, //unit
+						'pr': $pr, //kelas
+						'<?= $this->security->get_csrf_token_name() ?>': crsf_hash
+					}
+				},
+				'columnDefs': [
+					{
+						'targets': [0,1,2,3,4],
+						'orderable': false,
+					},
+				],
+				dom: 'Blfrtip',
+				lengthMenu: [10, 20, 50, 100, 200, 500],
+				buttons: [ 
+				],
+			});
+		};
+
+	});
+
 </script>

@@ -25,25 +25,47 @@ class Dashboard_set extends CI_Controller {
         $data['bulan_day'] = $this->Bulan_model->get_total(array('status'=>1, 'date'=> date('Y-m-d')));
         $data['bebas_day'] = $this->Bebas_pay_model->get(array('date'=> date('Y-m-d')));
 
+        //$total_tagihan_bulan_ini = $this->Bulan_model->get(array('status'=>0, 'period_status'=>1));       
+        //$data['total_tagihan_bulan_ini'] = 0;
+        //foreach ($total_tagihan_bulan_ini as $row) {
+        //    $data['total_tagihan_bulan_ini'] += $row['kredit_value'];
+        //}
+
+
         $data['total_kredit'] = 0;
         foreach ($data['kredit'] as $row) {
             $data['total_kredit'] += $row['kredit_value'];
         }
+        $data['total_kredit_hr'] = 0;
 
         $data['total_debit'] = 0;
         foreach ($data['debit'] as $row) {
             $data['total_debit'] += $row['debit_value'];
         }
 
-        $data['total_bulan'] = 0;
-        foreach ($data['bulan_day'] as $row) {
+        //$data['total_bulan'] = 0;
+        //foreach ($data['bulan_day'] as $row) {
+        //    $data['total_bulan'] += $row['bulan_bill'];
+        //}
+
+        //$data['total_bebas'] = 0;
+        //foreach ($data['bebas_day'] as $row) {
+        //    $data['total_bebas'] += $row['bebas_pay_bill'];
+        //}
+
+        $data['bulan'] = $this->Bulan_model->get(array('status'=>0, 'period_status'=>1));
+        $data['bebas'] = $this->Bebas_model->get(array('period_status'=>1));
+
+        $data['total_bulan'] =0;
+        foreach ($data['bulan'] as $row) {
             $data['total_bulan'] += $row['bulan_bill'];
         }
 
-        $data['total_bebas'] = 0;
-        foreach ($data['bebas_day'] as $row) {
-            $data['total_bebas'] += $row['bebas_pay_bill'];
+        $data['total_bebas'] =0;
+        foreach ($data['bebas'] as $row) {
+            $data['total_bebas'] += $row['bebas_bill'];
         }
+
 
         $this->load->library('form_validation');
         if ($this->input->post('add', TRUE)) {

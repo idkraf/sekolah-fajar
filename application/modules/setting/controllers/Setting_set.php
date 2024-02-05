@@ -13,6 +13,7 @@ class Setting_set extends CI_Controller {
     public function index() {
         $this->load->model('setting/Setting_model');
         $this->load->library('form_validation');
+        $this->form_validation->set_rules('setting_yayasan', 'Nama Yayasan', 'trim|required|xss_clean');
         $this->form_validation->set_rules('setting_school', 'Nama Sekolah', 'trim|required|xss_clean');
         $this->form_validation->set_rules('setting_address', 'Alamat', 'trim|required|xss_clean');
         $this->form_validation->set_rules('setting_phone', 'Nomor Telephone', 'trim|required|xss_clean');
@@ -24,6 +25,7 @@ class Setting_set extends CI_Controller {
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
 
+            $param['setting_yayasan'] = $this->input->post('setting_yayasan');
             $param['setting_school'] = $this->input->post('setting_school');
             $param['setting_address'] = $this->input->post('setting_address');
             $param['setting_phone'] = $this->input->post('setting_phone');
@@ -42,6 +44,13 @@ class Setting_set extends CI_Controller {
                 $paramsupdate['setting_id'] = $status;
                 $this->Setting_model->save($paramsupdate);
             } 
+            if (!empty($_FILES['setting_logo_yayasan']['name'])) {
+                $paramsupdate['setting_logo_yayasan'] = $this->do_upload($name = 'setting_logo_yayasan', $fileName= $param['setting_yayasan']);
+
+                $paramsupdate['setting_id'] = $status;
+                $this->Setting_model->save($paramsupdate);
+            } 
+
 
             $this->session->set_flashdata('success', ' Sunting pengaturan berhasil');
             redirect('manage/setting');
@@ -57,6 +66,8 @@ class Setting_set extends CI_Controller {
             $data['setting_user_sms'] = $this->Setting_model->get(array('id' => 8));
             $data['setting_pass_sms'] = $this->Setting_model->get(array('id' => 9));
             $data['setting_sms'] = $this->Setting_model->get(array('id' => 10));
+            $data['setting_logo_yayasan'] = $this->Setting_model->get(array('id' => 11));
+            $data['setting_yayasan'] = $this->Setting_model->get(array('id' => 12));
             
             $data['main'] = 'setting/setting_list';
             $this->load->view('manage/layout', $data);

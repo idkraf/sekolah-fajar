@@ -1,11 +1,11 @@
 <?php
 
 if (isset($class)) {
-
+	$inputMajorValue= $class['majors_id'];
 	$inputClassValue = $class['class_name'];
 	
 } else {
-	
+	$inputMajorValue= $class['majors_id'];
 	$inputClassValue = set_value('class_name');
 }
 ?>
@@ -37,7 +37,16 @@ if (isset($class)) {
 						<?php if (isset($class)) { ?>
 						<input type="hidden" name="class_id" value="<?php echo $class['class_id']; ?>">
 						<?php } ?>
-						
+
+						<div class="form-group">
+							<label>Unit Sekolah <small data-toggle="tooltip" title="Wajib diisi">*</small></label>
+							<select name="majors_id" class="form-control">
+								<option value="">---Pilih Unit Sekolah---</option>
+								<?php foreach ($majors as $row): ?>
+									<option value="<?php echo $row['majors_id'] ?>" <?php echo ($inputMajorValue == $row['majors_id']) ? 'selected' : '' ?> ><?php echo $row['majors_name'] ?></option>
+								<?php endforeach ?>
+							</select>
+						</div> 
 
 						<div class="form-group">
 							<label>Nama Kelas <small data-toggle="tooltip" title="Wajib diisi">*</small></label>

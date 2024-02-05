@@ -21,21 +21,44 @@
 		<!-- /.box-header -->
 		<div class="row">
 			<div class="col-md-9">
-				<div class="box">
-					<div class="box-body">
+				<div class="box">					
+					<div class="box-body table-responsive">
 						<?php echo form_open(current_url(), array('method' => 'get')) ?>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-addon alert-info">Pilih kelas</div>
-								<select class="form-control" name="pr" onchange="this.form.submit()">
-									<option value="">-- Pilih Kelas  --</option>
-									<?php foreach ($class as $row): ?>
-										<option <?php echo (isset($f['pr']) AND $f['pr'] == $row['class_id']) ? 'selected' : '' ?> value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
-									<?php endforeach; ?>
-								</select>
-							</div>
-						</div>
+						<table style="width:100%">
+							<tbody>
+								<tr>
+									<td> 
+										<div class="form-group">
+											<div class="input-group">
+												<div class="input-group-addon alert-success">Unit</div>
+												<select name="m" class="form-control" onchange="this.form.submit()">
+													<option value="all">---Pilih Unit---</option>
+													<?php foreach ($majors as $row): ?>
+														<option value="<?php echo $row['majors_id'] ?>" <?php echo (isset($f['m']) AND $f['m'] == $row['majors_id']) ? 'selected' : '' ?> ><?php echo $row['majors_name'] ?></option>
+													<?php endforeach ?>
+												</select>
+											</div>
+										</div> 
+									</td>
+									<td>
+										<div class="form-group">
+											<div class="input-group">
+												<div class="input-group-addon alert-info">Pilih kelas</div>
+												<select class="form-control" name="pr" onchange="this.form.submit()">
+													<option value="all">-- Pilih Kelas  --</option>
+													<?php foreach ($class as $row): ?>
+														<option <?php echo (isset($f['pr']) AND $f['pr'] == $row['class_id']) ? 'selected' : '' ?> value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
+													<?php endforeach; ?>
+												</select>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 						<?php echo form_close() ?>
+					</div>
+					<div class="box-body table-responsive">
 						<table class="table table-hover table-bordered table-responsive">
 							<form action="<?php echo site_url('manage/student/multiple'); ?>" method="post">
 								<input type="hidden" name="action" value="upgrade">
@@ -59,7 +82,6 @@
 													<td><?php echo $row['student_nis']; ?></td>
 													<td><?php echo $row['student_full_name']; ?></td>	
 													<td><?php echo $row['class_name']; ?></td>	
-	
 												</tr>
 												<?php
 												$i++;
@@ -85,17 +107,22 @@
 
 					<div class="col-md-3">
 						<div class="panel panel-info">
-							<div class="panel-body">
-									<select class="form-control" name="class_id" required="">
-									<option value="">-- Ke Kelas  --</option>
-									<?php foreach ($upgrade as $row): ?>
-										<option value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
-									<?php endforeach; ?>
-								</select>
-								<br>
-								<button class="btn btn-danger btn-block" type="submit">Proses Pindah/Naik Kelas</button>
-								</form>
-							</div>
+								<div class="panel-body">
+									<select name="mp" class="form-control mp">
+										<option value="all">---Pilih Unit---</option>
+										<?php foreach ($majors as $row): ?>
+											<option value="<?php echo $row['majors_id'] ?>"><?php echo $row['majors_name'] ?></option>
+										<?php endforeach ?>
+									</select>
+									
+									<br>
+									<label> Pilih Kelas </label>
+									<select class="form-control" name="class_id" required="" id="div_class">
+									</select>
+								</div>	
+							<br>
+							<button class="btn btn-danger btn-block" type="submit">Proses Pindah/Naik Kelas</button>
+							</form>
 						</div>
 					</div>
 
@@ -105,15 +132,37 @@
 			<!-- /.content -->
 		</div>
 
-		<script>
-			$(document).ready(function() {
-				$("#selectall").change(function() {
-					$(".checkbox").prop('checked', $(this).prop("checked"));
-				});
-			});
-			$(document).ready(function() {
-				$("#selectall2").change(function() {
-					$(".checkbox").prop('checked', $(this).prop("checked"));
-				});
-			});
-		</script>
+<script>
+	$(document).ready(function() {
+		$("#selectall").change(function() {
+			$(".checkbox").prop('checked', $(this).prop("checked"));
+		});
+
+		$("#selectall2").change(function() {
+			$(".checkbox").prop('checked', $(this).prop("checked"));
+		});
+		
+		$(".mp").change(function() {
+			console.log($(this).val());	
+            var majors_id = $(this).val();			
+			//$("#div_class").html("");            
+            $.ajax({ 
+            url: '/manage/student/change_class/',
+            type: 'GET', 
+            data: {
+                    'majors_id': majors_id,
+            },
+            success: function(msg){
+                console.log(msg);
+				$("#div_class").html(msg);
+            },
+			error: function(msg){
+					alert('msg');
+			}
+            });
+
+		});
+		
+	});
+
+</script>

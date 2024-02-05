@@ -19,6 +19,10 @@ class Setting_model extends CI_Model {
             $this->db->where('setting_logo', $param['setting_logo']);
         }
 
+        if (isset($param['setting_logo_yayasan'])) {
+            $this->db->where('setting_logo_yayasan', $param['setting_logo_yayasan']);
+        }
+
         if (isset($param['id']) OR isset($param['setting_school'])) {
             return $this->db->get('setting')->row_array();
         } else {
@@ -94,6 +98,16 @@ class Setting_model extends CI_Model {
             $this->db->update('setting');
         }
 
+        if (isset($param['setting_logo_yayasan'])) {
+            $this->db->set('setting_value', $param['setting_logo_yayasan']);
+            $this->db->where('setting_id', 11);
+            $this->db->update('setting');
+        }
+        if (isset($param['setting_yayasan'])) {
+            $this->db->set('setting_value', $param['setting_yayasan']);
+            $this->db->where('setting_id', 12);
+            $this->db->update('setting');
+        }
     }
 
 }

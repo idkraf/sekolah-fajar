@@ -67,32 +67,30 @@
         </div>
         <!-- /.box -->
       </div>
+      
       <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon bg-aqua"><i class="fa fa-dollar"></i></span>
+        <div class="info-box bg-green-gradient">
+            <span class="info-box-icon"><i class="fa fa-dollar icon"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text"><strong>Sisa Tagihan Bulanan</span>
+                <span class="info-box-number" style="opacity: 0;">kosong</span>
+                <span class="info-box-text dash-text"><?php echo 'Rp. ' . number_format($total_bulan, 0, ',', '.') ?></span>
 
-          <div class="info-box-content">
-            <span class="info-box-text dash-text">Sisa Tagihan Bulanan</span>
-            <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_bulan, 0, ',', '.') ?></span>
-          </div>
-          <!-- /.info-box-content -->
+            </div>
         </div>
-        <!-- /.info-box -->
       </div>
-      <!-- /.col -->
       <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon bg-red"><i class="fa fa-money"></i></span>
-
-          <div class="info-box-content">
-            <span class="info-box-text dash-text">Sisa Tagihan Lainnya</span>
-            <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_bebas-$total_bebas_pay, 0, ',', '.') ?></span>
-          </div>
-          <!-- /.info-box-content -->
+        <div class="info-box bg-yellow-gradient">
+            <span class="info-box-icon"><i class="fa fa-money icon"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text"><strong>Sisa Tagihan Lainnya</strong></span>
+                <span class="info-box-number" style="opacity: 0;">kosong</span>
+                <span class="info-box-text dash-text"><?php echo 'Rp. ' . number_format($total_bebas-$total_bebas_pay, 0, ',', '.') ?></span>
+           
+            </div>
         </div>
-        <!-- /.info-box -->
       </div>
-      <!-- /.col -->
+      
       
     </div>
     <div style="margin-bottom: 50px;"></div>

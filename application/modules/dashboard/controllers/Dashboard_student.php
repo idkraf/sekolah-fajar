@@ -35,8 +35,6 @@ class Dashboard_student extends CI_Controller {
             $data['total_bebas_pay'] += $row['bebas_total_pay'];
         }
 
-
-
         $data['title'] = 'Dashboard';
         $data['main'] = 'dashboard/dashboard_student';
         $this->load->view('student/layout', $data);

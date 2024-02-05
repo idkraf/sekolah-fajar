@@ -102,7 +102,7 @@ class Users_model extends CI_Model {
         } else {
             return $res->result_array();
         }
-    }
+    }    
 
     function add($data = array()) {
 
@@ -197,4 +197,117 @@ class Users_model extends CI_Model {
         $this->db->update('users', $params);
     }
 
+    function cekRole($id, $role){        
+        return $this->db
+        ->where('role_has_permissions.permission_id', $id)
+        ->where('role_has_permissions.role_id', $role)
+        ->count_all_results('role_has_permissions');
+    }
+    
+    var $table = 'permision';
+    var $order = array('id' => 'desc');
+    var $column_search = array('name');
+
+    private function _get_modul_query($role_id= null) {
+
+        $this->db->select('permision.*');
+        //$this->db->join('role_has_permissions x2', 'x2.permission_id = permision.id');
+        $this->db->from($this->table);
+        //if ($role_id != null) {
+        //    $this->db->where('role_has_permissions.role_id', $role_id);
+        //}
+        $i = 0;
+        foreach ($this->column_search as $item) { // loop column
+            if ($this->input->post('search')['value']) { // if datatable send POST for search
+                if ($i === 0) { // first loop
+                    $this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
+                    $this->db->like($item, $this->input->post('search')['value']);
+                } else {
+                    $this->db->or_like($item, $this->input->post('search')['value']);
+                }
+
+                if (count($this->column_search) - 1 == $i) //last loop
+                    $this->db->group_end(); //close bracket
+            }
+            $i++;
+        }
+
+        if (isset($_POST['order'])) { // here order processing
+            $this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+        } else if (isset($this->order)) {
+            $order = $this->order;
+            $this->db->order_by(key($order), $order[key($order)]);
+        }
+    }
+
+    
+    function get_datatables($role_id= null) {
+        $this->_get_modul_query($role_id);
+        if ($_POST['length'] != -1)
+            $this->db->limit($_POST['length'], $_POST['start']);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+    
+    function get_module($role_id= null) {
+        //$this->_get_modul_query($role_id);
+        $this->db->from('permision');
+        $query = $this->db->get();
+        return $query->result();        
+    }
+
+    function count_modul_filtered($role_id= null) {
+        //$this->_get_modul_query($role_id);
+        $this->db->from($this->table);
+        //$this->db->where('role_has_permissions.role_id', $role_id);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    public function count_modul_all() {
+        $this->db->select('permision.id');
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
+    }
+
+    function addrule(){
+
+    }
+    public function getP($table, $data = null, $where = null)
+    {
+        if ($data != null) {
+            return $this->db->get_where($table, $data)->row_array();
+        } else {
+            return $this->db->get_where($table, $where)->result_array();
+        }
+    }
+
+    public function updateP($table, $pk, $id, $data)
+    {
+        $this->db->where($pk, $id);
+        return $this->db->update($table, $data);
+    }
+
+    public function insertP($table, $data, $batch = false)
+    {
+        return $batch ? $this->db->insert_batch($table, $data) : $this->db->insert($table, $data);
+    }
+
+    public function deleteP($table, $pk, $id)
+    {
+        return $this->db->delete($table, [$pk => $id]);
+    }
+
+    public function getIfExist($tablex, $where = null)
+    {
+        $this->db->where($where);
+        $this->db->from($tablex);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

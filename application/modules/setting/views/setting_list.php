@@ -31,6 +31,15 @@
         <div class="row">
           <div class="">
             <div class="form-group label-floating">
+              <label class="control-label">Nama Yayasan</label>
+              <input type="text" name="setting_yayasan" value="<?php echo $setting_yayasan['setting_value'] ?>" class="form-control" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="">
+            <div class="form-group label-floating">
               <label class="control-label">Nama Sekolah</label>
               <input type="text" name="setting_school" value="<?php echo $setting_school['setting_value'] ?>" class="form-control" required>
             </div>
@@ -84,6 +93,21 @@
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-3">
+          <label >Logo Yayasan</label>
+          <a href="#" class="thumbnail">
+            <?php if (isset($setting_logo_yayasan) AND $setting_logo_yayasan['setting_value'] != NULL) { ?>
+            <img src="<?php echo upload_url('school/' . $setting_logo_yayasan['setting_value']) ?>" style="height: 50px" >
+            <?php } else { ?>
+            <img src="<?php echo media_url('img/missing_logo.gif') ?>" id="target" alt="Choose image to upload">
+            <?php } ?>
+          </a>
+          <input type='file' id="setting_logo_yayasan" name="setting_logo_yayasan">
+          <p>Ukuran Logo 50x50 pixel</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-3">
           <label >Logo Sekolah</label>
           <a href="#" class="thumbnail">
             <?php if (isset($setting_logo) AND $setting_logo['setting_value'] != NULL) { ?>
@@ -96,6 +120,7 @@
           <p>Ukuran Logo 50x50 pixel</p>
         </div>
       </div>
+
       <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#gateway"><i class="fa fa-arrow-down"></i> Set SMS Gateway</button>
       <div id="gateway" class="collapse">
         <div class="form-group label-floating">

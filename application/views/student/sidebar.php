@@ -27,6 +27,13 @@
             <i class="fa fa-th"></i> <span>Dashboard</span>
             <span class="pull-right-container"></span>
           </a>
+        </li> 
+
+        <li class="<?php echo ($this->uri->segment(2) == 'payout') ? 'active' : '' ?>">
+          <a href="<?php echo site_url('student/payout'); ?>">
+            <i class="fa fa-calendar"></i> <span>Bulanan</span>
+            <span class="pull-right-container"></span>
+          </a>
         </li>
 
 

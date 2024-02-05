@@ -31,19 +31,7 @@
 							</div>
 							<div class="col-md-3">  
 								<div class="form-group">
-									<label>Kelas</label>
-									<select class="form-control" name="c">
-										<!-- <option value="">-- Tahun Ajaran --</option> -->
-										<?php foreach ($class as $row): ?>
-											<option <?php echo (isset($q['c']) AND $q['c'] == $row['class_id']) ? 'selected' : '' ?> value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
-										<?php endforeach; ?>
-									</select>
-								</div>
-							</div>
-							<?php if(majors() == 'senior') { ?>
-							<div class="col-md-3">  
-								<div class="form-group">
-									<label>Program Keahlian</label>
+									<label>Unit</label>
 									<select class="form-control" name="k">
 										<?php foreach ($majors as $row): ?>
 											<option <?php echo (isset($q['k']) AND $q['k'] == $row['majors_id']) ? 'selected' : '' ?> value="<?php echo $row['majors_id'] ?>"><?php echo $row['majors_name'] ?></option>
@@ -51,7 +39,16 @@
 									</select>
 								</div>
 							</div>
-							<?php } ?>
+							<div class="col-md-3">  
+								<div class="form-group">
+									<label>Kelas</label>
+									<select class="form-control" name="c">
+										<?php foreach ($class as $row): ?>
+											<option <?php echo (isset($q['c']) AND $q['c'] == $row['class_id']) ? 'selected' : '' ?> value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
 							<div class="col-md-3">
 							<div style="margin-top:25px;">
 							<button type="submit" class="btn btn-primary">Filter</button>
@@ -78,11 +75,12 @@
 								<?php endforeach ?>
 							</tr>
 							<tr>
+								<?php foreach ($py as $row) : ?>
 								<?php foreach ($month as $key) : ?>
 									<th><?php echo $key['month_name'] ?></th>
 								<?php endforeach ?>
+								<?php endforeach ?>
 							</tr>
-							
 							<?php foreach ($student as $row) : ?>
 								<tr>
 									<td><?php echo $row['class_name']?></td> 

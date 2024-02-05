@@ -59,6 +59,8 @@ public function index($offset = NULL) {
   $data['in'] = $this->Bulan_model->get_total($param);
   $data['setting_logo'] = $this->Setting_model->get(array('id' => 6));
   $data['setting_school'] = $this->Setting_model->get(array('id' => 1));
+  $data['setting_yayasan'] = $this->Setting_model->get(array('id' => 12));
+  
 
   $data['total'] = 0;
   foreach ($data['bill'] as $key) {

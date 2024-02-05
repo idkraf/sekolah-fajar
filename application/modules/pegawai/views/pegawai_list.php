@@ -15,9 +15,11 @@
 			<div class="col-xs-12">
 				<div class="box"> 
 					<div class="box-header">
-						<?php if ($this->session->userdata('uroleid') != USER) { ?>
+						<?php if ($this->session->userdata('uroleid') != GURU) { ?>
 						<a href="<?php echo site_url('manage/pegawai/add') ?>" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah</a>
-						<a href="<?php echo site_url('manage/pegawai/import') ?>" class="btn btn-sm btn-info"><i class="fa fa-upload"></i> Upload Siswa</a>
+						<a href="<?php echo site_url('manage/pegawai/import') ?>" class="btn btn-sm btn-info"><i class="fa fa-upload"></i> Upload Pegawai</a>
+						<a href="" class="btn btn-sm btn-info"><i class="fa fa-upload"></i> Download Excel</a>
+						
 						<?php } ?>
 
 						<div class="box-tools">
@@ -29,12 +31,6 @@
 								</div>
 							</div>
 							<?php echo form_close(); ?>
-						</div>
-						<div style="margin-top: -30px; margin-left: 185px;">
-							<form action="<?php echo site_url('manage/pegawai/multiple'); ?>" method="post">
-								<input type="hidden" name="action" value="printPdf">
-								<button type="submit" class="btn btn-danger btn-sm" formtarget="_blank"><span class="fa fa-print"></span> Cetak</button>
-							</div>
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body table-responsive">
@@ -68,9 +64,9 @@
 												<td><?php echo $row['employee_phone']; ?></td>
 												<td><label class="label <?php echo ($row['employee_status']==1) ? 'label-success' : 'label-danger' ?>"><?php echo ($row['employee_status']==1) ? 'Aktif' : 'Tidak Aktif' ?></label></td>
 												<td>
-													<a href="<?php echo site_url('manage/pegawai/rpw/' . $row['employee_id']) ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Reset Password"><i class="fa fa-unlock"></i></a>
+													<!--a href="<//?php echo site_url('manage/pegawai/rpw/' . $row['employee_id']) ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Reset Password"><i class="fa fa-unlock"></i></a-->
 													<a href="<?php echo site_url('manage/pegawai/view/' . $row['employee_id']) ?>" class="btn btn-xs btn-info" data-toggle="tooltip" title="Lihat"><i class="fa fa-eye"></i></a>
-													<?php if ($this->session->userdata('uroleid') != USER) { ?>
+													<?php if ($this->session->userdata('uroleid') != GURU) { ?>
 													<a href="<?php echo site_url('manage/pegawai/edit/' . $row['employee_id']) ?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 													<?php } ?>
 													<a href="<?php echo site_url('manage/pegawai/printPdf/' . $row['employee_id']) ?>" class="btn btn-success btn-xs view-pdf" data-toggle="tooltip" title="Cetak Kartu"><i class="fa fa-print"></i></a>

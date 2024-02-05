@@ -20,10 +20,25 @@ class Bukti_model extends CI_Model
             $this->db->where('payment.period_period_id', $params['period_id']);
         }
 
+        if (isset($params['month_id'])) {
+            $this->db->where('month_id', $params['month_id']);
+        }
         if (isset($params['student_nis'])) {
             $this->db->where('student_nis', $params['student_nis']);
         }
 
+        if (isset($params['class_id'])) {
+            if($params['class_id'] != "all"){
+            $this->db->where('class_class_id', $params['class_id']);
+            }
+        }
+
+        if (isset($params['majors_id'])) {
+            if($params['majors_id'] != "all"){
+            $this->db->where('majors_majors_id', $params['majors_id']);
+            }
+        }
+        
         if (isset($params['search'])) {
             if($params['search'] == 'Pending'){
                 $this->db->where('status', 0);
@@ -102,6 +117,9 @@ class Bukti_model extends CI_Model
 
         if (isset($data['period_id'])) {
             $this->db->set('period_period_id', $data['period_id']);
+        }
+        if (isset($data['month_id'])) {
+            $this->db->set('month_id', $data['month_id']);
         }
 
         if (isset($data['pos_id'])) {

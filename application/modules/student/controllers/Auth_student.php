@@ -40,6 +40,7 @@ class Auth_student extends CI_Controller {
                 $this->session->set_userdata('unis_student', $student[0]['student_nis']);
                 $this->session->set_userdata('ufullname_student', $student[0]['student_full_name']);
                 $this->session->set_userdata('student_img', $student[0]['student_img']);
+                $this->session->set_userdata('uroleid', 6);
                 if ($location != '') {
                     header("Location:" . htmlspecialchars($location));
                 } else {
@@ -68,6 +69,7 @@ class Auth_student extends CI_Controller {
         $this->session->unset_userdata('unis_student');
         $this->session->unset_userdata('ufullname_student');
         $this->session->unset_userdata('student_img');
+        $this->session->unset_userdata('uroleid');
 
         $q = $this->input->get(NULL, TRUE);
         if ($q['location'] != NULL) {

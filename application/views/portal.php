@@ -27,7 +27,7 @@
 <body>
 
 	<!-- Home -->
-<body style="background-image:url(asset/images/icon/bg4.png);background-size:cover;">
+<body>
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -37,20 +37,29 @@
 		<div class="container text-center">
 			<div class="row">
 				<div class="col-md-12">
-					<h3> SISTEM INFORMASI PEMBAYARAN </h3>
-					<p class="lead mb-5 colr"><h1><strong>SMPTQ AL IKHLAS BREBES</strong></h1></p>
+					<h3> SISTEM INFORMASI</h3>
+					<p class="lead mb-5 colr"><h1><strong><?php echo $setting_yayasan['setting_value'] ?></strong></h1></p>
 				</div>	
 				
-				<div class="col-md-4">
-					<a href="<?php echo site_url('manage') ?>">
-					<div class="box">
-						<i class="fa fa-user icon-menu"></i>
-						<br>
-						<strong>Login Admin</strong> 
-					</div>
-				</a>
-				</div>
-				<div class="col-md-4">
+				<table width="100%" border="0" >
+					<tr>
+						<td>                        
+						<?php if (!empty($setting_logo_yayasan['setting_value'])) { ?>
+							<img src="<?php echo upload_url('school/'.$setting_logo_yayasan['setting_value']) ?>" style="height: 140px; width: 140px;">
+							<?php } else { ?>
+							<img src="<?php echo media_url('img/missing.png') ?>" style="height: 140px; width: 140px;">
+						<?php } ?>
+						</td>
+						<td class="text-right">              
+						<?php if (!empty($setting_logo['setting_value'])) { ?>
+							<img src="<?php echo upload_url('school/'.$setting_logo['setting_value']) ?>" style="height: 140px; width: 140px; margin-left:200px;">
+							<?php } else { ?>
+							<img src="<?php echo media_url('img/missing.png') ?>" style="height: 140px; width: 140px; ">
+						<?php } ?>
+						</td>      
+					</tr>
+				</table>
+				<div class="col-md-3">
 					<a href="<?php echo site_url('home') ?>">
 					<div class="box">
 						<i class="fa fa-money icon-menu"></i>
@@ -59,12 +68,30 @@
 					</div>
 				</a>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<a href="<?php echo site_url('student') ?>">
 					<div class="box">
 						<i class="fa fa-graduation-cap icon-menu"></i>
 						<br>
 						<strong>Login Siswa</strong>
+					</div>
+				</a>
+				</div>
+				<div class="col-md-3">
+					<a href="<?php echo site_url('guru') ?>">
+					<div class="box">
+						<i class="fa fa-user icon-menu"></i>
+						<br>
+						<strong>Login Guru</strong> 
+					</div>
+				</a>
+				</div>
+				<div class="col-md-3">
+					<a href="<?php echo site_url('manage') ?>">
+					<div class="box">
+						<i class="fa fa-user icon-menu"></i>
+						<br>
+						<strong>Login Staff</strong> 
 					</div>
 				</a>
 				</div>

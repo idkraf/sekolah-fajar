@@ -83,6 +83,9 @@ class Payout_set extends CI_Controller {
     $data['beb'] = $this->Bebas_pay_model->get($cashback);
     $data['log'] = $this->Log_trx_model->get($logs);
 
+    //$data['class'] = $this->Student_model->get_class();
+    $data['kelas'] = $this->Student_model->get_class();
+    $data['majors'] = $this->Student_model->get_majors();
     // cashback
     $data['cash'] = 0;
     foreach ($data['month'] as $row) {
@@ -134,13 +137,13 @@ class Payout_set extends CI_Controller {
     $params = array();
     $pay = array();
 
-// Tahun Ajaran
+    // Tahun Ajaran
     if (isset($f['n']) && !empty($f['n']) && $f['n'] != '') {
       $params['period_id'] = $f['n'];
       $pay['period_id'] = $f['n'];
     }
 
-// Siswa
+    // Siswa
     if (isset($f['r']) && !empty($f['r']) && $f['r'] != '') {
       $params['student_nis'] = $f['r'];
       $siswa = $this->Student_model->get(array('student_nis'=>$f['r']));
@@ -418,106 +421,125 @@ class Payout_set extends CI_Controller {
   }
 
 
-  function pay($payment_id = NULL, $student_id =NULL, $id = NULL) { 
+  //function pay($payment_id = NULL, $student_id =NULL, $id = NULL) { 
+  function pay($id = NULL) { 
 
-    $lastletter = $this->Letter_model->get(array('limit' => 1));
-    $student = $this->Bulan_model->get(array('student_id'=>$student_id,'id'=>$id));
-    $user = $this->Setting_model->get(array('id' => 8));
-    $password = $this->Setting_model->get(array('id' => 9));
-    $activated = $this->Setting_model->get(array('id' => 10));
+		if ($_POST == TRUE) {
+      
+      $payment_id = $this->input->post('payment_id');
+      $student_id = $this->input->post('student_id');
+      $id = $this->input->post('payout_id');
+      $payout_id = $this->input->post('payout_id');
+      $payout_date = $this->input->post('payout_date');
+      $payout_value = $this->input->post('payout_value');
+      
+      $lastletter = $this->Letter_model->get(array('limit' => 1));
+      $student = $this->Bulan_model->get(array('student_id'=>$student_id,'id'=>$id));
+      $user = $this->Setting_model->get(array('id' => 8));
+      $password = $this->Setting_model->get(array('id' => 9));
+      $activated = $this->Setting_model->get(array('id' => 10));
 
-    if ($lastletter['letter_year'] < date('Y') OR count($lastletter) == 0) {
-      $this->Letter_model->add(array('letter_number' => '00001', 'letter_month' => date('m'), 'letter_year' => date('Y')));
-      $nomor = sprintf('%05d', '00001');
-      $nofull = date('Y'). date('m'). $nomor;
-    } else {
-      $nomor = sprintf('%05d', $lastletter['letter_number'] + 00001);
-      $this->Letter_model->add(array('letter_number' => $nomor, 'letter_month' => date('m'), 'letter_year' => date('Y')));
-      $nofull = date('Y'). date('m'). $nomor;
-    }
+      if ($lastletter['letter_year'] < date('Y') OR count($lastletter) == 0) {
+        $this->Letter_model->add(array('letter_number' => '00001', 'letter_month' => date('m'), 'letter_year' => date('Y')));
+        $nomor = sprintf('%05d', '00001');
+        $nofull = date('Y'). date('m'). $nomor;
+      } else {
+        $nomor = sprintf('%05d', $lastletter['letter_number'] + 00001);
+        $this->Letter_model->add(array('letter_number' => $nomor, 'letter_month' => date('m'), 'letter_year' => date('Y')));
+        $nofull = date('Y'). date('m'). $nomor;
+      }
 
+      $pay = array(
+        'bulan_id' => $id,
+        //'student_id' => $student_id,
+        //'payment_id' => $payment_id,
+        'bulan_number_pay' => $nofull,
+        'bulan_date_pay' => $payout_date,
+        //'bulan_date_pay' => date('Y-m-d H:i:s'),
+        'bulan_last_update' => date('Y-m-d H:i:s'),
+        'bulan_status' => 1,
+        'user_user_id' => $this->session->userdata('uid')
+      );
 
-    $pay = array(
-      'bulan_id' => $id,
-      'bulan_number_pay' => $nofull,
-      'bulan_date_pay' => date('Y-m-d H:i:s'),
-      'bulan_last_update' => date('Y-m-d H:i:s'),
-      'bulan_status' => 1,
-      'user_user_id' => $this->session->userdata('uid')
-    );
-
-    $log = array(
-      'bulan_bulan_id' => $id,
-      'student_student_id' => $student_id,
-      'bebas_pay_bebas_pay_id' => NULL,
-      'log_trx_input_date' =>  date('Y-m-d H:i:s'),
-      'log_trx_last_update' => date('Y-m-d H:i:s'),
-    );
-
-
-    $status = $this->Bulan_model->add($pay);
-
-    $this->Log_trx_model->add($log);
-
-    if ($activated['setting_value'] == 'Y') {
-
-      $userkey = $user['setting_value']; 
-      $passkey = $password['setting_value']; 
-      $telepon = $student['student_parent_phone'];
-
-      $namePay = $student['pos_name'].' - T.A '.$student['period_start'].'/'.$student['period_end'];
-      $mont = ($student['month_month_id']<=6) ? $student['period_start'] : $student['period_end'];
-
-      $message = "Pembayaran ".$namePay.' - ('.$student['month_name'].' '. $mont.') a/n '.$student['student_full_name'].' Berhasil';
-
-      $url = "https://reguler.zenziva.net/apps/smsapi.php";
-      $curlHandle = curl_init();
-      curl_setopt($curlHandle, CURLOPT_URL, $url);
-      curl_setopt($curlHandle, CURLOPT_POSTFIELDS, 'userkey='.$userkey.'&passkey='.$passkey.'&nohp='.$telepon.'&pesan='.urlencode($message));
-      curl_setopt($curlHandle, CURLOPT_HEADER, 0);
-      curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
-      curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, 0);
-      curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
-      curl_setopt($curlHandle, CURLOPT_POST, 1);
-      $results = curl_exec($curlHandle);
-      curl_close($curlHandle);
-    }
+      $log = array(
+        'bulan_bulan_id' => $id,
+        'student_student_id' => $student_id,
+        'bebas_pay_bebas_pay_id' => NULL,
+        'log_trx_input_date' =>  date('Y-m-d H:i:s'),
+        'log_trx_last_update' => date('Y-m-d H:i:s'),
+      );
 
 
-    if ($this->input->is_ajax_request()) {
-      echo $status;
-    } else {
-      $this->session->set_flashdata('success', 'Pembayaran Berhasil');
-      redirect('manage/payout?n='.$student['period_period_id'].'&r='.$student['student_nis']);
+      $status = $this->Bulan_model->add($pay);
+
+      $this->Log_trx_model->add($log);
+
+      if ($activated['setting_value'] == 'Y') {
+
+        $userkey = $user['setting_value']; 
+        $passkey = $password['setting_value']; 
+        $telepon = $student['student_parent_phone'];
+
+        $namePay = $student['pos_name'].' - T.A '.$student['period_start'].'/'.$student['period_end'];
+        $mont = ($student['month_month_id']<=6) ? $student['period_start'] : $student['period_end'];
+
+        $message = "Pembayaran ".$namePay.' - ('.$student['month_name'].' '. $mont.') a/n '.$student['student_full_name'].' Berhasil';
+
+        $url = "https://reguler.zenziva.net/apps/smsapi.php";
+        $curlHandle = curl_init();
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, 'userkey='.$userkey.'&passkey='.$passkey.'&nohp='.$telepon.'&pesan='.urlencode($message));
+        curl_setopt($curlHandle, CURLOPT_HEADER, 0);
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
+        curl_setopt($curlHandle, CURLOPT_POST, 1);
+        $results = curl_exec($curlHandle);
+        curl_close($curlHandle);
+      }
+
+
+      if ($this->input->is_ajax_request()) {
+        echo $status;
+      } else {
+        $this->session->set_flashdata('success', 'Pembayaran Berhasil');
+        redirect('manage/payout?n='.$student['period_period_id'].'&r='.$student['student_nis']);
+      }
     }
   }
 
-  function not_pay($payment_id = NULL, $student_id =NULL, $id = NULL) { 
-    $student = $this->Bulan_model->get(array('student_id'=>$student_id,'id'=>$id));
-    $pay = array(
-      'bulan_id' => $id,
-      'bulan_number_pay' => NULL,
-      'bulan_status' => 0,
-      'bulan_date_pay' => NULL,
-      'bulan_last_update' => date('Y-m-d H:i:s'),
-      'user_user_id' => NULL
-    );
-
+  //function not_pay($payment_id = NULL, $student_id =NULL, $id = NULL) { 
+  function not_pay($id = NULL) { 
     
-    $this->Log_trx_model->delete_log(array(
-      'student_id' => $student_id,
-      'bulan_id' => $id
-    ));
+		if ($_POST == TRUE) {
+      $payment_id = $this->input->post('payment_id');
+      $student_id = $this->input->post('student_id');
+      $id = $this->input->post('payout_id');
 
+      $student = $this->Bulan_model->get(array('student_id'=>$student_id,'id'=>$id));
+      $pay = array(
+        'bulan_id' => $id,
+        'bulan_number_pay' => NULL,
+        'bulan_status' => 0,
+        'bulan_date_pay' => NULL,
+        'bulan_last_update' => date('Y-m-d H:i:s'),
+        'user_user_id' => NULL
+      );
 
+      
+      $this->Log_trx_model->delete_log(array(
+        'student_id' => $student_id,
+        'bulan_id' => $id
+      ));
 
-    $this->Bulan_model->add($pay);
-    if ($this->input->is_ajax_request()) {
-      echo $status;
-    } else {
-      $this->session->set_flashdata('success', 'Hapus Pembayaran Berhasil');
-      redirect('manage/payout?n='.$student['period_period_id'].'&r='.$student['student_nis']);
+      $this->Bulan_model->add($pay);
+      if ($this->input->is_ajax_request()) {
+        echo $status;
+      } else {
+        $this->session->set_flashdata('success', 'Hapus Pembayaran Berhasil');
+        redirect('manage/payout?n='.$student['period_period_id'].'&r='.$student['student_nis']);
+      }
     }
   }
 
@@ -655,5 +677,44 @@ class Payout_set extends CI_Controller {
     }
   }
 
+  public function change_class(){  
+    static $form;  
+    $params['majors_id'] = $this->input->get('majors_id');
+		$form = '<div class="col-sm-3"><select name="kelas_id" id="kelas_id" class="form-control"><option value="all">-- Pilih Kelas --</option>';
+    $options = $this->Student_model->get_class($params);    
+		foreach ($options as $row)
+		{
+      $form .= '<option value="'.$row['class_id'].'">'.$row['class_name']."</option>\n";
+    }
+    return $form."</select></div>";
+  }
+
+  
+  public function ajax_list() {
+    $st = 0;
+    $us = $this->input->post('us');
+    $pr = $this->input->post('pr');
+    $list = $this->Student_model->get_datatables($st,$us,$pr);
+    $data = array();
+    $no = 0;
+    foreach ($list as $prd) {
+        $no++;
+        $row = array();
+        $row[] = $no;
+        $row[] = $prd->student_nis;
+        $row[] = $prd->student_full_name;
+        $row[] = $prd->class_name;
+        $row[] = '<button type="button" data-dismiss="modal" class="btn btn-primary btn-xs" onclick="ambil_data('.$prd->student_nis.')">Pilih</button>';
+        $data[] = $row;
+    }
+    $output = array(
+      "recordsTotal" => $this->Student_model->count_all(),
+      "recordsFiltered" => $this->Student_model->count_filtered(),
+        "data" => $data,
+    );
+    //output to json format
+    echo json_encode($output);
+  }
+  
 
 }

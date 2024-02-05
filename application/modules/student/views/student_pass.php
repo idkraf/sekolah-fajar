@@ -24,11 +24,23 @@
 				<div class="box">
 					<div class="box-body">
 						<?php echo form_open(current_url(), array('method' => 'get')) ?>
+						
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon alert-success">Unit</div>
+								<select name="m" class="form-control" onchange="this.form.submit()">
+									<option value="all">---Pilih Unit---</option>
+									<?php foreach ($majors as $row): ?>
+										<option value="<?php echo $row['majors_id'] ?>" <?php echo (isset($f['m']) AND $f['m'] == $row['majors_id']) ? 'selected' : '' ?> ><?php echo $row['majors_name'] ?></option>
+									<?php endforeach ?>
+								</select>
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon alert-info">Pilih kelas</div>
 								<select class="form-control" name="pr" onchange="this.form.submit()">
-									<option value="">-- Pilih Kelas  --</option>
+									<option value="all">-- Pilih Kelas  --</option>
 									<?php foreach ($class as $row): ?>
 										<option <?php echo (isset($f['pr']) AND $f['pr'] == $row['class_id']) ? 'selected' : '' ?> value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
 									<?php endforeach; ?>

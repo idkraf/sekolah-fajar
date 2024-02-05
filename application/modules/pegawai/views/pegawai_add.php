@@ -1,20 +1,28 @@
 <?php
+if (isset($pegawai)) {
+	$inputFullnameValue = $pegawai['employee_name'];
+	$inputMajorValue = $pegawai['employee_majors_id'];
+	$inputNipValue = $pegawai['employee_nip'];
+	$inputPlaceValue = $pegawai['employee_born_place'];
+	$inputDateValue = $pegawai['employee_born_date'];
+	$inputPhoneValue = $pegawai['employee_phone'];
+	$inputEmailValue = $pegawai['employee_email'];
+	$inputAddressValue = $pegawai['employee_address'];
+	$inputGenderValue = $pegawai['employee_gender'];
+	$inputAktifValue = $pegawai['employee_aktif'];
+	$inputStrataValue = $pegawai['employee_strata'];	
+	$inputPositionValue = $pegawai['employee_position_id'];
+	$inputCategoryValue = $pegawai['employee_category'];
+	$inputNikValue = $pegawai['employee_nik'];
+	$inputTglTugasValue = $pegawai['employee_mulai_tugas'];
+	$inputAsalSekolahValue = $pegawai['employee_asal_sekolah'];
+	//$inputBerkasValue = $pegawai['employee_berkas'];
+	$inputAgamaValue = $pegawai['employee_agama'];
+	$inputBpjsKesehatanValue = $pegawai['employee_bpjs_kesehatan'];
+	$inputBpjsTenagaKerjaValue = $pegawai['employee_bpjs_ketenagakerjaan'];
+	$inputAddressKtpValue = $pegawai['employee_address_ktp'];
+	$inputKodeposValue = $pegawai['employee_kodepos'];
 
-if (isset($student)) {
-
-	$inputFullnameValue = $student['employee_name'];
-	$inputMajorValue = $student['employee_majors_id'];
-	$inputNipValue = $student['employee_nip'];
-	$inputPlaceValue = $student['employee_born_place'];
-	$inputDateValue = $student['employee_born_date'];
-	$inputPhoneValue = $student['employee_phone'];
-	$inputEmailValue = $student['employee_email'];
-	$inputAddressValue = $student['employee_address'];
-	$inputGenderValue = $student['employee_gender'];
-	$inputStatusValue = $student['employee_status'];
-	$inputStrataValue = $student['employee_strata'];	
-	$inputPositionValue = $student['employee_position_id'];
-	$inputCategoryValue = $student['employee_category'];
 } else {
 	$inputFullnameValue = set_value('employee_name');
 	$inputMajorValue = set_value('employee_majors_id');
@@ -25,10 +33,19 @@ if (isset($student)) {
 	$inputEmailValue = set_value('employee_email');
 	$inputAddressValue = set_value('employee_address');
 	$inputGenderValue = set_value('employee_gender');
-	$inputStatusValue = set_value('employee_status');
+	$inputAktifValue = set_value('employee_aktif');
 	$inputStrataValue = set_value('employee_strata');	
 	$inputPositionValue = set_value('employee_position_id');
 	$inputCategoryValue = set_value('employee_category');
+	$inputNikValue = set_value('employee_nik');
+	$inputTglTugasValue = set_value('employee_mulai_tugas');
+	$inputAsalSekolahValue = set_value('employee_asal_sekolah');
+	//$inputBerkasValue = set_value('employee_berkas');
+	$inputAgamaValue = set_value('employee_agama');
+	$inputBpjsKesehatanValue = set_value('employee_bpjs_kesehatan');
+	$inputBpjsTenagaKerjaValue = set_value('employee_bpjs_ketenagakerjaan');
+	$inputAddressKtpValue = set_value('employee_address_ktp');
+	$inputKodeposValue = set_value('employee_kodepos');
 }
 ?>
 
@@ -49,6 +66,7 @@ if (isset($student)) {
 	<!-- Main content -->
 	<section class="content">
 		<?php echo form_open_multipart(current_url()); ?>
+
 		<!-- Small boxes (Stat box) -->
 		<div class="row">
 			<div class="col-md-9">
@@ -63,9 +81,13 @@ if (isset($student)) {
                         
                         <div class="form-group">
                             <label>Nip Pegawai <small data-toggle="tooltip" title="Wajib diisi">*</small></label>
-                            <input name="employee_nip" type="text" class="form-control" value="<?php echo $inputNipValue ?>" placeholder="Nama lengkap">
+                            <input name="employee_nip" type="text" class="form-control" value="<?php echo $inputNipValue ?>" placeholder="Nomor induk pegawai">
                         </div>
 
+                        <div class="form-group">
+                            <label>Nik <small data-toggle="tooltip" title="Wajib diisi">*</small></label>
+                            <input name="employee_nik" type="text" class="form-control" value="<?php echo $inputNikValue ?>" placeholder="Nomor induk kependudukan">
+                        </div>
                         <div class="form-group">
                             <label>Nama lengkap <small data-toggle="tooltip" title="Wajib diisi">*</small></label>
                             <input name="employee_name" type="text" class="form-control" value="<?php echo $inputFullnameValue ?>" placeholder="Nama lengkap">
@@ -83,6 +105,10 @@ if (isset($student)) {
                         </div>
 
                         <div class="form-group">
+                            <label>Agama</label>
+                            <input name="employee_agama" type="text" class="form-control" value="<?php echo $inputAgamaValue ?>" placeholder="Agama">
+                        </div>
+                        <div class="form-group">
                             <label>Tempat Lahir</label>
                             <input name="employee_born_place" type="text" class="form-control" value="<?php echo $inputPlaceValue ?>" placeholder="Tempat Lahir">
                         </div>
@@ -96,6 +122,13 @@ if (isset($student)) {
                         </div>
 
                         <div class="form-group">
+                            <label>Tanggal Mulai Tugas </label>
+                            <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <input class="form-control" type="text" name="employee_mulai_tugas" readonly="readonly" placeholder="Tanggal" value="<?php echo $inputTglTugasValue; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label>Pendidikan Terakhir <small data-toggle="tooltip" title="Wajib diisi">*</small></label>
                             <select name="employee_strata" class="form-control">
                                 <option value="">---Pilih Strata---</option>
@@ -108,14 +141,13 @@ if (isset($student)) {
 								<option value="S1"> S1 </option>
 								<option value="S2"> S2 </option>
 								<option value="S3"> S3 </option>
-								<!--
-                                <//?php foreach ($strata as $row): ?>
-                                    <option value="<//?php echo $row['strata_id'] ?>" <//?php echo ($inputStrataValue == $row['strata_id']) ? 'selected' : '' ?> ><//?php echo $row['strata_name'] ?></option>
-                                <//?php endforeach ?>
-								-->
                             </select>
                         </div> 
 
+                        <div class="form-group">
+                            <label>Asal Sekolah</label>
+                            <input name="employee_asal_sekolah" type="text" class="form-control" value="<?php echo $inputAsalSekolahValue ?>" placeholder="Asal Sekolah">
+                        </div>
 
                         <div class="form-group">
                             <label>Unit Sekolah <small data-toggle="tooltip" title="Wajib diisi">*</small></label>
@@ -124,6 +156,7 @@ if (isset($student)) {
                                 <?php foreach ($majors as $row): ?>
                                     <option value="<?php echo $row['majors_id'] ?>" <?php echo ($inputMajorValue == $row['majors_id']) ? 'selected' : '' ?> ><?php echo $row['majors_name'] ?></option>
                                 <?php endforeach ?>
+								
                             </select>
                         </div> 
 
@@ -142,17 +175,27 @@ if (isset($student)) {
                         <div class="form-group">
                             <label>Status Kepegawaian <small data-toggle="tooltip" title="Wajib diisi">*</small></label>
                             <select name="employee_category" class="form-control">
-                                <option value="">---Pilih Status Kepegawaian---</option>
                                 <option value="1" <?php echo ($inputCategoryValue == 1) ? 'selected' : '' ?>>Pegawai Tetap</option>
                                 <option value="2" <?php echo ($inputCategoryValue == 2) ? 'selected' : '' ?>>Pegawai Tidak Tetap</option>
                             </select>
                         </div> 
 
                         <div class="form-group">
-                            <label>Alamat</label>
+                            <label>Alamat Domisili</label>
                             <textarea class="form-control" name="employee_address" placeholder="Alamat Tempat Tinggal"><?php echo $inputAddressValue ?></textarea>
                         </div>					
 
+                        <div class="form-group">
+                            <label>Alamat Ktp</label>
+                            <textarea class="form-control" name="employee_address_ktp" placeholder="Alamat Berdasarkan Ktp"><?php echo $inputAddressKtpValue ?></textarea>
+                        </div>		
+
+                        <div class="form-group">
+                            <label>Kode Pos</label>
+                            <input name="employee_kodepos" type="text" class="form-control" value="<?php echo $inputKodeposValue ?>" placeholder="Kode Pos">
+                        </div>
+						
+						<?php if (!isset($pegawai)) { ?>
 						<div class="form-group">
 							<label>Password <small data-toggle="tooltip" title="Wajib diisi">default: 123456</small></label>
 							<input name="employee_password" type="password" class="form-control" placeholder="Password">
@@ -162,6 +205,8 @@ if (isset($student)) {
 							<label>Konfirmasi Password <small data-toggle="tooltip" title="Wajib diisi"> Kosongkan jika password kosong</small></label>
 							<input name="passconf" type="password" class="form-control" placeholder="Konfirmasi Password">
 						</div> 
+						<?php } ?>
+
 
                         <div class="form-group">
                             <label>Telpon/HP</label>
@@ -173,6 +218,15 @@ if (isset($student)) {
 							<input name="employee_email" type="text" class="form-control" value="<?php echo $inputEmailValue ?>" placeholder="email">
 						</div> 
 						
+                        <div class="form-group">
+                            <label>Bpjs Kesehatan</label>
+                            <input name="employee_bpjs_kesehatan" type="text" class="form-control" value="<?php echo $inputBpjsKesehatanValue ?>" placeholder="Bpjs Kesehatan">
+                        </div>
+						
+                        <div class="form-group">
+                            <label>Bpjs Ketenagakerjaan</label>
+                            <input name="employee_bpjs_ketenagakerjaan" type="text" class="form-control" value="<?php echo $inputBpjsTenagaKerjaValue ?>" placeholder="Bpjs Ketenagakerjaan">
+                        </div>
 						<p class="text-muted">*) Kolom wajib diisi.</p>
 					</div>
 					<!-- /.box-body -->
@@ -186,12 +240,12 @@ if (isset($student)) {
 							<label>Status</label>
 							<div class="radio">
 								<label>
-									<input type="radio" name="employee_status" value="1" <?php echo ($inputStatusValue == 1) ? 'checked' : ''; ?>> Aktif
+									<input type="radio" name="employee_aktif" value="1" <?php echo ($inputAktifValue == 1) ? 'checked' : ''; ?>> Aktif
 								</label>
 							</div>
 							<div class="radio">
 								<label>
-									<input type="radio" name="employee_status" value="0" <?php echo ($inputStatusValue == 0) ? 'checked' : ''; ?>> Tidak Aktif
+									<input type="radio" name="employee_aktif" value="0" <?php echo ($inputAktifValue == 0) ? 'checked' : ''; ?>> Tidak Aktif
 								</label>
 							</div>
 						</div>
@@ -205,8 +259,22 @@ if (isset($student)) {
 						</a>
 						<input type='file' id="employee_photo" name="employee_photo">
 						<br>
+						
+						<label>Berkas / Pengunduran Diri</label>
+						<a href="#" class="thumbnail">
+							<?php if (isset($pegawai['employee_berkas']) != NULL) { ?>
+								<img src="<?php echo upload_url('pegawai/' . $pegawai['employee_berkas']) ?>" class="img-responsive avatar">
+							<?php } else { ?>
+								<img src="<?php echo media_url('img/missing.png') ?>" id="target" alt="Choose image to upload">
+							<?php } ?>
+						</a>
+						<input type='file' id="employee_berkas" name="employee_berkas">
+						<br>
+
 						<button type="submit" class="btn btn-block btn-success">Simpan</button>
+
 						<a href="<?php echo site_url('manage/pegawai'); ?>" class="btn btn-block btn-info">Batal</a>
+
 						<?php if (isset($pegawai)) { ?>
 							<button type="button" onclick="getId(<?php echo $pegawai['employee_id'] ?>)" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteEmployee">Hapus
 							</button>
@@ -216,10 +284,13 @@ if (isset($student)) {
 				</div>
 			</div>
 		</div>
-		<?php echo form_close(); ?>
 		<!-- /.row -->
+		
+		<?php echo form_close(); ?>
+
 	</section>
 </div>
+
 <?php if (isset($pegawai)) { ?>
 	<div class="modal fade" id="deleteEmployee">
 		<div class="modal-dialog">
@@ -253,7 +324,13 @@ if (isset($student)) {
 </script>
 
 <script>
+	var classApp = angular.module("classApp", []);
 	var SITEURL = "<?php echo site_url() ?>";
+	
+	classApp.controller('classCtrl', function($scope, $http) {
+		$scope.classs = [];
+		
+	});
 	function readURL(input) {
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
@@ -269,11 +346,19 @@ if (isset($student)) {
 		readURL(this);
 	});
 
-	function get_position(){
-		var id_majors = $("#employee_majors_id").val();
-		$.ajax({
+	function readURLBerkas(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('#berkas').attr('src', e.berkas.result);
+			};
 
-		});
+			reader.readAsDataURL(input.files[0]);
+		}
 	}
+	
+	$("#employee_berkas").change(function() {
+		readURLBerkas(this);
+	});
 
 </script>

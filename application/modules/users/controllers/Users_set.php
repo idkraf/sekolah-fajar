@@ -16,6 +16,7 @@ class Users_set extends CI_Controller {
         }
        
         $this->load->model('users/Users_model');
+        $this->load->model('users/Users_model');
         $this->load->helper(array('form', 'url'));
     }
 
@@ -131,6 +132,61 @@ class Users_set extends CI_Controller {
         $data['main'] = 'users/user_view';
         $this->load->view('manage/layout', $data);
     }
+    public function addrule(){
+        
+        $f = $this->input->get(NULL, TRUE);
+        $input['permission_id'] = $f['permission_id'];  
+        $input['role_id'] = $f['role_id'];
+        $insert = $this->Users_model->insertP('role_has_permissions', $input);
+        if ($insert) {
+            $this->session->set_flashdata('success','Data berhasil disimpan');
+          
+        } else {
+            $this->session->set_flashdata('failed','data gagal disimpan');
+          
+        }
+    }
+    public function updaterule(){
+        
+        $f = $this->input->get(NULL, TRUE);
+        $permission_id = $f['permission_id'];  
+        $role_id = $f['role_id'];
+        $cek = $this->Users_model->getIfExist('role_has_permissions', ['permission_id' => $permission_id,'role_id' => $role_id]);
+        if($cek){
+            $del = $this->db->delete('role_has_permissions', array('permission_id'=>$permission_id,'role_id'=>$role_id));
+            if ($del) {
+                $this->session->mark_as_flash('Data berhasil diupdate');              
+            } else {
+                $this->session->set_flashdata('failed','data gagal diupdate');              
+            }
+        }else{
+            $input['permission_id'] = $f['permission_id'];  
+            $input['role_id'] = $f['role_id'];
+            $insert = $this->Users_model->insertP('role_has_permissions', $input);
+            if ($insert) {
+                $this->session->set_flashdata('success','Data berhasil disimpan');              
+            } else {
+                $this->session->set_flashdata('failed','data gagal disimpan');              
+            }
+        }
+    }
+    
+    public function hapusrule(){
+        
+        $f = $this->input->get(NULL, TRUE);
+        $permission_id = $f['permission_id'];  
+        $role_id = $f['role_id'];
+        //$del = $this->Users_model->deleteP('role_has_permissions', $input);
+        $del = $this->db->delete('role_has_permissions', array('permission_id'=>$permission_id,'role_id'=>$role_id));
+        if ($del) {
+            //$this->session->set_flashdata('success','Data berhasil diupdate');
+            $this->session->mark_as_flash('Data berhasil diupdate');
+          
+        } else {
+            $this->session->set_flashdata('failed','data gagal diupdate');
+          
+        }
+    }
 
     // Delete to database
     public function delete($id = NULL) {
@@ -217,6 +273,41 @@ class Users_set extends CI_Controller {
             $data['main'] = 'users/change_pass';
             $this->load->view('manage/layout', $data);
         }
+    }
+
+    // View data detail
+    public function role($id = NULL) {
+        $data['roles'] = $this->Users_model->get_role();
+        $data['title'] = 'Managejemen Pengguna';
+        $data['main'] = 'users/user_role';
+        $this->load->view('manage/layout', $data);
+    }
+
+    public function modul() {
+        $role_id = $this->input->post('role_id');        
+        $list = $this->Users_model->get_datatables($role_id);
+        $data = array();
+        $no = 0;
+        foreach($list as $s){
+            $no++;
+            $row = array();        
+            $check = $this->Users_model->getIfExist('role_has_permissions', ['permission_id' => $s->id,'role_id' => $role_id]);
+            $row[] = $no;
+            $row[] = $s->name;
+            $row[] = $s->guard_name;
+            if($role_id == 1){
+                $row[] = '<input class="updrole" data-id="'.$s->id.'" type="checkbox" checked disabled>';            
+            }else{
+                $row[] = $check ? '<input class="updrole" data-id="'.$s->id.'" type="checkbox" checked>' : '<input class="updrole" data-cek="'.$check.'"  data-id="'.$s->id.'" type="checkbox">';
+            }
+            $data[] = $row;
+        }
+        $output = array(                
+            "recordsTotal" => $this->Users_model->count_modul_all(),
+            "recordsFiltered" => $this->Users_model->count_modul_filtered($role_id),
+            "data" => $data,
+        );
+        echo json_encode($output);
     }
 
 }

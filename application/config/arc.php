@@ -18,9 +18,9 @@ $config['media_url'] = '-';
 | 
 |
 */
-$config['app_name'] = 'PEMBAYARAN';
-$config['version'] = '';
-$config['created'] = 'Copyright © 2020-'.date('Y').' <a target="_blank" href="#">SMP Takhassus Al Quran (SMPTQ) Al Ikhlas Brebes</a>. ';
+$config['app_name'] = 'Pelita Harapan Cemerlang';
+$config['version'] = '1.1.0';
+$config['created'] = 'Copyright © 2020-'.date('Y').' <a target="_blank" href="#">Yayasan Pelita Harapan Cemerlang</a>. ';
 
 /*
 |--------------------------------------------------------------------------

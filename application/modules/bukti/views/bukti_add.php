@@ -81,6 +81,15 @@ if (isset($payment)) {
 								<?php endforeach; ?>
 							</select>
 						</div>
+						
+						<div class="form-group">
+							<label>Pada Bulan</label>
+							<select class="form-control" name="month_id">
+								<?php foreach ($bulan as $row): ?>
+									<option value="<?php echo $row['month_id'] ?>"><?php echo $row['month_name'] ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
 
 						<div class="form-group">
 							<label>Total Bayar Tagihan Bulanan <small data-toggle="tooltip" title="Wajib diisi">*</small></label>

@@ -5,8 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SMPTQ AL IKHLAS</title>
-
+  <title><?php echo $setting_school['setting_value'] ?></title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   <link rel="icon" type="image/png" href="<?php echo media_url('img/smplogo.png') ?>">
@@ -27,7 +26,9 @@
         <img src="<?php echo upload_url('school/' . $setting_logo['setting_value']) ?>" class="img-responsive">
         <?php } ?>
       </div>
-      <p class="merk"><span style="color: #2ABB9B">SISTEM INFORMASI PEMBAYARAN</span> </p> 
+      <p class="merk"><span style="color: #2ABB9B"><?php echo $setting_yayasan['setting_value'] ?></span> </p> 
+
+      <p  class="school"></p>
       <?php if (isset($setting_school) AND $setting_school['setting_value'] == '-') { ?>
       <p class="school">Sistem Informasi Pembayaran </p> 
       <?php } else { ?>
@@ -39,7 +40,7 @@
         <?php echo form_open('manage/auth/login', array('class'=>'login100-form validate-form')); ?>
 
         <div class="col-md-12">
-          <p class="title-login">Login Admin</p>
+          <p class="title-login">Login</p>
           <?php if ($this->session->flashdata('failed')) { ?>
           <br><br>
         <div class="alert alert-danger alert-dismissible" style="margin-top: -85px !important;">

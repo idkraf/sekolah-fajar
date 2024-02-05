@@ -75,6 +75,8 @@ $route['student/(:any)/(:any)/(:num)'] = "$1/$1_student/$2/$3";
 $route['student/(:any)/(:any)/(:any)'] = "$1/$1_student/$3_$2";
 $route['student'] = "dashboard/Dashboard_student";
 
+$route['guru'] = 'guru/auth_guru/index';
+$route['guru/auth'] = 'guru/auth_guru/login';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

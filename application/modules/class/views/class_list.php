@@ -28,6 +28,31 @@
 							</div>
 							<?php echo form_close(); ?>
 						</div>
+								
+						<div class="box-body table-responsive">
+							<form action="" class="form-horizontal" method="get" accept-charset="utf-8">
+							
+								<table>
+									<tbody>
+										<tr>
+											<td>     
+												<select style="width: 200px;" id="us" name="us" class="form-control">
+													<option value="all" <?php echo $us == "all" ? 'selected' : '' ?>>Semua Unit</option>
+													<option value="1" <?php echo $us == "1" ? 'selected' : '' ?>>TK</option>
+													<option value="2" <?php echo $us == "2" ? 'selected' : '' ?>>SD</option>
+													<option value="3" <?php echo $us == "3" ? 'selected' : '' ?>>SMP</option>
+													<option value="4" <?php echo $us == "4" ? 'selected' : '' ?>>SMA</option>
+													<option value="99" <?php echo $us == "99" ? 'selected' : '' ?>>Lainnya</option>
+												</select>
+											</td>
+											<td>
+											<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Cari</button>    
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</form>					
+						</div>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body table-responsive">
@@ -36,6 +61,8 @@
 								<th>No</th>
 								<th>Nama Kelas</th>
 								<th>ID Kelas</th>
+								<th>Unit Sekolah</th>
+								<th>ID Unit</th>
 								<th>Aksi</th>
 							</tr>
 							<tbody>
@@ -43,11 +70,20 @@
 								if (!empty($classes)) {
 									$i = 1;
 									foreach ($classes as $row):
+										?>													
+										<?php
+											$unit ="";
+											if ($row['majors_id']== 1) $unit = "TK";
+											if ($row['majors_id']== 2) $unit = "SD";
+											if ($row['majors_id']== 3) $unit = "TK";
+											if ($row['majors_id']== 99) $unit = "Lainnya";
 										?>
 										<tr>
 											<td><?php echo $i; ?></td>
 											<td><?php echo $row['class_name']; ?></td>
 											<td><?php echo $row['class_id']; ?></td>
+											<td><?= $unit; ?></td>
+											<td><?php echo $row['majors_id']; ?></td>
 											<td>
 												<a href="<?php echo site_url('manage/class/edit/' . $row['class_id']) ?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 												
@@ -111,6 +147,16 @@
 					</div>
 					<?php echo form_open('manage/class/add_glob', array('method'=>'post')); ?>
 					<div class="modal-body">
+						
+					<div class="form-group">
+							<label>Unit Sekolah <small data-toggle="tooltip" title="Wajib diisi">*</small></label>
+							<select name="majors_id" class="form-control">
+								<option value="">---Pilih Unit Sekolah---</option>
+								<?php foreach ($majors as $row): ?>
+									<option value="<?php echo $row['majors_id'] ?>"  ><?php echo $row['majors_name'] ?></option>
+								<?php endforeach ?>
+							</select>
+						</div> 
 						<div id="p_scents_class">
 							<p>
 								<label>Nama Kelas</label>

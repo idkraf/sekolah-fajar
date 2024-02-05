@@ -1,0 +1,77 @@
+<div class="content-wrapper">
+  <section class="content-header">
+		<h1>
+			<?php echo isset($title) ? '' . $title : null; ?>
+			<small></small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
+			<li class="active"><?php echo isset($title) ? '' . $title : null; ?></li>
+		</ol>
+	</section>
+	<section class="content">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="box shadow-sm border-bottom-primary">
+                    <div class="box-header bg-white py-3">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <h4 class="h5 align-middle m-0 font-weight-bold text-primary">
+                                    Edit Data Asset Masuk
+                                </h4>
+                            </div>
+                            <div class="col-auto">
+                                <a href="<?= base_url('manage/asetin') ?>" class="btn btn-sm btn-secondary btn-icon-split">
+                                    <span class="icon">
+                                        <i class="fa fa-arrow-left"></i>
+                                    </span>
+                                    <span class="text">
+                                        Back
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <?= $this->session->flashdata('pesan'); ?>
+                        <?= form_open('', [], ['idbarang_masuk' => $asetin['idbarang_masuk']]); ?>
+                        
+                        <div class="form-group">
+                            <label for="tanggal">Tanggal<span class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal"
+                                value="<?= set_value('tanggal', date('Y-m-d'));?>" required>
+                            <?= form_error('tanggal', '<small class="text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="barang_id">Nama Barang <span class="text-danger">*</span></label>
+                            <select name="barang_id" id="barang_id" class="form-control select2" style="width:100%;"
+                                required>
+                                <?php foreach ($aset as $s) : ?>
+                                    <option <?= $asetin['barang_id'] == $s['idbarang'] ? 'selected' : ''; ?> value="<?= $s['idbarang'] ?>"><?= $s['nama_barang'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <?= form_error('barang_id', '<small class="text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="jumlah">Jumlah<span class="text-danger">*</span></label>
+                            <input value="<?= set_value('jumlah', $asetin['jumlah']); ?>" type="text" class="form-control uang" id="jumlah" name="jumlah" required>
+                            <?= form_error('jumlah', '<small class="text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="keterangan">Keterangan <span class="text-danger">*</span></label>
+                            <textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control"
+                                required><?= set_value('keterangan', $asetin['keterangan']); ?></textarea>
+                            <?= form_error('keterangan', '<small class="text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-9 offset-md-3">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </div>
+                        <?= form_close(); ?>
+                    </div>
+                </div>
+            </div>
+</section>        </div>
+</div>

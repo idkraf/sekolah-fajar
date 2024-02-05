@@ -27,6 +27,35 @@
 							</div>
 							<?php echo form_close(); ?>
 						</div>
+									<!--				
+						<div class="box-body table-responsive">
+							<form action="" class="form-horizontal" method="get" accept-charset="utf-8">
+								<table>
+									<tbody>
+										<tr>
+											<td>     
+												<select style="width: 200px;" id="n" name="n" class="form-control" required="">
+													<option value="">--- Pilih Unit Sekolah ---</option>
+													<option value="all">Semua Unit</option>
+													<option value="1">TK</option>
+													<option value="2">SD</option>
+													<option value="3">SMP</option>
+													<option value="4">SMA</option>
+													<option value="99">Lainnya</option>
+												</select>
+											</td>
+											<td>
+												&nbsp;&nbsp;
+											</td>
+											<td>
+											<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Cari</button>    
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</form>					
+						</div>
+-->
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body table-responsive no-padding">

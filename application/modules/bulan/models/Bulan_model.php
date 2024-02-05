@@ -259,60 +259,60 @@ class Bulan_model extends CI_Model {
     function add($data = array()) {
 
        if(isset($data['bulan_id'])) {
-        $this->db->set('bulan_id', $data['bulan_id']);
-    }
+            $this->db->set('bulan_id', $data['bulan_id']);
+        }
 
-    if(isset($data['student_id'])) {
-        $this->db->set('student_student_id', $data['student_id']);
-    }
+        if(isset($data['student_id'])) {
+            $this->db->set('student_student_id', $data['student_id']);
+        }
 
-    if(isset($data['payment_id'])) {
-        $this->db->set('payment_payment_id', $data['payment_id']);
-    }
+        if(isset($data['payment_id'])) {
+            $this->db->set('payment_payment_id', $data['payment_id']);
+        }
 
-    if(isset($data['month_id'])) {
-        $this->db->set('month_month_id', $data['month_id']);
-    }
+        if(isset($data['month_id'])) {
+            $this->db->set('month_month_id', $data['month_id']);
+        }
 
-    if(isset($data['bulan_bill'])) {
-        $this->db->set('bulan_bill', $data['bulan_bill']);
-    }
+        if(isset($data['bulan_bill'])) {
+            $this->db->set('bulan_bill', $data['bulan_bill']);
+        }
 
-    if(isset($data['bulan_number_pay'])) {
-        $this->db->set('bulan_number_pay', $data['bulan_number_pay']);
-    }
+        if(isset($data['bulan_number_pay'])) {
+            $this->db->set('bulan_number_pay', $data['bulan_number_pay']);
+        }
 
-    if(isset($data['bulan_status'])) {
-        $this->db->set('bulan_status', $data['bulan_status']);
-    }
+        if(isset($data['bulan_status'])) {
+            $this->db->set('bulan_status', $data['bulan_status']);
+        }
 
-    if(isset($data['bulan_date_pay'])) {
-        $this->db->set('bulan_date_pay', $data['bulan_date_pay']);
-    }
+        if(isset($data['bulan_date_pay'])) {
+            $this->db->set('bulan_date_pay', $data['bulan_date_pay']);
+        }
 
-    if(isset($data['user_user_id'])) {
-        $this->db->set('user_user_id', $data['user_user_id']);
-    }
+        if(isset($data['user_user_id'])) {
+            $this->db->set('user_user_id', $data['user_user_id']);
+        }
 
-    if(isset($data['bulan_input_date'])) {
-        $this->db->set('bulan_input_date', $data['bulan_input_date']);
-    }
+        if(isset($data['bulan_input_date'])) {
+            $this->db->set('bulan_input_date', $data['bulan_input_date']);
+        }
 
-    if(isset($data['bulan_last_update'])) {
-        $this->db->set('bulan_last_update', $data['bulan_last_update']);
-    }
+        if(isset($data['bulan_last_update'])) {
+            $this->db->set('bulan_last_update', $data['bulan_last_update']);
+        }
 
-    if (isset($data['bulan_id'])) {
-        $this->db->where('bulan_id', $data['bulan_id']);
-        $this->db->update('bulan');
-        $id = $data['bulan_id'];
-    } else {
-        $this->db->insert('bulan');
-        $id = $this->db->insert_id();
-    }
+        if (isset($data['bulan_id'])) {
+            $this->db->where('bulan_id', $data['bulan_id']);
+            $this->db->update('bulan');
+            $id = $data['bulan_id'];
+        } else {
+            $this->db->insert('bulan');
+            $id = $this->db->insert_id();
+        }
 
-    $status = $this->db->affected_rows();
-    return ($status == 0) ? FALSE : $id;
+        $status = $this->db->affected_rows();
+        return ($status == 0) ? FALSE : $id;    
 }
 
     // Get month from database
@@ -375,12 +375,12 @@ function add_month($data = array()) {
 
         $status = $this->db->affected_rows();
         return ($status == 0) ? FALSE : $id;
-    }
+}
 
-    function delete_month($id) {
-        $this->db->where('month_id', $id);
-        $this->db->delete('month');
-    }
+function delete_month($id) {
+    $this->db->where('month_id', $id);
+    $this->db->delete('month');
+}
 
     // Delete to database
 function delete($id) {

@@ -58,6 +58,7 @@ class Auth_set extends CI_Controller {
             }
         } else {
             $data['setting_school'] = $this->Setting_model->get(array('id'=>1));
+            $data['setting_yayasan'] = $this->Setting_model->get(array('id' => 12));
             $data['setting_logo'] = $this->Setting_model->get(array('id'=>SCHOOL_LOGO));
             $this->load->view('manage/login',$data);
         }

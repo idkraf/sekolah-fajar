@@ -18,7 +18,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
    folder instead of downloading all of them to reduce the load. -->
    <!-- Notyfy JS - Notification -->
-   <link rel="stylesheet" href="<?php echo media_url() ?>css/jquery.notyfy.css">
+   <!--link rel="stylesheet" href="<?php echo media_url() ?>css/jquery.notyfy.css"-->
    <link rel="stylesheet" href="<?php echo media_url() ?>/css/skin-purple-light.css">
    <!-- Date Picker -->
    <link rel="stylesheet" href="<?php echo media_url() ?>/css/bootstrap-datepicker.min.css">
@@ -72,6 +72,7 @@
                 <?php if ($this->session->userdata('student_img') != null) { ?>
                 <img src="<?php echo upload_url().'/student/'.$this->session->userdata('student_img'); ?>" class="user-image">
                 <?php } else { ?>
+                <!--img src="<//?php echo media_url() ?>img/avatar1.png" class="img-responsive"-->
                 <img src="<?php echo media_url() ?>img/user.png" class="user-image">
                 <?php } ?>
                 <span class="hidden-xs"><?php echo ucfirst($this->session->userdata('ufullname_student')); ?></span>
@@ -189,26 +190,23 @@
     <!-- AdminLTE App -->
     <script src="<?php echo media_url() ?>/js/adminlte.min.js"></script>
     <!-- Notyfy JS -->
-    <script src="<?php echo media_url() ?>/js/jquery.notyfy.js"></script>
+    <!-- script src="<//?php echo media_url() ?>/js/jquery.notyfy.js"></script-->
     <script>
       $(".input-group.date").datepicker({autoclose: true, todayHighlight: true});
     </script>
 
     <?php if ($this->session->flashdata('success')) { ?>
     <script>
-      $(function () {
-        notyfy({
-          layout: 'top',
-          type: 'success',
-          showEffect: function (bar) {
-            bar.animate({height: 'toggle'}, 500, 'swing');
-          },
-          hideEffect: function (bar) {
-            bar.animate({height: 'toggle'}, 500, 'swing');
-          },
-          timeout: 3000,
-          text: '<?php echo $this->session->flashdata('success') ?>'
-        });
+      $(document).ready(function() {
+        $.toast({
+          heading: 'Berhasil',
+          text: '<?php echo $this->session->flashdata('success') ?>',
+          position: 'top-right',
+          loaderBg: '#ff6849',
+          icon: 'success',
+          hideAfter: 3500,
+          stack: 6
+        })
       });
     </script>
     <?php } ?>

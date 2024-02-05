@@ -13,68 +13,84 @@
   <!-- Main content -->
   <section class="content">
     <div class="row">
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-aqua-gradient">
+                    <span class="info-box-icon"><i class="fa fa-calculator icon" aria-hidden="true"></i></span>
 
-          <div class="info-box-content">
-            <span class="info-box-text dash-text">Penerimaan Hari Ini</span>
-            <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_bulan+$total_bebas+$total_debit, 0, ',', '.') ?></span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon bg-red"><i class="fa fa-money"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text"><strong>Penerimaan KAS</strong></span>
+                        <span class="info-box-number" style="opacity: 0;"><?php echo 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></span>
 
-          <div class="info-box-content">
-            <span class="info-box-text dash-text">Pengeluaran Hari Ini</span>
-            <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
+                        <span class="info-box-text dash-text">Hari ini</span>
+                        <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_kredit_hr, 0, ',', '.') ?></span>
+          
+                        <span class="info-box-text dash-text">Bulan ini</span>
+                        <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></span>
+                        <span class="info-box-text dash-text">Tahun ini</span>                        
+                        <?php
+                        $totalAll = $total_kredit;//$total_bulan+$total_bebas+$total_debit;
+                        ?>
+                        <span class="info-box-number"><?php echo 'Rp. ' . number_format($totalAll,0, ',', '.') ?></span>
+                    </div>
+                </div>
+                <!-- <div class="mini-box">
+          <a href="#">More Info  <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+        </div> -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-red-gradient">
+                    <span class="info-box-icon"><i class="fa fa-money icon"></i></span>
 
-      <!-- fix for small devices only -->
-      <div class="clearfix visible-sm-block"></div>
+                    <div class="info-box-content">
+                        <span class="info-box-text"><strong>Pengeluaran KAS</strong></span>
+                        <span class="info-box-number" style="opacity: 0;"><?php echo 'Rp. ' . number_format($total_debit, 0, ',', '.') ?></span>
 
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon bg-blue"><i class="fa fa-dollar"></i></span>
+                        <span class="info-box-text dash-text">Hari ini</span>
+                        <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></span>
+                        <span class="info-box-text dash-text">Bulan ini</span>
+                        <span class="info-box-number">Rp. 0</span>
+                        <span class="info-box-text dash-text">Tahun ini</span>
+                        <span class="info-box-number">Rp. 0</span>
+                    </div>
+                </div>
+            </div>
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-green-gradient">
+                    <span class="info-box-icon"><i class="fa fa-bank icon"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text"><strong>Pembayaran Siswa</strong></span>
+                        <span class="info-box-number" style="opacity: 0;">kosong</span>
+                        <span class="info-box-text dash-text">Hari ini</span>
+                        <span class="info-box-number">Rp. 0</span>
+                        <span class="info-box-text dash-text">Bulan ini</span>
+                        <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_bulan, 0, ',', '.') ?></span>
+                        <span class="info-box-text dash-text">Tahun ini</span>
+                        <span class="info-box-number">Rp. 0</span>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-yellow-gradient">
+                    <span class="info-box-icon"><i class="fa fa-credit-card icon"></i></span>
 
-          <div class="info-box-content">
-            <?php
-            $totalAll = $total_bulan+$total_bebas+$total_debit;
-            ?>
-            <span class="info-box-text dash-text">Total Penerimaan</span>
-            <span class="info-box-number"><?php echo 'Rp. ' . number_format($totalAll - $total_kredit,0, ',', '.') ?></span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
-
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
-
-          <div class="info-box-content">
-            <span class="info-box-text dash-text">Siswa Aktif</span>
-            <span class="info-box-number"><?php echo $student ?></span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
-      
+                    <div class="info-box-content">
+                        <span class="info-box-text"><strong>Tabungan Siswa</strong></span>
+                        <span class="info-box-number" style="opacity: 0;">kosong</span>
+                        <span class="info-box-text dash-text">Hari ini</span>
+                        <span class="info-box-number">Rp. 0</span>
+                        <span class="info-box-text dash-text">Bulan ini</span>
+                        <span class="info-box-number">Rp. 0</span>
+                        <span class="info-box-text dash-text">Tahun ini</span>
+                        <span class="info-box-number">Rp. 0</span>
+                    </div>
+                </div>
+            </div>
     </div>
+
 
     <div class="row">
       <div class="col-md-6">

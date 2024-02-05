@@ -27,17 +27,23 @@ class Class_set extends CI_Controller {
     $f = $this->input->get(NULL, TRUE);
 
     $data['f'] = $f;
+    $data['us'] = "all";
 
     $params = array();
 // Nip
     if (isset($f['n']) && !empty($f['n']) && $f['n'] != '') {
       $params['class_name'] = $f['n'];
     }
+    if (isset($f['us']) && !empty($f['us']) && $f['us'] != '') {
+      $params['majors_id'] = $f['us'];
+      $data['us'] = $f['us'];
+    }
 
     $paramsPage = $params;
     $params['limit'] = 10;
     $params['offset'] = $offset;
     $data['classes'] = $this->Student_model->get_class($params);
+    $data['majors'] = $this->Student_model->get_majors();
     $data['setting_logo'] = $this->Setting_model->get(array('id' => 6));
     $config['per_page'] = 10;
     $config['uri_segment'] = 4;
@@ -46,6 +52,7 @@ class Class_set extends CI_Controller {
     $config['total_rows'] = count($this->Student_model->get_class($paramsPage));
     $this->pagination->initialize($config);
 
+    //$data['inputMajorValue'] = $data['cla']
     $data['title'] = 'Kelas';
     $data['main'] = 'class/class_list';
     $this->load->view('manage/layout', $data);
@@ -53,6 +60,7 @@ class Class_set extends CI_Controller {
 
   public function add_glob(){
     if ($_POST == TRUE) {
+      $params['majors_id'] = $_POST['majors_id'];
       $className = $_POST['class_name'];
       $cpt = count($_POST['class_name']);
       for ($i = 0; $i < $cpt; $i++) {
@@ -78,6 +86,8 @@ class Class_set extends CI_Controller {
         $params['class_id'] = $this->input->post('class_id');
       }
       $params['class_name'] = $this->input->post('class_name');
+      
+      $params['majors_id'] = $this->input->post('majors_id');
       $status = $this->Student_model->add_class($params);
 
 
@@ -101,6 +111,7 @@ class Class_set extends CI_Controller {
           $data['class'] = $object;
         }
       }
+      $data['majors'] = $this->Student_model->get_majors();
       $data['title'] = $data['operation'] . ' Keterangan Kelas';
       $data['main'] = 'class/class_add';
       $this->load->view('manage/layout', $data);

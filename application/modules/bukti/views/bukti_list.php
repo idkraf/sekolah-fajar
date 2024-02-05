@@ -13,19 +13,47 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="box box-success">
-					<div class="box-header">
-						<a href="<?php echo site_url('manage/bukti/add') ?>" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Data</a>
-						<div class="box-tools">
-							<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
-							<div class="input-group input-group-sm" style="width: 250px;">
-								<input type="text" id="field" autofocus name="n" <?php echo (isset($f['n'])) ? 'placeholder="' . $f['n'] . '"' : 'placeholder="Cari"' ?> class="form-control">
-								<div class="input-group-btn">
-									<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-								</div>
-							</div>
-							<?php echo form_close(); ?>
-						</div>
+				<div class="box box-success">		
+					<div class="box-header table-responsive">
+						<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
+						<table style="width:100%">
+							<tbody>
+								<tr>
+									<!--td><a href="<?php echo site_url('manage/bukti/add') ?>" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Data</a></td-->
+									<td> 
+										<div class="input-group" style="margin-right:10px">
+											<div class="input-group-addon alert-success">Unit</div>
+											<select name="m" class="form-control" onchange="this.form.submit()">
+												<option value="all">---Pilih Unit---</option>
+												<?php foreach ($majors as $row): ?>
+													<option value="<?php echo $row['majors_id'] ?>" <?php echo (isset($f['m']) AND $f['m'] == $row['majors_id']) ? 'selected' : '' ?> ><?php echo $row['majors_name'] ?></option>
+												<?php endforeach ?>
+											</select>
+										</div>
+									</td>
+									<td>
+										<div class="input-group" style="margin-right:10px">
+											<div class="input-group-addon alert-info">Kelas</div>
+											<select class="form-control" name="pr" onchange="this.form.submit()">
+												<option value="all">-- Pilih Kelas  --</option>
+												<?php foreach ($class as $row): ?>
+													<option <?php echo (isset($f['pr']) AND $f['pr'] == $row['class_id']) ? 'selected' : '' ?> value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
+												<?php endforeach; ?>
+											</select>
+										</div>
+									</td>
+									<td>
+										<div class="input-group ">
+											<input type="text" id="field" autofocus name="n" <?php echo (isset($f['n'])) ? 'placeholder="' . $f['n'] . '"' : 'placeholder="Cari"' ?> class="form-control">
+											<div class="input-group-btn">
+												<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<?php echo form_close() ?>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body table-responsive">

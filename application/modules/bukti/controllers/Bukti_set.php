@@ -1,5 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+  exit('No direct script access allowed');
 
 class Bukti_set extends CI_Controller
 {
@@ -31,12 +33,21 @@ class Bukti_set extends CI_Controller
     if($this->session->userdata('uroleid') == 3){
       $params['student_nis'] = $this->session->userdata('uemail');
     }
+    if (isset($f['pr']) && !empty($f['pr']) && $f['pr'] != '') {
+      $params['class_id'] = $f['pr'];
+    }
+  
+    if (isset($f['m']) && !empty($f['m']) && $f['m'] != '') {
+      $params['majors_id'] = $f['m'];
+    }
 
     $paramsPage = $params;
     $params['limit'] = 50;
     $params['offset'] = $offset;
     $data['payment'] = $this->Bukti_model->get($params);
     $data['userRole'] = $this->session->userdata('uroleid');
+    $data['class'] = $this->Student_model->get_class($params);
+    $data['majors'] = $this->Student_model->get_majors();
 
     $config['per_page'] = 50;
     $config['uri_segment'] = 4;
@@ -45,7 +56,7 @@ class Bukti_set extends CI_Controller
     $config['total_rows'] = count($this->Bukti_model->get($paramsPage));
     $this->pagination->initialize($config);
 
-    $data['title'] = 'Bukti Bayar';
+    $data['title'] = 'Konfirmasi Pembayaran';
     $data['main'] = 'bukti/bukti_list';
     $this->load->view('manage/layout', $data);
   }
@@ -115,6 +126,7 @@ class Bukti_set extends CI_Controller
       $posid = str_replace("BEBAS", "",$this->input->post('pos_id'));
       $params['pos_id'] = $posid;
       $params['nilai'] = $this->input->post('nilai');
+      $params['month_id'] = $this->input->post('month_id');
       $params['nilaiBebas'] = $this->input->post('nilaiBebas');
       $params['description'] = $this->input->post('description');
       
@@ -149,6 +161,7 @@ class Bukti_set extends CI_Controller
         $data['payment'] = $this->Bukti_model->get(array('id' => $id));
       }
       $data['period'] = $this->Period_model->get();
+      $data['bulan'] = $this->Bulan_model->get_month();
       $data['pos'] = $this->Payment_model->get();
 
       $paramstudent = array();
