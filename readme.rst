@@ -8,12 +8,9 @@ Sistem Pembayaran Pendidikan (SPP) untuk membantu administrasi sekolah
 Requirement
 ###################
 
-- PHP 5.3.6 or newer is recomended
+- PHP 7.4
 
 
 
-
-Regards
-Achyar Anshorie
 
 
