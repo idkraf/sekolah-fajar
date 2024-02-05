@@ -10,22 +10,23 @@
 		</ol>
 	</section>
 	<section class="content">
+
         <?= $this->session->flashdata('pesan'); ?>
         <div class="box shadow-sm border-bottom-primary">
             <div class="box-header bg-white py-3">
                 <div class="row">
                     <div class="col-lg-10">
                         <h4 class="h5 align-middle m-0 font-weight-bold text-primary">
-                            Data Werehouse
+                            Item Type Data
                         </h4>
                     </div>
                     <div class="col-auto">
-                            <a href="<?= base_url('manage/gudang/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
+                            <a href="<?= base_url('manage/ijenis/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
                                 <span class="icon">
                                     <i class="fa fa-plus"></i>
                                 </span>
                                 <span class="text">
-                                    Input Data Werehouse
+                                    Add Item Type
                                 </span>
                             </a>
                         </div>
@@ -36,24 +37,23 @@
                     <thead>
                         <tr>
                             <th>No. </th>
-                            <th>Nama Gudang</th>
-                             <th>Aksi</th>
+                            <th>Nama Jenis</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 1;
-                        if ($gudang) :
-                            foreach ($gudang as $g) :
+                        if ($jenis) :
+                            foreach ($jenis as $j) :
                         ?>
                                 <tr>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $g['nama_gudang']; ?></td>
-                                     <td>
-                                            <a href="<?= base_url('manage/gudang/edit/') . $g['id_gudang'] ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('manage/gudang/delete/') . $g['id_gudang'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
-                                        </td>
-                                    
+                                    <td><?= $j['nama_jenis']; ?></td>
+                                    <td>
+                                        <a href="<?= base_url('manage/ijenis/edit/') . $j['id_jenis'] ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
+                                        <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('manage/ijenis/delete/') . $j['id_jenis'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php else : ?>

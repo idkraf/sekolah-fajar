@@ -20,7 +20,7 @@
                         </h4>
                     </div>
                     <div class="col-auto">
-                            <a href="<?= base_url('manage/gudang/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
+                            <a href="<?= base_url('manage/igudang/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
                                 <span class="icon">
                                     <i class="fa fa-plus"></i>
                                 </span>
@@ -50,8 +50,8 @@
                                     <td><?= $no++; ?></td>
                                     <td><?= $g['nama_gudang']; ?></td>
                                      <td>
-                                            <a href="<?= base_url('manage/gudang/edit/') . $g['id_gudang'] ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('manage/gudang/delete/') . $g['id_gudang'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
+                                            <a href="<?= base_url('manage/igudang/edit/') . $g['id_gudang'] ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
+                                            <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('manage/igudang/delete/') . $g['id_gudang'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
                                         </td>
                                     
                                 </tr>

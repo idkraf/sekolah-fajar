@@ -561,13 +561,117 @@
                   Keterangan Siswa Sakit</a>
                 </li>
               </ul>
+          </li> 
+
+
+        
+        
+        
+        <li class="<?php echo ($this->uri->segment(2) == 'inventori' 
+          OR $this->uri->segment(2) == 'inventoriin'
+          OR $this->uri->segment(2) == 'inventoriout'
+          OR $this->uri->segment(2) == 'isatuan' 
+          OR $this->uri->segment(2) == 'ijenis'
+          OR $this->uri->segment(2) == 'iwarna'
+          OR $this->uri->segment(2) == 'imerek'
+          OR $this->uri->segment(2) == 'irasa'
+          OR $this->uri->segment(2) == 'igudang'
+          OR $this->uri->segment(2) == 'isupplier'
+          OR $this->uri->segment(2) == 'ilaporan'
+          OR $this->uri->segment(2) == 'ikartu'
+          ) 
+          ? 'active' 
+          : '' ?> treeview">
+          <a href="#">
+            <i class="fa fa-upload"></i> <span>Gudang</span>
+            <span class="pull-right-container">              
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          
+          <ul class="treeview-menu">
+            <li class="<?php echo ($this->uri->segment(2) == 'inventori') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/inventori'); ?>">
+              <i class="fa <?php echo ($this->uri->segment(2) == 'inventori') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+               Inventori Gudang</a>
             </li>
 
-        <li class="">
-          <a href="">
-            <i class="fa fa-th"></i> <span>PO</span>
-            <span class="pull-right-container"></span>
-          </a>
+            <li class="<?php echo ($this->uri->segment(2) == 'isatuan' 
+              OR $this->uri->segment(2) == 'ijenis'
+              OR $this->uri->segment(2) == 'iwarna'
+              OR $this->uri->segment(2) == 'imerek'
+              OR $this->uri->segment(2) == 'irasa'
+              OR $this->uri->segment(2) == 'igudang'
+              OR $this->uri->segment(2) == 'isupplier'
+              ) 
+              ? 'active' 
+              : '' ?> treeview">
+              <a href="">
+                <i class="fa fa-database"></i> <span>Master Data</span>
+                <span class="pull-right-container">              
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>              
+              <ul class="treeview-menu">
+                <li class="<?php echo ($this->uri->segment(2) == 'isatuan') ? 'active' : '' ?>">
+                  <a href="<?php echo site_url('manage/isatuan'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'isatuan') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+                  Item Unit</a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'ijenis') ? 'active' : '' ?>">
+                  <a href="<?php echo site_url('manage/ijenis'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'ijenis') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>  
+                  Jenis</a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'iwarna') ? 'active' : '' ?>">
+                  <a href="<?php echo site_url('manage/warna'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'iwarna') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>  
+                  Warna</a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'imerek') ? 'active' : '' ?>">
+                  <a href="<?php echo site_url('manage/imerek'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'imerek') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>  
+                  Merek</a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'irasa') ? 'active' : '' ?>">
+                  <a href="<?php echo site_url('manage/irasa'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'irasa') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>  
+                  Rasa</a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'igudang') ? 'active' : '' ?>">
+                  <a href="<?php echo site_url('manage/igudang'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'igudang') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+                  Warehouse</a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'isupplier') ? 'active' : '' ?>">
+                  <a href="<?php echo site_url('manage/isupplier'); ?>">                        
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'isupplier') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+                  Data Suplier</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'inventoriin') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/inventoriin'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'inventoriin') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+                   Gudang Masuk</a>
+            </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'inventoriout') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/inventoriout'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'inventoriout') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+                  Gudang Keluar</a>
+            </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'ilaporan') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/ilaporan'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'ilaporan') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+                  Print Laporan</a>
+            </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'ikartu') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/ikartu'); ?>">
+                  <i class="fa <?php echo ($this->uri->segment(2) == 'ikartu') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+                   Kartu Kendali</a>
+            </li>
+          </ul>
         </li>
         <?php } ?>
 
