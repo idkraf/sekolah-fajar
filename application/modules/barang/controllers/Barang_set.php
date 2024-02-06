@@ -116,7 +116,7 @@ class Barang_set extends CI_Controller
         $this->_validasi();
         $this->_config();
 
-        if ($_POST AND $this->form_validation->run() == TRUE) {
+        if ($_POST) {
             
             $input['id_barang'] = $this->input->post('id_barang');
             $input['image'] = $this->input->post('image');
@@ -133,7 +133,14 @@ class Barang_set extends CI_Controller
             if (@$_FILES['image']['name'] != null) {
                 if ($this->upload->do_upload('image')) {
                     $input['image'] = $this->upload->data('file_name');
-                    $insert = $this->admin->insert('barang', $input);
+                    //$insert = $this->admin->insert('barang', $input);
+                    
+                    if($id!=null){
+                        $this->admin->update('barang', 'id', $id, $input);
+                    }else{
+                        $this->admin->insert('barang', $input);
+                    }                 
+
                     if ($this->db->affected_rows() > 0) {
                     $this->session->set_flashdata('Succes','Data Berhasil Disimpan');
                     } 
@@ -145,7 +152,13 @@ class Barang_set extends CI_Controller
                 }                
             }else{
                 $input['image'] = null;
-                $insert = $this->admin->insert('barang', $input);
+                //$insert = $this->admin->insert('barang', $input);
+                
+                if($id!=null){
+                    $this->admin->update('barang', 'id', $id, $input);
+                }else{
+                    $this->admin->insert('barang', $input);
+                }    
                 if ($this->db->affected_rows() > 0) {
                     $this->session->set_flashdata('Succes','Data Berhasil Disimpan');
                     redirect('manage/barang');

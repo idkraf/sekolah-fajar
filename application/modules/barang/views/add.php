@@ -185,10 +185,18 @@
                             <label class="col-md-3 text-md-right" for="stok_awal">Stok Awal</label>
                          
                             <div class="input-group">
-                                <input value="<?php echo $inputStokValue; ?>" name="stok" type="hidden">
-                                <!--input name="stok_akhir" type="hidden"-->
-                                <input value="<?php echo $inputStokAwalValue; ?>" name="stok_awal" id="stok_awal" type="number" class="form-control">
-                                <?= form_error('stok_awal', '<small class="text-danger">', '</small>'); ?>
+                                <?php if (isset($barang)) { ?>                                    
+                                    <input value="<?php echo $inputStokValue; ?>" name="stok" type="number"  class="form-control">
+                                    <input value="<?php echo $inputStokAwalValue; ?>" name="stok_akhir" type="hidden">
+                                    <input value="<?php echo $inputStokAwalValue; ?>" name="stok_awal" id="stok_awal" type="hidden">
+                                    <?= form_error('stok_awal', '<small class="text-danger">', '</small>'); ?>
+                                <?php } else { ?>
+                                
+                                    <input name="stok" type="hidden">
+                                    <input name="stok_akhir" type="hidden">
+                                    <input value="<?php echo $inputStokAwalValue; ?>" name="stok_awal" id="stok_awal" type="number" class="form-control">
+                                    <?= form_error('stok_awal', '<small class="text-danger">', '</small>'); ?>
+                                <?php } ?>
                             </div>
                             
                         </div>

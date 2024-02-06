@@ -116,7 +116,7 @@ class Inventori_set extends CI_Controller
         $this->_validasi();
         $this->_config();
 
-        if ($_POST AND $this->form_validation->run() == TRUE) {
+        if ($_POST) {
             
             $input['id_barang'] = $this->input->post('id_barang');
             $input['image'] = $this->input->post('image');
@@ -129,11 +129,19 @@ class Inventori_set extends CI_Controller
             $input['stok_awal'] = $this->input->post('stok_awal');
             $input['harga_barang'] = $this->input->post('harga_barang');
             $input['gudang_id'] = $this->input->post('gudang_id');
-            $input['stok'] = $input['stok_awal'];
             if (@$_FILES['image']['name'] != null) {
                 if ($this->upload->do_upload('image')) {
                     $input['image'] = $this->upload->data('file_name');
-                    $insert = $this->admin->insert('inventori', $input);
+                    if($id!=null){
+                        $stok = $this->input->post('stok');
+                        $stok_akhir = $this->input->post('stok_akhir');
+                        $input['stok'] = ($stok_akhir < $input['stok_awal']) ? $stok + ($input['stok_awal'] - $stok_akhir) : $stok - ($stok_akhir - $input['stok_awal']);                
+                       $this->admin->update('inventori', 'id', $id, $input);
+                    }else{
+                        $input['stok'] = $input['stok_awal'];
+                       $this->admin->insert('inventori', $input);
+                    }                   
+
                     if ($this->db->affected_rows() > 0) {
                     $this->session->set_flashdata('Succes','Data Berhasil Disimpan');
                     } 
@@ -145,7 +153,18 @@ class Inventori_set extends CI_Controller
                 }                
             }else{
                 $input['image'] = null;
-                $insert = $this->admin->insert('inventori', $input);
+                //$insert = $this->admin->insert('inventori', $input);
+                
+                if($id!=null){
+                    $stok = $this->input->post('stok');
+                    $stok_akhir = $this->input->post('stok_akhir');
+                    $input['stok'] = ($stok_akhir < $input['stok_awal']) ? $stok + ($input['stok_awal'] - $stok_akhir) : $stok - ($stok_akhir - $input['stok_awal']);
+                    $insert = $this->admin->update('inventori', 'id', $id, $input);
+                }else{
+                    $input['stok'] = $input['stok_awal'];
+                    $insert = $this->admin->insert('inventori', $input);
+                }                   
+
                 if ($this->db->affected_rows() > 0) {
                     $this->session->set_flashdata('Succes','Data Berhasil Disimpan');
                     redirect('manage/inventori');

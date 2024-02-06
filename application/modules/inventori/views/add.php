@@ -108,7 +108,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                     
-                                        <a class="btn btn-primary" href="<?= base_url('manage/jenis/add'); ?>"><i class="fa fa-plus"></i></a>
+                                        <a class="btn btn-primary" href="<?= base_url('manage/ijenis/add'); ?>"><i class="fa fa-plus"></i></a>
                                     
                                     <?= form_error('jenis_id', '<small class="text-danger">', '</small>'); ?>
                                 </div>
@@ -125,7 +125,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                     
-                                        <a class="btn btn-primary" href="<?= base_url('manage/warna/add'); ?>"><i class="fa fa-plus"></i></a>
+                                        <a class="btn btn-primary" href="<?= base_url('manage/iwarna/add'); ?>"><i class="fa fa-plus"></i></a>
                                     
                                 <?= form_error('warna_id', '<small class="text-danger">', '</small>'); ?>
                             </div>
@@ -141,7 +141,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                     
-                                        <a class="btn btn-primary" href="<?= base_url('manage/rasa/add'); ?>"><i class="fa fa-plus"></i></a>
+                                        <a class="btn btn-primary" href="<?= base_url('manage/irasa/add'); ?>"><i class="fa fa-plus"></i></a>
                                   
                                 <?= form_error('rasa_id', '<small class="text-danger">', '</small>'); ?>
                             </div>
@@ -158,7 +158,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                     
-                                        <a class="btn btn-primary" href="<?= base_url('manage/merek/add'); ?>"><i class="fa fa-plus"></i></a>
+                                        <a class="btn btn-primary" href="<?= base_url('manage/imerek/add'); ?>"><i class="fa fa-plus"></i></a>
                                     
                                 <?= form_error('merek_id', '<small class="text-danger">', '</small>'); ?>
                             </div>
@@ -175,7 +175,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 
-                                    <a class="btn btn-primary" href="<?= base_url('manage/satuan/add'); ?>"><i class="fa fa-plus"></i></a>
+                                    <a class="btn btn-primary" href="<?= base_url('manage/isatuan/add'); ?>"><i class="fa fa-plus"></i></a>
                                 
                                 <?= form_error('satuan_id', '<small class="text-danger">', '</small>'); ?>
                             </div>
@@ -185,10 +185,19 @@
                             <label class="col-md-3 text-md-right" for="stok_awal">Stok Awal</label>
                          
                             <div class="input-group">
-                                <input value="<?php echo $inputStokValue; ?>" name="stok" type="hidden">
-                                <!--input name="stok_akhir" type="hidden"-->
-                                <input value="<?php echo $inputStokAwalValue; ?>" name="stok_awal" id="stok_awal" type="number" class="form-control">
-                                <?= form_error('stok_awal', '<small class="text-danger">', '</small>'); ?>
+                                        
+                                <?php if (isset($barang)) { ?>                                    
+                                    <input value="<?php echo $inputStokValue; ?>" name="stok" type="number"  class="form-control">
+                                    <input value="<?php echo $inputStokAwalValue; ?>" name="stok_akhir" type="hidden">
+                                    <input value="<?php echo $inputStokAwalValue; ?>" name="stok_awal" id="stok_awal" type="hidden">
+                                    <?= form_error('stok_awal', '<small class="text-danger">', '</small>'); ?>
+                                <?php } else { ?>
+                                
+                                    <input name="stok" type="hidden">
+                                    <input name="stok_akhir" type="hidden">
+                                    <input value="<?php echo $inputStokAwalValue; ?>" name="stok_awal" id="stok_awal" type="number" class="form-control">
+                                    <?= form_error('stok_awal', '<small class="text-danger">', '</small>'); ?>
+                                <?php } ?>
                             </div>
                             
                         </div>
@@ -212,7 +221,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                     <!--div class="input-group-append"-->
-                                        <a class="btn btn-primary" href="<?= base_url('manage/gudang/add'); ?>"><i class="fa fa-plus"></i></a>
+                                        <a class="btn btn-primary" href="<?= base_url('manage/igudang/add'); ?>"><i class="fa fa-plus"></i></a>
                                     <!--/div-->
                                 <?= form_error('gudang_id', '<small class="text-danger">', '</small>'); ?>
                         
