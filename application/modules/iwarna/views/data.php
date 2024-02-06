@@ -20,7 +20,7 @@
                 </h4>
             </div>
             <div class="col-auto">
-                <a href="<?= base_url('manage/warna/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
+                <a href="<?= base_url('manage/iwarna/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
                     <span class="icon">
                         <i class="fa fa-plus"></i>
                     </span>
@@ -50,8 +50,8 @@
                             <td><?= $no++; ?></td>
                             <td><?= $j['nama_warna']; ?></td>
                             <td>
-                                <a href="<?= base_url('manage/warna/edit/') . $j['id_warna'] ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
-                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('warna/delete/') . $j['id_warna'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
+                                <a href="<?= base_url('manage/iwarna/edit/') . $j['id_warna'] ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
+                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('manage/iwarna/delete/') . $j['id_warna'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -21,7 +21,7 @@
                         </h4>
                     </div>
                     <div class="col-auto">
-                        <a href="<?= base_url('manage/warna') ?>" class="btn btn-sm btn-secondary btn-icon-split">
+                        <a href="<?= base_url('manage/iwarna') ?>" class="btn btn-sm btn-secondary btn-icon-split">
                             <span class="icon">
                                 <i class="fa fa-arrow-left"></i>
                             </span>

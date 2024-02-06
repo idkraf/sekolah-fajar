@@ -624,7 +624,7 @@
                   Jenis</a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'iwarna') ? 'active' : '' ?>">
-                  <a href="<?php echo site_url('manage/warna'); ?>">
+                  <a href="<?php echo site_url('manage/iwarna'); ?>">
                   <i class="fa <?php echo ($this->uri->segment(2) == 'iwarna') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>  
                   Warna</a>
                 </li>
