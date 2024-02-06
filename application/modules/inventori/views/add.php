@@ -17,17 +17,17 @@
     } else {
         //$inputIdValue = $set_value('id');
         //$inputIdBarangValue = $set_value('id_barang');
-        $inputNamaBarangValue = $set_value('nama_barang');
-        $inputStokAwalValue = $set_value('stok_awal');
-        $inputStokValue = $set_value('stok');
-        $inputHargaBarangValue = $set_value('harga_barang');
-        $inputSatuanIdValue = $set_value('satuan_id');
-        $inputJenisIdValue = $set_value('jenis_id');
-        $inputWarnaIdValue = $set_value('warna_id');
-        $inputRasaIdValue = $set_value('rasa_id');
-        $inputMerekIdValue = $set_value('merek_id');
-        $inputGudangIdValue = $set_value('gudang_id');
-        $inputImageValue = $set_value('image');
+        $inputNamaBarangValue = set_value('nama_barang');
+        $inputStokAwalValue = set_value('stok_awal');
+        $inputStokValue = set_value('stok');
+        $inputHargaBarangValue = set_value('harga_barang');
+        $inputSatuanIdValue = set_value('satuan_id');
+        $inputJenisIdValue = set_value('jenis_id');
+        $inputWarnaIdValue = set_value('warna_id');
+        $inputRasaIdValue = set_value('rasa_id');
+        $inputMerekIdValue = set_value('merek_id');
+        $inputGudangIdValue = set_value('gudang_id');
+        $inputImageValue = set_value('image');
     }
 ?>
 <div class="content-wrapper">

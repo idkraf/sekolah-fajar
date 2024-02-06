@@ -210,7 +210,7 @@ class Inventori_model extends CI_Model
 
     public function cekStok($id)
     {
-        $this->db->join('satuan s', 'b.satuan_id=s.id_satuan');
+        $this->db->join('isatuan s', 'b.satuan_id=s.id_satuan');
         return $this->db->get_where('inventori b', ['id_barang' => $id])->row_array();
     }
 }
