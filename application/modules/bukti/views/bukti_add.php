@@ -39,6 +39,46 @@ if (isset($payment)) {
 	<!-- Main content -->
 	<!-- Main content -->
 	<section class="content">
+		
+	<div class="box box-info">
+		<div class="box-header with-border">
+			<h3 class="box-title">Filter Bukti Bayar</h3>
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
+				<div class="form-group">						
+					<label for="" class="col-sm-2 control-label">Tahun Pelajaran</label>
+					<div class="col-sm-2">
+						<select class="form-control" name="n" id="th_ajar">
+							<?php foreach ($period as $row): ?>
+								<option <?php echo (isset($f['n']) AND $f['n'] == $row['period_id']) ? 'selected' : '' ?> value="<?php echo $row['period_id'] ?>"><?php echo $row['period_start'].'/'.$row['period_end'] ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<label for="" class="col-sm-2 control-label">NIS Siswa</label>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<input type="text" class="form-control" autofocus name="r" <?php echo (isset($f['r'])) ? 'placeholder="'.$f['r'].'"' : 'placeholder="Masukan NIS Siswa"' ?> required>
+							<span class="input-group-btn">
+								<button class="btn btn-success" type="submit">Cari</button>
+							</span>
+							<span class="input-group-btn">
+							</span>
+							<span class="input-group-btn">
+							</span>
+							<span class="input-group-btn">
+							</span>
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#dataSiswa"><b>Data Siswa</b></button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.box-body -->
+	</div><!-- /.box -->
+	
+	<?php if ($f) { ?>
 		<?php echo form_open_multipart(current_url()); ?>
 		<!-- Small boxes (Stat box) -->
 		<div class="row">
@@ -57,7 +97,10 @@ if (isset($payment)) {
 							<select name="student_id" class="form-control" <?php echo $userRole == 3 ? 'disabled' :'' ?>>
 								<option value="">-Pilih Nama Siswa-</option>
 								<?php foreach ($student as $row) : ?>
-									<option value="<?php echo $row['student_id']; ?>" <?php echo ($inputStudentValue == $row['student_id']) ? 'selected' : '' ?>><?php echo $row['student_full_name']." - ".$row['class_name']." - ".$row['majors_name']; ?></option>
+									<option value="<?php echo $row['student_id']; ?>" <?php echo (isset($student_id) AND $student_id == $row['student_id']) ? 'selected' : '' ?>><?php echo $row['student_full_name']." - ".$row['class_name']." - ".$row['majors_name']; ?></option>
+									<!-- option value="<//?php echo $row['student_id']; ?>"
+									 <//?php echo ($inputStudentValue == $row['student_id']) ? 'selected' : '' ?>>
+									 <//?php echo $row['student_full_name']." - ".$row['class_name']." - ".$row['majors_name']; ?></option-->
 								<?php endforeach; ?>
 							</select>
 						</div>
@@ -77,7 +120,9 @@ if (isset($payment)) {
 							<select name="period_id" class="form-control">
 								<option value="">-Pilih Tahun-</option>
 								<?php foreach ($period as $row) : ?>
-									<option value="<?php echo $row['period_id']; ?>" <?php echo ($inputPeriodValue == $row['period_id']) ? 'selected' : '' ?>><?php echo $row['period_start'] . '/' . $row['period_end']; ?></option>
+									<option value="<?php echo $row['period_id']; ?>"<?php echo (isset($f['n']) AND $f['n'] == $row['period_id']) ? 'selected' : '' ?>><?php echo $row['period_start'] . '/' . $row['period_end']; ?></option>
+									<!--option value="<//?php echo $row['period_id']; ?>" <//?php echo ($inputPeriodValue == $row['period_id']) ? 'selected' : '' ?>>
+									<//?php echo $row['period_start'] . '/' . $row['period_end']; ?></option-->
 								<?php endforeach; ?>
 							</select>
 						</div>
@@ -139,6 +184,8 @@ if (isset($payment)) {
 		</div>
 		<?php echo form_close(); ?>
 		<!-- /.row -->
+
+	<?php } ?>
 	</section>
 	<?php if (isset($payment['id'])) { ?>
 		<div class="modal fade" id="deletePayment">
@@ -165,6 +212,60 @@ if (isset($payment)) {
 		</div>
 	<?php } ?>
 </div>
+
+<div class="modal fade" id="dataSiswa" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h4 class="modal-title">Cari Data Siswa</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<div class="col-sm-3">
+						<select id="us" class="form-control">
+							<option value="0">---Pilih Unit---</option>
+							<?php foreach ($majors as $row): ?>
+								<option value="<?php echo $row['majors_id'] ?>"><?php echo $row['majors_name'] ?></option>
+							<?php endforeach ?>
+						</select>
+					</div>
+					<div id="div_class">
+						<div class="col-sm-3">
+							<select id="pr" class="form-control">
+								<option value="0">-- Pilih Kelas --</option>
+								<?php foreach ($kelas as $row): ?>
+									<option value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div id="div_student">
+					<div class="box-body table-responsive">
+						<table id="dtable" class="table table-hover dataTable no-footer" width="100%">
+							<thead>
+								<th>No</th>
+								<th>NIS</th>
+								<th>Nama</th>
+								<th>Kelas</th>
+								<th>Aksi</th>
+							</thead>	
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <script>
 	function getId(id) {
 		$('#paymentId').val(id)
@@ -193,4 +294,60 @@ function changetextbox()
 		document.getElementById("allTarifBebas").disabled=false;
     }
 }
+
+function ambil_data(nis){
+	var nisSiswa    = nis;
+	var thAjaran    = $("#th_ajar").val();
+
+	window.location.href = '/manage/bukti/add?n='+thAjaran+'&r='+nisSiswa;
+
+}
+$(document).ready(function () {
+		draw_data();
+		$('#us').change(function() {
+			//console.log($(this).val());
+			draw_data();
+		});
+		$('#pr').change(function() {
+			//console.log($(this).val());
+			draw_data();
+		});
+
+		function draw_data() {
+			$us = $("#us").val();
+			console.log($us);
+			$pr = $("#pr").val();
+			console.log($pr);
+			$('#dtable').DataTable({
+				'processing': true,
+				'serverSide': true,
+				'stateSave': true,
+				paging: false,
+				destroy: true,
+				//responsive: true,
+				'order': [],
+				'ajax': {
+					'url': "<?php echo site_url('manage/payout/ajax_list') ?>",
+					'type': 'POST',
+					'data': {
+						'us': $us, //unit
+						'pr': $pr, //kelas
+						'<?= $this->security->get_csrf_token_name() ?>': crsf_hash
+					}
+				},
+				'columnDefs': [
+					{
+						'targets': [0,1,2,3,4],
+						'orderable': false,
+					},
+				],
+				dom: 'Blfrtip',
+				lengthMenu: [10, 20, 50, 100, 200, 500],
+				buttons: [ 
+				],
+			});
+		};
+
+	});
+
 </script>

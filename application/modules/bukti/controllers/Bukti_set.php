@@ -93,6 +93,33 @@ class Bukti_set extends CI_Controller
   // Add payment and Update
   public function add($id = NULL)
   {
+    
+    $f = $this->input->get(NULL, TRUE);
+    $data['f'] = $f;
+    
+    $siswa['student_id'] = '';
+    $params = array();
+    $param = array();
+
+    // Tahun Ajaran
+    if (isset($f['n']) && !empty($f['n']) && $f['n'] != '') {
+      $params['period_id'] = $f['n'];
+      $pay['period_id'] = $f['n'];
+    }
+
+    // Siswa
+    if (isset($f['r']) && !empty($f['r']) && $f['r'] != '') {
+      $params['student_nis'] = $f['r'];
+      $param['student_nis'] = $f['r'];
+      $siswa = $this->Student_model->get(array('student_nis'=>$f['r']));
+    }
+
+    // tanggal
+    if (isset($f['d']) && !empty($f['d']) && $f['d'] != '') {
+      $param['date'] = $f['d'];
+
+    }
+
     $this->load->library('form_validation');
     //$this->form_validation->set_rules('pos_id', 'Jenis Pembayaran', 'trim|required|xss_clean');
     $this->form_validation->set_rules('period_id', 'Tahun Pelajaran', 'trim|required|xss_clean');
@@ -163,6 +190,12 @@ class Bukti_set extends CI_Controller
       $data['period'] = $this->Period_model->get();
       $data['bulan'] = $this->Bulan_model->get_month();
       $data['pos'] = $this->Payment_model->get();
+
+
+      $data['student_id'] = $siswa['student_id'];
+
+      $data['kelas'] = $this->Student_model->get_class();
+      $data['majors'] = $this->Student_model->get_majors();
 
       $paramstudent = array();
       // Nip

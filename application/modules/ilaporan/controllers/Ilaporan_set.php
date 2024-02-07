@@ -52,8 +52,8 @@ class Ilaporan_set extends CI_Controller {
 	  $pdf = new FPDF();
 	  $pdf->AddPage('L', 'Letter');
 	  $pdf->SetFont('Times', 'B', 16);
-	  $pdf->Image('./assets/img/logo1.png', 10, 8, 17, 15);
-	  $pdf->Image('./assets/img/2.png', 255, 8, 15, 14);
+	  $pdf->Image('./asset/img/logo1.png', 10, 8, 17, 15);
+	  $pdf->Image('./asset/img/2.png', 255, 8, 15, 14);
 	  $pdf->Cell(260, 7, 'Laporan ' . $table, 0, 1, 'C');
 	  $pdf->SetFont('Times', '', 10);
 	  $pdf->Cell(260, 4, 'Tanggal : ' . $tanggal, 0, 1, 'C');
