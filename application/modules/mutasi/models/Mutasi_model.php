@@ -1,7 +1,9 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kartu_model extends CI_Model {
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class Merek_model extends CI_Model {
 
     var $table = 'mutasi';
     var $order = array('id' => 'desc');

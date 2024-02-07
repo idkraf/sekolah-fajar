@@ -325,6 +325,8 @@
         <?php if(aturan(7,$this->session->userdata('uroleid'))){ ?>
 
         <li class="<?php echo ($this->uri->segment(2) == 'aset' 
+          OR $this->uri->segment(2) == 'kartu' 
+          OR $this->uri->segment(2) == 'mutasi'
           OR $this->uri->segment(2) == 'asetin'
           OR $this->uri->segment(2) == 'asetout'
           OR $this->uri->segment(2) == 'kategori'
@@ -347,7 +349,17 @@
             <li class="<?php echo ($this->uri->segment(2) == 'aset') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/aset'); ?>">
               <i class="fa <?php echo ($this->uri->segment(2) == 'aset') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
-              Data Barang</a>
+              Data Master</a>
+            </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'kartu') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/kartu'); ?>">
+              <i class="fa <?php echo ($this->uri->segment(2) == 'kartu') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+              Kartu Inventaris</a>
+            </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'mutasi') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/mutasi'); ?>">
+              <i class="fa <?php echo ($this->uri->segment(2) == 'mutasi') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+              Form Mutasi</a>
             </li>
             <li class="<?php echo ($this->uri->segment(2) == 'kategori') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/kategori'); ?>">
