@@ -13,11 +13,11 @@
         <?= $this->session->flashdata('pesan'); ?>
         <div class="box shadow-sm border-bottom-primary">
             <div class="box-body table-responsive">
-                <table class="table table-striped" id="ruangan">
+                <table class="table table-striped" id="bahan">
                     <thead>
                         <tr>
                             <th>No. </th>
-                            <th>Nama </th>
+                            <th>Nama</th>
                              <th>Aksi</th>
                         </tr>
                     </thead>
@@ -43,7 +43,7 @@
                 <p>Hapus data ini?</p>
             </div>
             <div class="modal-footer">
-            <?= form_open('manage/ruangan/delete/'); ?>
+            <?= form_open('manage/bahan/delete/'); ?>
                 <input type="hidden" name="deleteid" id="object-id" value="">
                 <button type="submit" class="btn btn-primary">Hapus</button>
                 <button type="button" data-dismiss="modal"
@@ -60,13 +60,13 @@
         draw_data();
 
         function draw_data() {
-            $('#ruangan').DataTable({
+            $('#bahan').DataTable({
                 'processing': true,
                 'serverSide': true,
                 'stateSave': true,
                 'order': [],
                 'ajax': {
-                    'url': "<?php echo site_url('manage/ruangan/ajax_list') ?>",
+                    'url': "<?php echo site_url('manage/bahan/ajax_list') ?>",
                     'type': 'POST',
                     'data': {
                         '<?= $this->security->get_csrf_token_name() ?>': crsf_hash
@@ -91,7 +91,7 @@
                         text: 'Tambah',
                         action: function ( e, dt, node, config ) {
                             
-							window.location = '<?php echo site_url('manage/ruangan/add') ?>'
+							window.location = '<?php echo site_url('manage/bahan/add') ?>'
                         }
                     },
                     {

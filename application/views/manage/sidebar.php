@@ -325,14 +325,16 @@
         <?php if(aturan(7,$this->session->userdata('uroleid'))){ ?>
 
         <li class="<?php echo ($this->uri->segment(2) == 'aset' 
-          OR $this->uri->segment(2) == 'kartu' 
+          OR $this->uri->segment(2) == 'inventaris' 
           OR $this->uri->segment(2) == 'mutasi'
           OR $this->uri->segment(2) == 'asetin'
           OR $this->uri->segment(2) == 'asetout'
           OR $this->uri->segment(2) == 'kategori'
+          OR $this->uri->segment(2) == 'bahan'
           OR $this->uri->segment(2) == 'ruangan'
           OR $this->uri->segment(2) == 'tempat'
           OR $this->uri->segment(2) == 'dana'
+          OR $this->uri->segment(2) == 'kondisi'
           OR $this->uri->segment(2) == 'stok'
           OR $this->uri->segment(2) == 'qr'
           ) 
@@ -351,9 +353,9 @@
               <i class="fa <?php echo ($this->uri->segment(2) == 'aset') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
               Data Master</a>
             </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'kartu') ? 'active' : '' ?>">
-              <a href="<?php echo site_url('manage/kartu'); ?>">
-              <i class="fa <?php echo ($this->uri->segment(2) == 'kartu') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+            <li class="<?php echo ($this->uri->segment(2) == 'inventaris') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/inventaris'); ?>">
+              <i class="fa <?php echo ($this->uri->segment(2) == 'inventaris') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
               Kartu Inventaris</a>
             </li>
             <li class="<?php echo ($this->uri->segment(2) == 'mutasi') ? 'active' : '' ?>">
@@ -365,6 +367,11 @@
               <a href="<?php echo site_url('manage/kategori'); ?>">
               <i class="fa <?php echo ($this->uri->segment(2) == 'kategori') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
               Kategori</a>
+            </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'bahan') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/bahan'); ?>">
+              <i class="fa <?php echo ($this->uri->segment(2) == 'bahan') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+              Bahan</a>
             </li>
             <li class="<?php echo ($this->uri->segment(2) == 'ruangan') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/ruangan'); ?>">
@@ -380,6 +387,11 @@
               <a href="<?php echo site_url('manage/dana'); ?>">
               <i class="fa <?php echo ($this->uri->segment(2) == 'dana') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
               Dana</a>
+            </li>
+            <li class="<?php echo ($this->uri->segment(2) == 'kondisi') ? 'active' : '' ?>">
+              <a href="<?php echo site_url('manage/kondisi'); ?>">
+              <i class="fa <?php echo ($this->uri->segment(2) == 'kondisi') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
+              Kondisi</a>
             </li>
             <li class="<?php echo ($this->uri->segment(2) == 'asetin') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/asetin'); ?>">

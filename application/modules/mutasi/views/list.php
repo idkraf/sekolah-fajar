@@ -50,17 +50,26 @@
             <div class="modal-body">
                     <div class="form-group">
                         <label>Unit</label>
-                        <select name="majors_id" class="form-control">     
+                        <select name="majors_id" class="form-control">   
+                            <?php foreach ($majors as $s) : ?>
+                                <option value="<?= $s['majors_id'] ?>"><?= $s['majors_name'] ?></option>
+                            <?php endforeach; ?>  
                         </select>     
                     </div>
                     <div class="form-group">
                         <label>Pegawai</label>
                         <select name="user_id" class="form-control">     
+                            <?php foreach ($employee as $row): ?>
+                                <option value="<?php echo $row['employee_id'] ?>"><?php echo $row['employee_name'] ?></option>
+                            <?php endforeach; ?> 
                         </select>        
                     </div>
                     <div class="form-group">
                         <label>Aset</label>
-                        <select name="aset_id" class="form-control">     
+                        <select name="aset_id" class="form-control">    
+                            <?php foreach ($aset as $row): ?>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['nama_barang'] ?></option>
+                            <?php endforeach; ?>  
                         </select>   
                     </div>
                     
@@ -108,17 +117,26 @@
 
                     <div class="form-group">
                         <label>Unit</label>
-                        <select name="majors_id" class="majors_id form-control">     
+                        <select name="majors_id" class="majors_id form-control">
+                            <?php foreach ($majors as $s) : ?>
+                                <option value="<?= $s['majors_id'] ?>"><?= $s['majors_name'] ?></option>
+                            <?php endforeach; ?>                                 
                         </select>     
                     </div>
                     <div class="form-group">
                         <label>Pegawai</label>
-                        <select name="user_id" class="user_id form-control">     
+                        <select name="user_id" class="user_id form-control">  
+                            <?php foreach ($employee as $row): ?>
+                                <option value="<?php echo $row['employee_id'] ?>"><?php echo $row['employee_name'] ?></option>
+                            <?php endforeach; ?>     
                         </select>        
                     </div>
                     <div class="form-group">
                         <label>Aset</label>
-                        <select name="aset_id" class="aset_id form-control">     
+                        <select name="aset_id" class="aset_id form-control">  
+                            <?php foreach ($aset as $row): ?>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['nama_barang'] ?></option>
+                            <?php endforeach; ?>    
                         </select>   
                     </div>
                     

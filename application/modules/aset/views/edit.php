@@ -55,6 +55,11 @@
                             
                         </div>
                         <div class="form-group">
+                            <label for="kode_barang">Kode Barang <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="kode_barang" name="kode_barang" value="<?= set_value('kode_barang', $aset['kode_barang']); ?>" required>
+                            <?= form_error('kode_barang', '<small class="text-danger">', '</small>'); ?>                            
+                        </div>
+                        <div class="form-group">
                             <label for="merek_id">Merek Barang <span class="text-danger">*</span></label>
                             <select name="merek_id" id="merek_id" class="form-control select2" style="width:100%;" required>
                             <option value="">-- Pilih Merek --</option>
@@ -95,8 +100,60 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="kondisi_id">Kondisi Barang <span class="text-danger">*</span></label>
+                            <select name="kondisi_id" id="kondisi_id" class="form-control select2" style="width:100%;" required>
+                            <option value="">-- Pilih Kondisi--</option>
+                            <?php foreach ($kondisi as $s) : ?>
+                                <option value="<?= $s['id'] ?>"><?= $s['nama_kondisi'] ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bahan_id">Bahan<span class="text-danger">*</span></label>
+                            <select name="bahan_id" id="bahan_id" class="form-control select2" style="width:100%;" required>
+                            <option value="">-- Pilih Bahan --</option>
+                            <?php foreach ($bahan as $s) : ?>
+                                <option value="<?= $s['id'] ?>"><?= $s['nama_bahan'] ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="harga">Harga <span class="text-danger">*</span></label>
+                            <input type="number" name="harga" id="harga"  class="form-control" value="<?= set_value('harga', $aset['harga']); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="ukuran">Ukuran <span class="text-danger">*</span></label>
+                            <input name="ukuran" id="ukuran"  class="form-control" value="<?= set_value('ukuran', $aset['ukuran']); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="bpkb">Bpkb <span class="text-danger">*</span></label>
+                            <input name="bpkb" id="bpkb"  class="form-control" value="<?= set_value('bpkb', $aset['bpkb']); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="asal_usul">Asal usul <span class="text-danger">*</span></label>
+                            <input name="asal_usul" id="asal_usul"  class="form-control" value="<?= set_value('asal_usul', $aset['asal_usul']); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="nomor_register">Nomor register <span class="text-danger">*</span></label>
+                            <input name="nomor_register" id="nomor_register" class="form-control" value="<?= set_value('nomor_register', $aset['nomor_register']); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="nomor_rangka">Nomor rangka <span class="text-danger">*</span></label>
+                            <input name="nomor_rangka" id="nomor_rangka" class="form-control" value="<?= set_value('nomor_rangka', $aset['nomor_rangka']); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="nomor_mesin">Nomor mesin <span class="text-danger">*</span></label>
+                            <input name="nomor_mesin" id="nomor_mesin"  class="form-control" value="<?= set_value('nomor_mesin', $aset['nomor_mesin']); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="nomor_polisi">Nomor polisi <span class="text-danger">*</span></label>
+                            <input name="nomor_polisi" id="nomor_polisi" class="form-control" value="<?= set_value('nomor_polisi', $aset['nomor_polisi']); ?>">
+                        </div>
+
+                        <div class="form-group">
                             <label for="keterangan">Keterangan <span class="text-danger">*</span></label>
-                            <textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control" required><?= set_value('keterangan', $aset['keterangan']); ?></textarea>
+                            <textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control"><?= set_value('keterangan', $aset['keterangan']); ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="stok">Stok <span class="text-danger">*</span></label>

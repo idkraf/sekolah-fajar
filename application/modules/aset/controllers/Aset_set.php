@@ -65,6 +65,8 @@ class Aset_set extends CI_Controller {
                 $data['kategori'] = $this->admin->get('kategori');
                 $data['ruangan'] = $this->admin->get('ruangan');
                 $data['dana'] = $this->admin->get('dana');
+                $data['bahan'] = $this->admin->get('bahan');
+                $data['kondisi'] = $this->admin->get('kondisi');
                 $this->load->view('manage/layout', $data);
             } else {
                 $input = $this->input->post(null, true);
@@ -90,6 +92,8 @@ class Aset_set extends CI_Controller {
                 $data['kategori'] = $this->admin->get('kategori');
                 $data['ruangan'] = $this->admin->get('ruangan');
                 $data['dana'] = $this->admin->get('dana');
+                $data['kondisi'] = $this->admin->get('kondisi');
+                $data['bahan'] = $this->admin->get('bahan');
                 
                 $data['main'] = 'aset/edit';
                 $this->load->view('manage/layout', $data);
@@ -116,6 +120,12 @@ class Aset_set extends CI_Controller {
         if ($this->form_validation->run() == false) {
             $data['title'] = "Aset";
             $data['aset'] = $this->admin->get('aset', ['idbarang' => $id]);
+            $data['merek'] = $this->admin->get('merek');
+            $data['kategori'] = $this->admin->get('kategori');
+            $data['ruangan'] = $this->admin->get('ruangan');
+            $data['dana'] = $this->admin->get('dana');
+            $data['kondisi'] = $this->admin->get('kondisi');
+            $data['bahan'] = $this->admin->get('bahan');
             
             $data['main'] = 'aset/edit';
             $this->load->view('manage/layout', $data);

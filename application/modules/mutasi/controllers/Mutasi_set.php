@@ -15,8 +15,11 @@ class Mutasi_set extends CI_Controller {
 	
     public function index()
     {
-        $data['title'] = "Merek";
+        $data['title'] = "Mutasi";
         $data['main'] = 'mutasi/list';
+        $data['majors'] = $this->admin->get('majors');
+        $data['employee'] = $this->admin->get('pegawai');
+        $data['aset'] = $this->admin->get('aset');
         $this->load->view('manage/layout', $data);
     }
 

@@ -11,11 +11,13 @@ class Aset_model extends CI_Model {
 
     private function _get_datatables_query() {
         
-        $this->db->select('aset.*,x1.nama_merek, x2.nama_kategori, x3.nama_ruangan, x4.nama_dana');        
+        $this->db->select('aset.*,x1.nama_merek, x2.nama_kategori, x3.nama_ruangan, x4.nama_dana, x5.nama_kondisi, x6.nama_bahan');        
         $this->db->join('merek x1', 'x1.id_merek = aset.merek_id');
         $this->db->join('kategori x2', 'x2.idkategori = aset.kategori_id');
         $this->db->join('ruangan x3', 'x3.idruangan = aset.ruangan_id');
         $this->db->join('dana x4', 'x4.iddana = aset.dana_id');
+        $this->db->join('kondisi x5', 'x5.id = aset.kondisi_id');
+        $this->db->join('bahan x6', 'x6.id = aset.bahan_id');
         //if ($limit != null) {
         //    $this->db->limit($limit);
         //}
@@ -142,5 +144,91 @@ class Aset_model extends CI_Model {
         return $this->db->delete($table, [$pk => $id]);
     }
 
+    function add($data = array()) {
+
+        if (isset($data['id'])) {
+            $this->db->set('id', $data['id']);
+        }
+        if (isset($data['idbarang'])) {
+            $this->db->set('idbarang', $data['idbarang']);
+        }
+        if (isset($data['merek_id'])) {
+            $this->db->set('merek_id', $data['merek_id']);
+        }
+        if (isset($data['kategori_id'])) {
+            $this->db->set('kategori_id', $data['kategori_id']);
+        }
+        if (isset($data['ruangan_id'])) {
+            $this->db->set('ruangan_id', $data['ruangan_id']);
+        }
+        if (isset($data['dana_id'])) {
+            $this->db->set('dana_id', $data['dana_id']);
+        }
+        if (isset($data['kondisi_id'])) {
+            $this->db->set('kondisi_id', $data['kondisi_id']);
+        }
+        if (isset($data['bahan_id'])) {
+            $this->db->set('bahan_id', $data['bahan_id']);
+        }
+        if (isset($data['nama_barang'])) {
+            $this->db->set('nama_barang', $data['nama_barang']);
+        }
+        if (isset($data['kode_barang'])) {
+            $this->db->set('kode_barang', $data['kode_barang']);
+        }
+        if (isset($data['nomor_register'])) {
+            $this->db->set('nomor_register', $data['nomor_register']);
+        }
+        if (isset($data['ukuran'])) {
+            $this->db->set('ukuran', $data['ukuran']);
+        }
+        if (isset($data['nomor_rangka'])) {
+            $this->db->set('nomor_rangka', $data['nomor_rangka']);
+        }
+        
+        if (isset($data['nomor_mesin'])) {
+            $this->db->set('nomor_mesin', $data['nomor_mesin']);
+        }
+        
+        if (isset($data['nomor_polisi'])) {
+            $this->db->set('nomor_polisi', $data['nomor_polisi']);
+        }
+        
+        if (isset($data['bpkb'])) {
+            $this->db->set('bpkb', $data['bpkb']);
+        }
+        
+        if (isset($data['asal_usul'])) {
+            $this->db->set('asal_usul', $data['asal_usul']);
+        }
+        if (isset($data['harga'])) {
+            $this->db->set('harga', $data['harga']);
+        }
+        if (isset($data['keterangan'])) {
+            $this->db->set('keterangan', $data['keterangan']);
+        }
+        if (isset($data['stok'])) {
+            $this->db->set('stok', $data['stok']);
+        }
+        if (isset($data['tanggal_pembelian'])) {
+            $this->db->set('tanggal_pembelian', $data['tanggal_pembelian']);
+        }
+        //if (isset($data[''])) {
+        //    $this->db->set('', $data['']);
+       // }
+        
+        
+        if (isset($data['id'])) {
+            $this->db->where('id', $data['id']);
+            $this->db->update('aset');
+            $id = $data['id'];
+        } else {
+            $this->db->insert('aset');
+            $id = $this->db->insert_id();
+        }
+
+        $status = $this->db->affected_rows();
+        return ($status == 0) ? FALSE : $id;
+    }
 
 }

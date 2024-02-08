@@ -13,28 +13,6 @@
         <?= $this->session->flashdata('pesan'); ?>
         <div class="box shadow-sm border-bottom-primary">
         
-        <!--div class="box-body table-responsive">
-            <div class="form-group">
-                <div class="col-sm-3">
-                    <select name="period_id" class="form-control">
-                        <option value="">- Pilih Tahun Ajaran -</option>
-                        <?php foreach ($period as $row) : ?>
-                            <option value="<?php echo $row['period_id']; ?>" <?php echo ($inputPeriodValue == $row['period_id']) ? 'selected' : '' ?>><?php echo $row['period_start'] . '/' . $row['period_end']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div id="div_class">
-                    <div class="col-sm-3">
-                        <select id="bulan" class="form-control">
-                            <option value="0">- Pilih Bulan -</option>
-                            <?php foreach ($bulan as $row): ?>
-                                <option value="<?php echo $row['month_id'] ?>"><?php echo $row['month_name'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div-->
             <div class="box-body table-responsive">
                 <table class="table table-striped" id="dataObatOut">
                     <thead>
