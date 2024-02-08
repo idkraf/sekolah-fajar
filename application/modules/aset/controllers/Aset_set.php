@@ -70,8 +70,17 @@ class Aset_set extends CI_Controller {
                 $this->load->view('manage/layout', $data);
             } else {
                 $input = $this->input->post(null, true);
-                $insert = $this->admin->insert('aset', $input);
+                //$insert = $this->admin->insert('aset', $input);
+                $insert = $this->admin->add('aset', $input);
                 if ($insert) {
+                                    
+                    if (!empty($_FILES['filegambar']['name'])) {
+                        $paramsupdate['gambar'] = $this->do_upload($name = 'filegambar', $fileName= $id);
+                    } 
+                    
+                    $paramsupdate['id'] = $insert;
+                    $this->admin->add($paramsupdate);
+                    
                     $this->session->set_flashdata('success','Data berhasil disimpan');
                     redirect('manage/aset');
                 } else {
@@ -99,8 +108,10 @@ class Aset_set extends CI_Controller {
                 $this->load->view('manage/layout', $data);
                 //$this->template->load('templates/dashboard', 'gudang/edit', $data);
             } else {
-                $input = $this->input->post(null, true);
-                $update = $this->admin->update('aset', 'id', $id, $input);
+                $input = $this->input->post(null, true);                
+                 $input['id'] = $id;
+                //$update = $this->admin->update('aset', 'id', $id, $input);                
+                $update = $this->admin->add('aset', $input);
                 if ($update) {
                     $this->session->set_flashdata('success','Data berhasil disimpan');
                     redirect('manage/aset');
@@ -131,9 +142,19 @@ class Aset_set extends CI_Controller {
             $this->load->view('manage/layout', $data);
             //$this->template->load('templates/dashboard', 'gudang/edit', $data);
         } else {
-            $input = $this->input->post(null, true);
-            $update = $this->admin->update('aset', 'idbarang', $id, $input);
+            $input = $this->input->post(null, true);                
+            $input['id'] = $id;          
+            $update = $this->admin->add('aset', $input);
+            //$update = $this->admin->update('aset', 'idbarang', $id, $input);
             if ($update) {
+                
+                if (!empty($_FILES['filegambar']['name'])) {
+                    $paramsupdate['gambar'] = $this->do_upload($name = 'filegambar', $fileName= $id);
+                } 
+                
+                $paramsupdate['id'] = $insert;
+                $this->admin->add($paramsupdate);
+
                 $this->session->set_flashdata('success','Data berhasil disimpan');
                 redirect('manage/aset');
             } else {
@@ -182,5 +203,32 @@ class Aset_set extends CI_Controller {
         //output to json format
         echo json_encode($output);
     }
+
+    
+    // Setting Upload File Requied
+  function do_upload($name=NULL, $fileName=NULL) {
+    $this->load->library('upload');
+
+    $config['upload_path'] = FCPATH . 'media/aset/';
+
+    /* create directory if not exist */
+    if (!is_dir($config['upload_path'])) {
+      mkdir($config['upload_path'], 0777, TRUE);
+    }
+
+    $config['allowed_types'] = 'gif|jpg|jpeg|png';
+    $config['max_size'] = '1024';
+    $config['file_name'] = $fileName;
+    $this->upload->initialize($config);
+
+    if (!$this->upload->do_upload($name)) {
+      $this->session->set_flashdata('success', $this->upload->display_errors('', ''));
+      redirect(uri_string());
+    }
+
+    $upload_data = $this->upload->data();
+
+    return $upload_data['file_name'];
+  }
 
 }
