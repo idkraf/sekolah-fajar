@@ -1,43 +1,30 @@
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <?php if ($this->session->userdata('student_img') != null) { ?>
-          <img src="<?php echo upload_url().'/student/'.$this->session->userdata('student_img'); ?>" class="img-responsive">
-          <?php } else { ?>
-          <img src="<?php echo media_url() ?>img/user.png" class="img-responsive">
-          <?php } ?>
-        </div>
-        <div class="pull-left info">
-          <p><?php echo ucfirst($this->session->userdata('ufullname_student')); ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-
-      <div style="margin-top: 20px"></div>
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MENU</li>
-
+<div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+    <div class="brand-logo">     
+    <?php if (!empty(logo())) { ?>      
+        <img src="<?php echo upload_url('school/' . logo()) ?>" class="logo-icon" alt="logo icon">   
+      <?php } else { ?>
+        <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">   
+      <?php } ?>
+      <h5 class="logo-text">
+        <?php echo ucfirst($this->config->item('app_name')); ?>
+      </h5>        
+    </div>
+    <ul class="sidebar-menu do-nicescrol mt-5">
+        <li class="sidebar-header">
+          <i class="fa fa-circle text-success"></i> Online
+        </li>
         <li class="<?php echo ($this->uri->segment(2) == 'dashboard' OR $this->uri->segment(2) == NULL) ? 'active' : '' ?>">
-          <a href="<?php echo site_url('student'); ?>">
-            <i class="fa fa-th"></i> <span>Dashboard</span>
-            <span class="pull-right-container"></span>
-          </a>
-        </li> 
-
-        <li class="<?php echo ($this->uri->segment(2) == 'payout') ? 'active' : '' ?>">
-          <a href="<?php echo site_url('student/payout'); ?>">
-            <i class="fa fa-calendar"></i> <span>Bulanan</span>
-            <span class="pull-right-container"></span>
-          </a>
+            <a href="<?php echo site_url('student'); ?>">
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+            </a>
         </li>
 
+        <li class="<?php echo ($this->uri->segment(2) == 'payout') ? 'active' : '' ?>">
+            <a href="<?php echo site_url('student/payout'); ?>">
+                <i class="zmdi zmdi-calendar-check"></i> <span>Bulanan</span>
+                <small class="badge float-right badge-light">New</small>
+            </a>
+        </li>
+    </ul>
 
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+</div>

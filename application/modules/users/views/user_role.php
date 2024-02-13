@@ -17,7 +17,7 @@
 
 				<!-- Profile Image -->
 				<div class="box box-primary">
-					<div class="box-body">
+					<div class="card-body">
 						
 						<div class="form-group">
 							<label>Role <small data-toggle="tooltip" title="" data-original-title="Wajib diisi">*</small></label>
@@ -58,11 +58,11 @@
 			<div class="col-md-8">
 				<!-- About Me Box -->
 				<div class="box box-primary">
-					<div class="box-header with-border">
+					<div class="card-header with-border">
 						<h3 class="box-title">Hak Akses</h3>
 					</div>
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 					    <div id="tabel">
                             <table data-paging="false" data-searching="false" data-ordering="false" id="dataPermision" class="table table-hover table-responsive">
                                 <thead>

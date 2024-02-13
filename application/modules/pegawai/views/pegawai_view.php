@@ -17,7 +17,7 @@
 			<div class="col-md-6">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="col-md-12 col-sm-12 col-xs-12 pull-left">
 							<br>
 							<div class="row">
@@ -133,7 +133,7 @@
 			<div class="col-md-6">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 					    <h3>Riwayat Pendidikan</h3>
 					    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addEducation<?php echo $pegawai['employee_id']; ?>"><i class="fa fa-plus"></i> Tambah</button>
@@ -208,7 +208,7 @@
 			<div class="col-md-6">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 					    <h3>Riwayat Seminar &amp; Pelatihan</h3>
 					    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addWorkshop<?php echo $pegawai['employee_id']; ?>"><i class="fa fa-plus"></i> Tambah</button>
@@ -289,7 +289,7 @@
 			<div class="col-md-6">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 					    <h3>Data Keluarga</h3>
 					    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addFamily<?php echo $pegawai['employee_id']; ?>"><i class="fa fa-plus"></i> Tambah</button>
@@ -362,7 +362,7 @@
 		    <div class="col-md-6">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 					    <h3>Riwayat Jabatan</h3>
 					    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addPosition<?php echo $pegawai['employee_id']; ?>"><i class="fa fa-plus"></i> Tambah</button>
@@ -441,7 +441,7 @@
 			<div class="col-md-6">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 					    <h3>Riwayat Mengajar</h3>
 					    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addTeaching<?php echo $pegawai['employee_id']; ?>"><i class="fa fa-plus"></i> Tambah</button>
@@ -516,7 +516,7 @@
 		    <div class="col-md-6">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 					    <h3>Penghargaan</h3>
 					    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addAchievement<?php echo $pegawai['employee_id']; ?>"><i class="fa fa-plus"></i> Tambah</button>

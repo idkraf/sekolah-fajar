@@ -13,12 +13,12 @@
 	<section class="content">
     <?php $id_barang = $this->input->get('id_barang'); ?>
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-lg-12">
         <div class="box shadow-sm border-bottom-primary">
-          <div class="box-header bg-white py-3">
+          <div class="card-header bg-white py-3">
             <h4 class="h5 align-middle m-0 font-weight-bold text-dark">Pilih Barang</h4>
           </div>
-          <div class="box-body">
+          <div class="card-body">
             <form>
               <div class="input-group">
                 <select name="id_barang" class="form-control" aria-describedby="button-addon2">
@@ -65,7 +65,7 @@
       <div class="row justify-content-center mt-4">
         <div class="col-12">
           <div class="box shadow-sm border-bottom-primary">
-            <div class="box-header bg-white py-3">
+            <div class="card-header bg-white py-3">
               
               <h4 class="h5 align-middle m-0 font-weight-bold text-dark">Nama Barang: <span class="text-primary"><?php echo $barang['nama_barang'] ?></span></h4>
               <h4 class="h5 align-middle m-0 font-weight-bold text-dark">Rasa: <span class="text-primary"><?php echo $rasa['nama_rasa'] ?></span></h4>
@@ -73,7 +73,7 @@
               <h4 class="h5 align-middle m-0 font-weight-bold text-dark">Merek: <span class="text-primary"><?php echo $merek['nama_merek']?></span></h4>              
               <h4 class="h5 align-middle m-0 font-weight-bold text-dark">Stok Awal: <span class="text-primary"><?php echo $barang['stok_awal']?></span></h4>
             </div>
-            <div class="box-body">
+            <div class="card-body">
               <table class="table data w-100">
                 <thead>
                   <tr>

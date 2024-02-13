@@ -14,11 +14,11 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="box">
-					<div class="box-header">
+				<div class="card">
+					<div class="card-header">
 						<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addDebit"><i class="fa fa-plus"></i> Tambah</button>
 
-						<div class="box-tools">
+						<div class="btn-group">
 							<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
 							<div class="input-group input-group-sm" style="width: 250px;">
 								<input type="text" id="field" autofocus name="n" <?php echo (isset($f['n'])) ? 'placeholder="'.$f['n'].'"' : 'placeholder="Keterangan Penerimaan"' ?> class="form-control" required>
@@ -30,7 +30,7 @@
 						</div>
 					</div>
 					<!-- /.box-header -->
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-hover">
 							<tr>
 								<th>No</th>

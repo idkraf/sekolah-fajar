@@ -13,10 +13,10 @@
 		<div class="row">	
 			<div class="col-md-4"> 
 				<div class="box box-info">
-					<div class="box-header with-border">
+					<div class="card-header with-border">
 						<h3 class="box-title">Informasi Tagihan</h3>
 					</div><!-- /.box-header -->
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-striped">
 							<tbody><tr>
 								<td>Jenis</td>
@@ -68,14 +68,14 @@
 			</div>
 			<div class="col-md-8">
 				<div class="box box-warning">
-					<div class="box-header with-border">
+					<div class="card-header with-border">
 						<form action="<?php echo site_url('manage/payout/multiple'); ?>" method="post">
 							<h3 class="box-title">Pembayaran Tagihan Bulanan</h3>
 
 							<input type="hidden" name="action" value="printAll">
 							<button type="submit" class="btn btn-success btn-xs pull-right" formtarget="_blank"><span class="fa fa-print"></span> Cetak yang dipilih</button>
 						</div><!-- /.box-header -->
-						<div class="box-body table-responsive">
+						<div class="card-body table-responsive">
 							<table class="table table-striped table-hover">
 								<thead>
 									<tr>

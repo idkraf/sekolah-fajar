@@ -13,12 +13,12 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="box">
-					<div class="box-header">
+				<div class="card">
+					<div class="card-header">
 						<a href="<?php echo site_url('manage/information/add') ?>" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah</a>
 					</div>
 					<!-- /.box-header -->
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-hover">
 							<tr>
 								<th>No</th>

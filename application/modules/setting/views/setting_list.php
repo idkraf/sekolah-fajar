@@ -13,7 +13,7 @@
     <div class="col-md-6">
 
       <?php echo form_open_multipart(current_url()); ?>
-      <div class="box-body">
+      <div class="card-body">
 
         <div class="row">
           <div class="">

@@ -12,12 +12,12 @@
 	</section>
 	<section class="content">
 		<div class="row">
-			<div class="col-xs-12">
-				<div class="box">
-					<div class="box-header">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
 						<h3 class="box-title"></h3>
 
-						<div class="box-tools">
+						<div class="btn-group">
 							<div class="input-group input-group-sm" style="width: 150px;">
 								<input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
@@ -28,7 +28,7 @@
 						</div>
 					</div>
 					<!-- /.box-header -->
-					<div class="box-body table-responsive no-padding">
+					<div class="card-body table-responsive no-padding">
 						<table class="table table-hover">
 							<tr>
 								<th>No</th>

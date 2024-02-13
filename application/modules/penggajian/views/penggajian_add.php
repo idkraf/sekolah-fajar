@@ -77,7 +77,7 @@ if (isset($potongan)) {
 <section class="content">
     <div class="row">
         <div class="col-md-9">
-            <div class="box">
+            <div class="card">
             <table class="table">
                     <tbody><tr>
                         <td width="200">Unit</td>
@@ -106,9 +106,9 @@ if (isset($potongan)) {
 		<!-- Small boxes (Stat box) -->
 		<div class="row">
 			<div class="col-md-9">
-                <div class="box">
+                <div class="card">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 					    		    
 					    <div class="form-group">
     					    <div class="row">

@@ -32,7 +32,7 @@ if (isset($class)) {
 			<div class="col-md-9">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php echo validation_errors(); ?>
 						<?php if (isset($class)) { ?>
 						<input type="hidden" name="class_id" value="<?php echo $class['class_id']; ?>">
@@ -62,7 +62,7 @@ if (isset($class)) {
 			<div class="col-md-3">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<button type="submit" class="btn btn-block btn-success">Simpan</button>
 						<a href="<?php echo site_url('manage/class'); ?>" class="btn btn-block btn-info">Batal</a>
 					</div>

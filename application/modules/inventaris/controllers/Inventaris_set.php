@@ -32,6 +32,10 @@ class Inventaris_set extends CI_Controller {
 	}
 	
     public function ajax_list() {
+		$this->load->library('Barcode');
+        $br = new Barcode();
+        
+
 		$m = $this->input->post('m');
 		$r = $this->input->post('r');
         $list = $this->admin->get_datatables($m,$r);
@@ -59,15 +63,19 @@ class Inventaris_set extends CI_Controller {
             $row[] = $prd->harga;
             $row[] = $prd->nama_kondisi;
             $row[] = $prd->keterangan;
-            $row[] = '<button            
-            data-qr-kode="'.$prd->idbarang.'  '.$prd->kode_barang.'" 
-            data-qr-nama="'.$prd->nama_barang.'" 
-            data-qr-jenis="'.$prd->majors_id.'"
-            data-qr-nomor="'.$prd->nomor_register.'"
-            data-qr-unit="'.$prd->majors_name.'"
-            data-qr-ruang="'.$prd->nama_ruangan.'"
-            data-qr-tahun="'.$prd->tanggal_pembelian.'"
-            class="btn btn-warning qr-object">Open QR</button>';
+            $row[] = '';
+            //$row[] = $br->generateBarcode('123');
+            
+            //$row[] = '<button            
+            //data-qr-kode="'.$prd->idbarang.'  '.$prd->kode_barang.'" 
+            //data-qr-nama="'.$prd->nama_barang.'" 
+            //data-qr-jenis="'.$prd->majors_id.'"
+            //data-qr-nomor="'.$prd->nomor_register.'"
+            //data-qr-unit="'.$prd->majors_name.'"
+            //data-qr-ruang="'.$prd->nama_ruangan.'"
+            //data-qr-tahun="'.$prd->tanggal_pembelian.'"
+            //class="btn btn-warning qr-object">Open QR</button>';
+
             $row[] = '<button            
             data-id="'.$prd->idinventaris.'" 
             data-majors-id="'.$prd->majors_id.'"

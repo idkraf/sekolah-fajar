@@ -36,7 +36,7 @@
 				</div>
 				<div class="col-md-4">
 					<a href="<?php echo site_url('manage') ?>">
-					<div class="box">
+					<div class="card">
 						<i class="fa fa-desktop icon-menu"></i>
 						<br>
 						Login Admin
@@ -45,7 +45,7 @@
 				</div>
 				<div class="col-md-4">
 					<a href="<?php echo site_url('home') ?>">
-					<div class="box">
+					<div class="card">
 						<i class="fa fa-credit-card icon-menu"></i>
 						<br>
 						Cek Pembayaran Siswa
@@ -54,7 +54,7 @@
 				</div>
 				<div class="col-md-4">
 					<a href="<?php echo site_url('student') ?>">
-					<div class="box">
+					<div class="card">
 						<i class="fa fa-users icon-menu"></i>
 						<br>
 						Login Siswa

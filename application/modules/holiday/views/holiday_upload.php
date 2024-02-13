@@ -11,10 +11,10 @@
 	</section>
 	<section class="content">
 		<div class="row">
-			<div class="col-xs-12">
-				<div class="box">
+			<div class="col-lg-12">
+				<div class="card">
 					<!-- /.box-header -->
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<h4>Petunjuk Singkat</h4>
 						<p>Penginputan data Agenda bisa dilakukan dengan mengcopy data dari file Ms. Excel. Format file excel harus sesuai kebutuhan aplikasi. Silahkan download formatnya <a href="<?php echo site_url('manage/holiday/download');?>"><span class="label label-success">Disini</span></a>
 							<br><br>

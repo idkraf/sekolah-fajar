@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="box box-warning">
-					<div class="box-header">
+					<div class="card-header">
 						<div class="col-md-6">
 							<a href="<?php echo site_url('manage/maintenance/backup') ?>">
 							<i class="fa fa-database" style="color:#03C9A9; font-size: 90pt"></i><br>

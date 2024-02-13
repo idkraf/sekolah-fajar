@@ -12,11 +12,11 @@
 	</section>
 	<section class="content">
 		<div class="row">
-			<div class="col-xs-12">
-				<div class="box"> 
-					<div class="box-header">
+			<div class="col-lg-12">
+				<div class="card"> 
+					<div class="card-header">
 													
-						<div class="box-body table-responsive">
+						<div class="card-body table-responsive">
 							<form action="" class="form-horizontal" method="get" accept-charset="utf-8">
 								<table>
 									<tbody>
@@ -43,7 +43,7 @@
 							</form>					
 						</div>
 
-						<div class="box-tools" style="margin-top:15px;">
+						<div class="btn-group" style="margin-top:15px;">
 							<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
 							<div class="input-group input-group-sm" style="width: 200px;">
 								<input type="text" id="field" autofocus name="n" <?php echo (isset($f['n'])) ? 'placeholder="'.$f['n'].'"' : 'placeholder="NIP"' ?> class="form-control">
@@ -54,7 +54,7 @@
 							<?php echo form_close(); ?>
 						</div>
 						<!-- /.box-header -->
-						<div class="box-body table-responsive">
+						<div class="card-body table-responsive">
 							<table id="penggajian" class="table table-hover">
 								<tr>
 									<th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th> 

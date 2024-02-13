@@ -12,12 +12,12 @@
 	</section>
 	<section class="content">
 		<div class="row"> 
-			<div class="col-xs-12"> 
+			<div class="col-lg-12"> 
 				<div class="box box-primary">
-					<div class="box-header with-border">
+					<div class="card-header with-border">
 						<h3 class="box-title">Tarif - <?php echo $payment['pos_name'].' - T.A '.$payment['period_start'].'/'.$payment['period_end']; ?></h3>
 					</div><!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
 						<div class="form-group">						
 							<label for="" class="col-sm-1 control-label">Tahun</label>
@@ -65,7 +65,7 @@
 
 			<?php if($q) { ?>
 				<div class="box box-primary">
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-hover">
 							<tr>
 								<th>No</th>

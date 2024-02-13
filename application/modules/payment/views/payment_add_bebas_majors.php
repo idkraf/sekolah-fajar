@@ -11,16 +11,16 @@
 	</section>
 	<section class="content">
 		<div class="row">
-			<div class="box-body">
+			<div class="card-body">
 				<?php echo form_open_multipart(current_url(), array('class' => 'form-horizontal')); ?>
 				<?php echo validation_errors(); ?>
 
 				<div class="col-md-6">
 					<div class="box box-danger">
-						<div class="box-header">
+						<div class="card-header">
 							<h3 class="box-title">Informasi Pembayaran</h3>
 						</div>
-						<div class="box-body">
+						<div class="card-body">
 							<div class="form-group">
 								<label for="" class="col-sm-4 control-label">Jenis Bayar</label>
 								<div class="col-sm-8">
@@ -47,10 +47,10 @@
 				<div class="col-md-6">
 
 					<div class="box box-success">
-						<div class="box-header">
+						<div class="card-header">
 							<h3 class="box-title">Tarif Tagihan Per Program Keahlian</h3>
 						</div>
-						<div class="box-body table-responsive">
+						<div class="card-body table-responsive">
 
 							<table class="table">
 								<tbody>

@@ -14,12 +14,12 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="box shadow-sm border-bottom-primary">
-                    <div class="box-header bg-white py-3">
+                    <div class="card-header bg-white py-3">
                         <h4 class="h5 align-middle m-0 font-weight-bold text-primary">
                             Report Form
                         </h4>
                     </div>
-                    <div class="box-body">
+                    <div class="card-body">
                         <?= $this->session->flashdata('pesan'); ?>
                         <?= form_open(); ?>
                         <div class="row form-group">

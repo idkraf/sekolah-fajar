@@ -12,12 +12,12 @@
 	</section>
 	<section class="content">
 		<div class="row">
-			<div class="col-xs-12">
-				<div class="box">
-					<div class="box-header">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
 					</div>
 					<!-- /.box-header -->
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-hover">
 							<tr>
 								<th>No</th>

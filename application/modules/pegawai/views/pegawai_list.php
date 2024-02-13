@@ -12,9 +12,9 @@
 	</section>
 	<section class="content">
 		<div class="row">
-			<div class="col-xs-12">
-				<div class="box"> 
-					<div class="box-header">
+			<div class="col-lg-12">
+				<div class="card"> 
+					<div class="card-header">
 						<?php if ($this->session->userdata('uroleid') != GURU) { ?>
 						<a href="<?php echo site_url('manage/pegawai/add') ?>" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah</a>
 						<a href="<?php echo site_url('manage/pegawai/import') ?>" class="btn btn-sm btn-info"><i class="fa fa-upload"></i> Upload Pegawai</a>
@@ -22,7 +22,7 @@
 						
 						<?php } ?>
 
-						<div class="box-tools">
+						<div class="btn-group">
 							<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
 							<div class="input-group input-group-sm" style="width: 200px;">
 								<input type="text" id="field" autofocus name="n" <?php echo (isset($f['n'])) ? 'placeholder="'.$f['n'].'"' : 'placeholder="NIS Siswa"' ?> class="form-control">
@@ -33,7 +33,7 @@
 							<?php echo form_close(); ?>
 						</div>
 						<!-- /.box-header -->
-						<div class="box-body table-responsive">
+						<div class="card-body table-responsive">
 							<table class="table table-hover">
 								<tr>
 									<th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th> 

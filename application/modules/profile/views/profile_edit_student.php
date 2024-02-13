@@ -56,9 +56,9 @@ if (isset($student)) {
 		<!-- Small boxes (Stat box) -->
 		<div class="row">
 			<div class="col-md-9">
-				<div class="box">
+				<div class="card">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="nav-tabs-custom">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#tab_1" data-toggle="tab">Data Pribadi</a></li>
@@ -165,7 +165,7 @@ if (isset($student)) {
 			<div class="col-md-3">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<label >Foto</label>
 						<a href="#" class="thumbnail">
 							<?php if (isset($student) AND $student['student_img'] != NULL) { ?>

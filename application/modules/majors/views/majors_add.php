@@ -34,7 +34,7 @@ if (isset($majors)) {
 			<div class="col-md-9">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php echo validation_errors(); ?>
 						<?php if (isset($majors)) { ?>
 						<input type="hidden" name="majors_id" value="<?php echo $majors['majors_id']; ?>">
@@ -60,7 +60,7 @@ if (isset($majors)) {
 			<div class="col-md-3">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<button type="submit" class="btn btn-block btn-success">Simpan</button>
 						<a href="<?php echo site_url('manage/majors'); ?>" class="btn btn-block btn-info">Batal</a>
 					</div>

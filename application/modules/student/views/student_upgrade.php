@@ -21,8 +21,8 @@
 		<!-- /.box-header -->
 		<div class="row">
 			<div class="col-md-9">
-				<div class="box">					
-					<div class="box-body table-responsive">
+				<div class="card">					
+					<div class="card-body table-responsive">
 						<?php echo form_open(current_url(), array('method' => 'get')) ?>
 						<table style="width:100%">
 							<tbody>
@@ -58,7 +58,7 @@
 						</table>
 						<?php echo form_close() ?>
 					</div>
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-hover table-bordered table-responsive">
 							<form action="<?php echo site_url('manage/student/multiple'); ?>" method="post">
 								<input type="hidden" name="action" value="upgrade">

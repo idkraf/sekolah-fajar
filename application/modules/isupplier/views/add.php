@@ -2,7 +2,7 @@
     <section class="content">
         <div class="row">
             <div class="box box-primary">
-                <div class="box-body">
+                <div class="card-body">
                     <?= $this->session->flashdata('pesan'); ?>
                     <?= form_open_multipart(); ?>
                     <div class="form-group">

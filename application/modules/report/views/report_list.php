@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="box box-success">
-					<div class="box-header">
+					<div class="card-header">
 						<?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
 						<div class="row">
 							<div class="col-md-3">  

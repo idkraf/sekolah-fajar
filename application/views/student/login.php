@@ -11,18 +11,35 @@
 
   <link rel="icon" type="image/png" href="<?php echo media_url('img/smplogo.png') ?>">
 
-  <link href="<?php echo media_url() ?>css/bootstrap.min.css" rel="stylesheet" />
-  <link href="<?php echo media_url() ?>css/font-awesome.min.css" rel="stylesheet" />
   <link href="<?php echo media_url() ?>css/login.css" rel="stylesheet" />
+    <!-- loader-->
+    <link href="<?php echo asset_url() ?>css/pace.min.css" rel="stylesheet" />
+    <script src="<?php echo asset_url() ?>js/pace.min.js"></script>
+    <!--favicon-->
+    <link rel="icon" href="<?php echo asset_url() ?>images/favicon.ico" type="image/x-icon">
+    <!--Full Calendar Css-->
+    <link href="<?php echo asset_url() ?>plugins/fullcalendar/css/fullcalendar.min.css" rel='stylesheet' />
+    <!-- simplebar CSS-->
+    <link href="<?php echo asset_url() ?>plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="<?php echo asset_url() ?>css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="<?php echo asset_url() ?>css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="<?php echo asset_url() ?>css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="<?php echo asset_url() ?>css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="<?php echo asset_url() ?>css/app-style.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-theme bg-theme3">
 
 
   <div class="row">
     <div class="col-md-5">
-      <div class="logo hidden-xs hidden-sm">
+      <div class="card logo hidden-xs hidden-sm">
         <?php if (isset($setting_logo) AND $setting_logo['setting_value'] == NULL) { ?>
-        <img src="<?php echo media_url('img/logo.png') ?>" class="img-responsive">
+        <img src="<?php echo media_url('img/logo.png') ?>" class="img-responsive card-img-top">
         <?php } else { ?>
         <img src="<?php echo upload_url('school/' . $setting_logo['setting_value']) ?>" class="img-responsive">
         <?php } ?>
@@ -35,7 +52,7 @@
       <?php } ?> 
     </div>
     <div class="col-md-7">
-      <div class="box">
+      <div class="card">
         <?php echo form_open('student/auth/login', array('class'=>'login100-form validate-form')); ?>
 
         <div class="col-md-12">

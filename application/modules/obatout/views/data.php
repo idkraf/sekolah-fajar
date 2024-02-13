@@ -13,7 +13,7 @@
         <?= $this->session->flashdata('pesan'); ?>
         <div class="box shadow-sm border-bottom-primary">
         
-            <div class="box-body table-responsive">
+            <div class="card-body table-responsive">
                 <table class="table table-striped" id="dataObatOut">
                     <thead>
                         <tr>

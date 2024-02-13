@@ -13,7 +13,7 @@
 	<section class="content">
 		
 				<div class="box box-success">
-					<div class="box-header">
+					<div class="card-header">
 						<?php echo form_open(current_url(), array('method' => 'get')) ?>
 							<div class="row">
 								<div class="col-md-3">  
@@ -159,10 +159,10 @@
 					?>
 
 					<div class="box box-success">
-						<div class="box-header with-border">
+						<div class="card-header with-border">
 							<h3 class="box-title">Informasi Pegawai</h3>
 						</div><!-- /.box-header -->
-						<div class="box-body">
+						<div class="card-body">
 							<div class="col-md-9">
 								<table class="table table-striped">
 									<tbody>
@@ -240,12 +240,12 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="box box-primary">
-								<div class="box-header with-border">
+								<div class="card-header with-border">
 									<h3 class="box-title">History Penggajian</h3>
 												<a href="" class="btn btn-info btn-xs"><i class="fa fa-refresh"></i> Refresh</a>
 								</div><!-- /.box-header -->
 								
-								<div class="box-body table-responsive">
+								<div class="card-body table-responsive">
 									<div class="over">
 										<table id="slip" class="table table-responsive table-bordered" style="white-space: nowrap;">
 											<tbody>
@@ -281,7 +281,7 @@
 
 					</div>
 					<div class="box box-primary">
-						<div class="box-header with-border">
+						<div class="card-header with-border">
 							<h3 class="box-title">Kelola Penggajian</h3>
 						</div><!-- /.box-header -->
 						<!--form action="slip/add_slip" method="post" target="_blank"-->
@@ -289,7 +289,7 @@
 						<?php echo form_open_multipart('manage/slip/add_slip', array('target'=>'_blank')); ?>
 
 										
-							<div class="box-body">		
+							<div class="card-body">		
 								<?php foreach ($pegawai as $row): ?>
 									<?php echo (isset($f['n']) AND $f['n'] == $row['employee_nip']) ? 
 									'<input type="hidden" name="employee_id" value="'.$row['employee_id'].'">' : '' ?> 
@@ -876,7 +876,7 @@
 			</div>
 			<div class="modal-body">
 				<div id="div_student">
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table id="dtable" class="table table-hover dataTable no-footer" role="grid">
 							<tr>
 								<th>No</th>

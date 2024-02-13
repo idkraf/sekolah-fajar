@@ -13,12 +13,12 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="box">
-					<div class="box-header">
+				<div class="card">
+					<div class="card-header">
 						<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addPosition"><i class="fa fa-plus"></i> Tambah</button>
 						<br>
 						<br>								
-						<div class="box-body table-responsive">
+						<div class="card-body table-responsive">
 							<form action="" class="form-horizontal" method="get" accept-charset="utf-8">
 								<table>
 									<tbody>
@@ -47,7 +47,7 @@
 						</div>
 					</div>
 					<!-- /.box-header -->
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-hover">
 							<tr>
 								<th>POS</th>

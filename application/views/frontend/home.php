@@ -2,10 +2,10 @@
   <div class="row"> 
     <div class="col-md-12">
       <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
-        <div class="box-header backg with-border">
+        <div class="card-header backg with-border">
           <h3 class="box-title">Cek Data Pembayaran Siswa</h3>
         </div><!-- /.box-header -->
-        <div class="box-body">
+        <div class="card-body">
           <?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
           <div class="form-group">            
             <label for="" class="col-sm-2 control-label">Tahun Pelajaran</label>
@@ -34,10 +34,10 @@
     <div class="row">
       <div class="col-md-6">
         <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
-          <div class="box-header backg with-border">
+          <div class="card-header backg with-border">
             <h3 class="box-title">Informasi Siswa</h3>
           </div><!-- /.box-header -->
-          <div class="box-body">
+          <div class="card-body">
             <table class="table table-striped">
               <tbody>
                 <tr>
@@ -97,10 +97,10 @@
         <div class="col-md-6">
           <!-- List Tagihan Bulanan --> 
           <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
-            <div class="box-header backg with-border">
+            <div class="card-header backg with-border">
               <h3 class="box-title">Tagihan Bulanan</h3>
             </div><!-- /.box-header -->
-            <div class="box-body table-responsive">
+            <div class="card-body table-responsive">
               <table class="table table-striped table-hover" style="cursor: pointer;">
                 <thead>
                   <tr>
@@ -160,10 +160,10 @@
           </div>
         </div>
         <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
-          <div class="box-header backg with-border">
+          <div class="card-header backg with-border">
             <h3 class="box-title">Tagihan Lainnya</h3>
           </div><!-- /.box-header -->
-          <div class="box-body table-responsive">
+          <div class="card-body table-responsive">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>

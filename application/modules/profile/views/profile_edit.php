@@ -36,7 +36,7 @@ if (isset($user)) {
 			<div class="col-md-9">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php echo validation_errors(); ?>
 						<?php if (isset($user)) { ?>
 						<input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
@@ -76,7 +76,7 @@ if (isset($user)) {
 			<div class="col-md-3">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<label >Foto</label>
 						<a href="#" class="thumbnail">
 							<?php if (isset($user) AND $user['user_image'] != NULL) { ?>

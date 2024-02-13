@@ -41,10 +41,10 @@ if (isset($payment)) {
 	<section class="content">
 		
 	<div class="box box-info">
-		<div class="box-header with-border">
+		<div class="card-header with-border">
 			<h3 class="box-title">Filter Bukti Bayar</h3>
 		</div><!-- /.box-header -->
-		<div class="box-body">
+		<div class="card-body">
 			<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
 				<div class="form-group">						
 					<label for="" class="col-sm-2 control-label">Tahun Pelajaran</label>
@@ -85,7 +85,7 @@ if (isset($payment)) {
 			<div class="col-md-9">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php echo validation_errors(); ?>
 						<?php if (isset($payment)) { ?>
 							<input type="hidden" name="id" value="<?php echo $payment['id']; ?>">
@@ -158,7 +158,7 @@ if (isset($payment)) {
 			<div class="col-md-3">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<label>Bukti Bayar</label>
 						<a href="#" class="thumbnail">
 							<?php if (isset($inputBuktiFoto) and $inputBuktiFoto != NULL) { ?>
@@ -243,7 +243,7 @@ if (isset($payment)) {
 				</div>
 				<br>
 				<div id="div_student">
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table id="dtable" class="table table-hover dataTable no-footer" width="100%">
 							<thead>
 								<th>No</th>

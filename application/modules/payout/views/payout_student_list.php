@@ -5,16 +5,16 @@
 			<?php echo isset($title) ? '' . $title : null; ?>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
-			<li class="active"><?php echo isset($title) ? '' . $title : null; ?></li>
+			<li class="breadcrumb-item"><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i></a></li>
+			<li class="breadcrumb-item active"><?php echo isset($title) ? '' . $title : null; ?></li>
 		</ol>
 	</section>
 	<section class="content">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="box">
+				<div class="card">
 					<!-- /.box-header -->
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-hover">
 							<tr>
 								<th>No</th>

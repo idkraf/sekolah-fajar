@@ -13,10 +13,10 @@
 		<div class="row"> 
 			<div class="col-md-12">
 				<div class="box box-info">
-					<div class="box-header with-border">
+					<div class="card-header with-border">
 						<h3 class="box-title">Filter Data Siswa</h3>
 					</div><!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
 							<div class="form-group">						
 								<label for="" class="col-sm-2 control-label">Tahun Pelajaran</label>
@@ -51,13 +51,13 @@
 				</div><!-- /.box -->
 				<?php if ($f) { ?>
 					<div class="box box-success">
-						<div class="box-header with-border">
+						<div class="card-header with-border">
 							<h3 class="box-title">Informasi Siswa</h3>
 							<?php if ($f['n'] AND $f['r'] != NULL) { ?>
 								<a href="<?php echo site_url('manage/konseling/printBill' . '/?' . http_build_query($f)) ?>" target="_blank" class="btn btn-danger btn-xs pull-right">Cetak Buku Kesehatan</a>
 							<?php } ?>
 						</div><!-- /.box-header -->
-						<div class="box-body">
+						<div class="card-body">
 							<div class="col-md-9">
 								<table class="table table-striped">
 									<tbody>
@@ -126,13 +126,13 @@
 							</div>
 						</div>
 
-						<div class="box-body">
+						<div class="card-body">
 									
 							<div class="box box-primary">
-								<div class="box-header with-border">
+								<div class="card-header with-border">
 									<h3 class="box-title">Kesehatan Siswa</h3>
 								</div><!-- /.box-header -->
-								<div class="box-body">
+								<div class="card-body">
 									<div class="nav-tabs-custom">
 										<ul class="nav nav-tabs">
 											<li class="active"><a href="#tab_1" data-toggle="tab">Tambah Riwayat Kesehatan Siswa</a></li>
@@ -352,7 +352,7 @@
 				</div>
 				<br>
 				<div id="div_student">
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table id="dtable" class="table table-hover dataTable no-footer" width="100%">
 							<thead>
 								<th>No</th>

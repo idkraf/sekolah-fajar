@@ -13,7 +13,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="box shadow-sm border-bottom-primary">
-                    <div class="box-header bg-white py-3">
+                    <div class="card-header bg-white py-3">
                         <div class="row">
                             <div class="col-lg-10">
                                 <h4 class="h5 align-middle m-0 font-weight-bold text-primary">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box-body">
+                    <div class="card-body">
                         <?= $this->session->flashdata('pesan'); ?>
                         <?= form_open('', [], ['id' => $ruangan['id']]); ?>
                         <div class="row form-group">

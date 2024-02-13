@@ -18,7 +18,7 @@
 
 				<!-- Profile Image -->
 				<div class="box box-primary">
-					<div class="box-body box-profile">
+					<div class="card-body box-profile">
 						<?php if (!empty($user['user_image'])) { ?>
 						<img src="<?php echo upload_url('users/'.$user['user_image']) ?>" class="profile-user-img img-responsive img-circle">
 						<?php } else { ?>
@@ -55,11 +55,11 @@
 			<div class="col-md-8">
 				<!-- About Me Box -->
 				<div class="box box-primary">
-					<div class="box-header with-border">
+					<div class="card-header with-border">
 						<h3 class="box-title">About Me</h3>
 					</div>
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<strong><i class="fa fa-book margin-r-5"></i> Nama</strong>
 
 						<p class="text-muted">

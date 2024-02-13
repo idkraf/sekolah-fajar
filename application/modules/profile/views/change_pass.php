@@ -14,7 +14,7 @@
 			<div class="col-md-9">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php echo form_open(current_url()); ?>
 						<?php echo validation_errors(); ?>
 						<div class="form-group">
@@ -44,7 +44,7 @@
 			<div class="col-md-3">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<button type="submit" class="btn btn-block btn-success">Simpan</button>
 						<a href="<?php echo site_url('manage/users'); ?>" class="btn btn-block btn-info">Batal</a>
 					</div>

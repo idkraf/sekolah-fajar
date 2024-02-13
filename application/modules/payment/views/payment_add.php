@@ -35,7 +35,7 @@ if (isset($payment)) {
 			<div class="col-md-9">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php echo validation_errors(); ?>
 						<?php if (isset($payment)) { ?>
 							<input type="hidden" name="payment_id" value="<?php echo $payment['payment_id']; ?>">
@@ -78,7 +78,7 @@ if (isset($payment)) {
 			<div class="col-md-3">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<button type="submit" class="btn btn-block btn-success">Simpan</button>
 						<a href="<?php echo site_url('manage/payment'); ?>" class="btn btn-block btn-info">Batal</a>
 						<?php if (isset($payment['payment_id'])) { ?>

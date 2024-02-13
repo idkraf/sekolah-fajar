@@ -12,7 +12,7 @@
 	<section class="content">
 		<div class="row">
 				
-				<div class="box-body">
+				<div class="card-body">
 					<?php echo form_open_multipart(current_url(), array('class' => 'form-horizontal')); ?>
 					<?php echo validation_errors(); ?>
 					<?php if (isset($bulan)) { ?>
@@ -21,10 +21,10 @@
 
 					<div class="col-md-5">
 						<div class="box box-primary">
-							<div class="box-header">
+							<div class="card-header">
 								<h3 class="box-title">Pilih Kelas</h3>
 							</div>
-							<div class="box-body">
+							<div class="card-body">
 								<div class="form-group">
 									<label for="" class="col-sm-4 control-label">Jenis Bayar</label>
 									<div class="col-sm-8">
@@ -72,10 +72,10 @@
 							</div>
 						</div>
 						<div class="box box-warning">
-							<div class="box-header">
+							<div class="card-header">
 								<h3 class="box-title">Tarif Setiap Bulan Sama</h3>
 							</div>
-							<div class="box-body">
+							<div class="card-body">
 								<div class="form-group">
 									<label for="" class="col-sm-4 control-label">Tarif Bulanan (Rp.)</label>
 									<div class="col-sm-8">
@@ -89,10 +89,10 @@
 					<div class="col-md-7">
 
 						<div class="box box-success">
-							<div class="box-header">
+							<div class="card-header">
 								<h3 class="box-title">Tarif Setiap Bulan Tidak Sama</h3>
 							</div>
-							<div class="box-body">
+							<div class="card-body">
 								<table class="table">
 									<tbody>
 

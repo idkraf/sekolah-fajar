@@ -17,7 +17,7 @@
 			<div class="col-md-6">
 				<div class="box box-success">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="col-md-12 col-sm-12 col-xs-12 pull-left">
 							<br>
 							<div class="row">
@@ -113,7 +113,7 @@
 			<div class="col-md-6">				
 				<div class="box box-success">	
 					<!-- /.box-header -->
-					<div class="box-body">							
+					<div class="card-body">							
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<h3>Data Sekolah</h3>
 									
@@ -166,7 +166,7 @@
 			<div class="col-md-6">				
 				<div class="box box-success">	
 					<!-- /.box-header -->
-					<div class="box-body">							
+					<div class="card-body">							
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<h3>Data Ayah</h3>
 							<table class="table table-hover">
@@ -230,7 +230,7 @@
 			<div class="col-md-6">				
 				<div class="box box-success">	
 					<!-- /.box-header -->
-					<div class="box-body">							
+					<div class="card-body">							
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<h3>Data Ibu</h3>
 							<table class="table table-hover">
@@ -297,7 +297,7 @@
 			<div class="col-md-6">				
 				<div class="box box-success">	
 					<!-- /.box-header -->
-					<div class="box-body">							
+					<div class="card-body">							
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<h3>Data Wali</h3>
 							<table class="table table-hover">
@@ -337,7 +337,7 @@
 			<div class="col-md-6">				
 				<div class="box box-success">	
 					<!-- /.box-header -->
-					<div class="box-body">							
+					<div class="card-body">							
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<h3>Alamat</h3>	
 							<table class="table table-hover">
@@ -379,7 +379,7 @@
 			<div class="col-md-6">				
 				<div class="box box-success">	
 					<!-- /.box-header -->
-					<div class="box-body">							
+					<div class="card-body">							
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<h3>Riwayat Kesehatan &amp; Fisik</h3>
 
@@ -446,7 +446,7 @@
 			<div class="col-md-6">				
 				<div class="box box-success">	
 					<!-- /.box-header -->
-					<div class="box-body">							
+					<div class="card-body">							
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<h3>Data Pindah</h3>
 

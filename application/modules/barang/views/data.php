@@ -13,7 +13,7 @@
     <?php error_reporting(0); ?>
     <?= $this->session->flashdata('pesan'); ?>
     <div class="box shadow-sm border-bottom-primary">
-      <div class="box-header bg-white py-3">
+      <div class="card-header bg-white py-3">
         
               <a href="<?= base_url('manage/barang/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
                 <span class="icon">

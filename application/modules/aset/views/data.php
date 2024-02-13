@@ -12,7 +12,7 @@
 	<section class="content">
         <?= $this->session->flashdata('pesan'); ?>
         <div class="box shadow-sm border-bottom-primary">
-            <div class="box-header bg-white py-3">
+            <div class="card-header bg-white py-3">
             <a href="<?= base_url('manage/aset/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
                 <span class="icon">
                     <i class="fa fa-plus"></i>
@@ -22,7 +22,7 @@
                 </span>
             </a>
             </div>
-            <div class="box-body table-responsive">
+            <div class="card-body table-responsive">
                 <table class="table table-striped" id="dataTable">
                     <thead>
                         <tr>

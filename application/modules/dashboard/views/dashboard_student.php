@@ -5,8 +5,8 @@
       Dashboard
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Dashboard</li>
+      <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i></a></li>
+      <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
     </ol>
   </section>
 
@@ -14,18 +14,18 @@
   <section class="content">
     <div class="row">
       <div class="col-md-6">
-       <div class="box box-info">
-        <div class="box-header with-border">
-          <h3 class="box-title">Informasi</h3>
+       <div class="card card-info">
+        <div class="card-header with-border">
+          <h3 class="card-title">Informasi</h3>
 
-          <div class="box-tools pull-right">
+          <!--div class="card-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
+          </div-->
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="card-body">
 
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
               <!-- Indicators --> 
@@ -41,7 +41,7 @@
                 foreach ($information as $row):
                   ?>
                   <div class="item <?php echo ($i == 1) ? 'active' : ''; ?>"> 
-                    <div class="row"> 
+                    <div class="container"> 
                         <div class="adjust1"> 
                             <div class="caption"> 
                               <p class="text-info lead adjust2"><?php echo $row['information_title'] ?></p>  
@@ -69,23 +69,24 @@
       </div>
       
       <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-green-gradient">
-            <span class="info-box-icon"><i class="fa fa-dollar icon"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text"><strong>Sisa Tagihan Bulanan</span>
+        <div class="card radius-10 overflow-hidden">
+            <div class="card-body info-box-content">
+                <div class="text-white font-35"><i class="fa fa-3x fa-dollar icon"></i></div>
+                <h3><?php echo 'Rp. ' . number_format($total_bulan, 0, ',', '.') ?></h3>
+                <p>Sisa Tagihan Bulanan</p>
                 <span class="info-box-number" style="opacity: 0;">kosong</span>
-                <span class="info-box-text dash-text"><?php echo 'Rp. ' . number_format($total_bulan, 0, ',', '.') ?></span>
-
             </div>
         </div>
       </div>
+      
       <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-yellow-gradient">
-            <span class="info-box-icon"><i class="fa fa-money icon"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text"><strong>Sisa Tagihan Lainnya</strong></span>
+        <div class="card radius-10 overflow-hidden">
+            <div class="card-body info-box-content">
+                <div class="text-white font-35"><i class="fa fa-3x fa-dollar icon"></i></div>
+                <!--span class="info-box-icon"><i class="fa fa-money icon"></i></span-->
+                <h3><?php echo 'Rp. ' . number_format($total_bebas-$total_bebas_pay, 0, ',', '.') ?></h3>
+                <p>Sisa Tagihan Lainnya</p>
                 <span class="info-box-number" style="opacity: 0;">kosong</span>
-                <span class="info-box-text dash-text"><?php echo 'Rp. ' . number_format($total_bebas-$total_bebas_pay, 0, ',', '.') ?></span>
            
             </div>
         </div>

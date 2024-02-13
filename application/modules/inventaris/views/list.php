@@ -11,7 +11,7 @@
 	</section>
 	<section class="content">
 										
-        <div class="box-body table-responsive">
+        <div class="card-body table-responsive">
             <form action="" class="form-horizontal" method="get" accept-charset="utf-8">
                 
                 <table>
@@ -46,7 +46,7 @@
         </div>
         <?= $this->session->flashdata('pesan'); ?>
         <div class="box shadow-sm border-bottom-primary">
-            <div class="box-body table-responsive">
+            <div class="card-body table-responsive">
                 <table class="table table-striped w-100 dt-responsive " id="invent">
                     <thead>
                         <tr>

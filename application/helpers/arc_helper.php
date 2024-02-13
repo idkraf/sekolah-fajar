@@ -66,6 +66,14 @@ if (!function_exists('pretty_date')) {
         }
 
     }
+
+    if (!function_exists('asset_url')) {
+
+        function asset_url($name = '') {
+            return base_url('asset/' . $name);
+        }
+
+    }
 }
 
 if (! function_exists('idr_format'))

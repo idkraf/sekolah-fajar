@@ -5,14 +5,14 @@
       Dashboard
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Dashboard</li>
+      <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> </a></li>
+      <li class="breadcrumb-item active">Dashboard</li>
     </ol>
   </section>
 
   <!-- Main content -->
   <section class="content">
-    <div class="row">
+    <!--div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-aqua-gradient">
                     <span class="info-box-icon"><i class="fa fa-calculator icon" aria-hidden="true"></i></span>
@@ -33,11 +33,7 @@
                         <span class="info-box-number"><?php echo 'Rp. ' . number_format($totalAll,0, ',', '.') ?></span>
                     </div>
                 </div>
-                <!-- <div class="mini-box">
-          <a href="#">More Info  <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
-        </div> -->
             </div>
-            <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-red-gradient">
                     <span class="info-box-icon"><i class="fa fa-money icon"></i></span>
@@ -55,7 +51,6 @@
                     </div>
                 </div>
             </div>
-            <!-- fix for small devices only -->
             <div class="clearfix visible-sm-block"></div>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-green-gradient">
@@ -72,7 +67,6 @@
                     </div>
                 </div>
             </div>
-            <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-yellow-gradient">
                     <span class="info-box-icon"><i class="fa fa-credit-card icon"></i></span>
@@ -89,23 +83,23 @@
                     </div>
                 </div>
             </div>
-    </div>
+    </div-->
 
 
     <div class="row">
-      <div class="col-md-6">
-       <div class="box box-info">
-        <div class="box-header with-border">
-          <h3 class="box-title"><strong>Papan Informasi</strong> </h3>
+      <div class="col-md-4">
+       <div class="card card-info">
+        <div class="card-header with-border">
+          <h3 class="card-title"><strong>Papan Informasi</strong> </h3>
 
-          <div class="box-tools pull-right">
+          <!--div class="card-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
+          </div-->
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="card-body">
 
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
               <!-- Indicators --> 
@@ -121,7 +115,7 @@
                 foreach ($information as $row):
                   ?>
                   <div class="item <?php echo ($i == 1) ? 'active' : ''; ?>"> 
-                    <div class="row"> 
+                    <div class=""> 
                         <div class="adjust1"> 
                             <div class="caption"> 
                               <p class="text-info lead adjust2"><?php echo $row['information_title'] ?></p>  
@@ -149,18 +143,17 @@
       </div>
       <!-- /.col -->
 
-      <div class="col-md-6">
-        <div class="box box-info">
-          <div class="box-header with-border">
-            <h3 class="box-title">Kalender</h3>
-            <div class="box-tools pull-right">
+      <div class="col-md-8">
+        <div class="card box-info">
+          <div class="card-header with-border">
+            <h3 class="card-title">Kalender</h3>
+            <!--div class="card-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
+            </div-->
           </div>
-          <div class="box-body">
-
+          <div class="card-body">
             <div id="calendar"></div>
           </div>
         </div>

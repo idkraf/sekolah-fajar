@@ -1,61 +1,39 @@
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <?php if ($this->session->userdata('user_image') != null) { ?>
-          <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="img-responsive">
-          <?php } else { ?>
-          <img src="<?php echo media_url() ?>img/avatar1.png" class="img-responsive">
-          <?php } ?>
-        </div>
-        <div class="pull-left info">
-          <p><?php echo ucfirst($this->session->userdata('ufullname')); ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-
-      <div style="margin-top: 20px"></div>
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MENU</li>
-
-        <?php if(aturan(1,$this->session->userdata('uroleid'))){ ?>
-        <li class="<?php echo ($this->uri->segment(2) == 'dashboard' OR $this->uri->segment(2) == NULL) ? 'active' : '' ?>">
-          <a href="<?php echo site_url('manage'); ?>">
-            <i class="fa fa-th"></i> <span>Dashboard</span>
-            <span class="pull-right-container"></span>
-          </a>
+<div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+    <div class="brand-logo">     
+    <?php if (!empty(logo())) { ?>      
+        <img src="<?php echo upload_url('school/' . logo()) ?>" class="logo-icon" alt="logo icon">   
+      <?php } else { ?>
+        <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">   
+      <?php } ?>
+      <h5 class="logo-text">
+        <?php echo ucfirst($this->config->item('app_name')); ?>
+      </h5>        
+    </div>
+    <ul class="sidebar-menu do-nicescrol mt-5 ">
+        <li class="sidebar-header">
+          <i class="fa fa-circle text-success"></i> Online
         </li>
-
-        <?php } ?>
-        <!-- MASTER DATA-->
-
-        <!--?php if ($this->session->userdata('uroleid') == SUPERUSER) { ? -->
+        <li class="<?php echo ($this->uri->segment(1) == 'dashboard' OR $this->uri->segment(1) == NULL) ? 'active' : '' ?>">
+            <a href="<?php echo site_url('manage'); ?>">
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+            </a>
+        </li>
         <?php if(aturan(2,$this->session->userdata('uroleid'))){ ?>
-
         <li class="<?php echo ($this->uri->segment(2) == 'student' 
-        OR $this->uri->segment(2) == 'class' 
-        OR $this->uri->segment(2) == 'majors' 
-        OR $this->uri->segment(2) == 'period'
-        OR $this->uri->segment(2) == 'semester'
-        OR $this->uri->segment(2) == 'upgrade'
-        OR $this->uri->segment(2) == 'pass'
+        OR $this->uri->segment(4) == 'class' 
+        OR $this->uri->segment(4) == 'majors' 
+        OR $this->uri->segment(4) == 'period'
+        OR $this->uri->segment(4) == 'semester'
+        OR $this->uri->segment(4) == 'upgrade'
+        OR $this->uri->segment(4) == 'pass'
         ) ? 'active' : '' ?> treeview">
-          <a href="#">
+        <a href="javascript:;" class="has-arrow" aria-expanded="false">
             <i class="fa fa-graduation-cap text-stock"></i> <span>Akademik</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <!--
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Unit, TK, SD, SMP, SMA</a>
-            </li>
-            -->
+          <ul class="sidebar-submenu treeview-menu">
             <li class="<?php echo ($this->uri->segment(2) == 'student' AND $this->uri->segment(3) != 'pass' AND $this->uri->segment(3) != 'upgrade') ? 'active' : '' ?> ">
               <a href="<?php echo site_url('manage/student') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'student' AND $this->uri->segment(3) != 'pass' AND $this->uri->segment(3) != 'upgrade') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Siswa</a>
             </li>
@@ -78,9 +56,9 @@
               <a href="<?php echo site_url('manage/student/upgrade') ?>">
               <i class="fa  <?php echo ($this->uri->segment(3) == 'upgrade') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Kenaikan Kelas</a>
             </li>
-            <li class="">
+            <!--li class="">
               <a href=""><i class="fa fa-circle-o"></i> Pindah</a>
-            </li>
+            </li-->
             <li class="<?php echo ($this->uri->segment(3) == 'pass') ? 'active' : '' ?> ">
               <a href="<?php echo site_url('manage/student/pass') ?>">
               <i class="fa  <?php echo ($this->uri->segment(3) == 'pass') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Kelulusan</a>
@@ -89,112 +67,64 @@
         </li>
 
         <?php } ?>
-        <?php if(aturan(3,$this->session->userdata('uroleid'))){ ?>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-users"></i> <span>Smart School</span>
-            <span class="pull-right-container">              
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          
-          <ul class="treeview-menu">
-            <!--
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Unit, TK, SD, SMP, SMA</a>
-            </li>
-            -->
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Siswa</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa  fa-circle-o"></i> Orang Tua</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Guru</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Pembina Extra</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Wali Kelas</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Kurikulum</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Kesiswaan</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Persuratan</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Buku Tamu</a>
-            </li>
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Kepala Sekolah</a>
-            </li>
-          </ul>
-        </li>
-        <?php } ?>
         <!-- PEMBAYARAN SISWA-->
 
         <?php if(aturan(4,$this->session->userdata('uroleid'))){ ?>
-        <li class="<?php echo ($this->uri->segment(2) == 'payout' 
-        OR $this->uri->segment(2) == 'pos' 
-        OR $this->uri->segment(2) == 'payment' 
-        OR $this->uri->segment(2) == 'report' 
-        OR $this->uri->segment(3) == 'report_bill' 
-        OR $this->uri->segment(2) == 'kredit' 
-        OR $this->uri->segment(2) == 'debit'
-        OR $this->uri->segment(2) == 'bukti'
-        OR $this->uri->segment(2) == 'pos'
-        OR $this->uri->segment(2) == 'payment'
-        OR $this->uri->segment(2) == 'item'
+        <li class="<?php echo ($this->uri->segment(4) == 'payout' 
+        OR $this->uri->segment(4) == 'pos' 
+        OR $this->uri->segment(4) == 'payment' 
+        OR $this->uri->segment(4) == 'report' 
+        OR $this->uri->segment(4) == 'report_bill' 
+        OR $this->uri->segment(4) == 'kredit' 
+        OR $this->uri->segment(4) == 'debit'
+        OR $this->uri->segment(4) == 'bukti'
+        OR $this->uri->segment(4) == 'pos'
+        OR $this->uri->segment(4) == 'payment'
+        OR $this->uri->segment(4) == 'item'
         ) ? 'active' : '' ?> treeview">
-          <a href="#">
-            <i class="fa fa-credit-card"></i> <span>Pembayaran Spp</span>
-            <span class="pull-right-container">              
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          
-          <ul class="treeview-menu">
-            <!--
-            <li class="">
-              <a href=""><i class="fa fa-circle-o"></i> Unit, TK, SD, SMP, SMA</a>
-            </li>
-            -->
-            <li class="<?php echo ($this->uri->segment(2) == 'payout') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/payout') ?>">
-              <i class="fa  <?php echo ($this->uri->segment(2) == 'payout') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>
-               Pembayaran Siswa</a>
-            </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'bukti') ? 'active' : '' ?>">
-              <a href="<?php echo site_url('manage/bukti/add'); ?>">
-                <i class="fa  <?php echo ($this->uri->segment(2) == 'bukti') ? 'fa-dot-circle-o' : 'fa-money' ?>"></i>               
-                <span>Input Bukti Bayar</span>
-                <span class="pull-right-container"></span>
-              </a>
-            </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'bukti') ? 'active' : '' ?>">
-              <a href="<?php echo site_url('manage/bukti'); ?>">
-                <i class="fa  <?php echo ($this->uri->segment(2) == 'bukti') ? 'fa-dot-circle-o' : 'fa-money' ?>"></i>               
-                <span>Konfirmasi Pembayaran</span>
-                <span class="pull-right-container"></span>
-              </a>
-            </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'pos'
-              OR $this->uri->segment(2) == 'payment'
-              OR $this->uri->segment(2) == 'item'
-              ) ? 'active' : '' ?> treeview">
-              <a href="#">
-                <i class="fa fa-suitcase"></i> <span>Setting Pembayaran</span>
-                <span class="pull-right-container">              
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>              
-              <ul class="treeview-menu">
+        <a href="javascript:;">
+          <i class="fa fa-credit-card"></i> <span>Pembayaran Spp</span>
+          <span class="pull-right-container">              
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+
+        <ul class="sidebar-submenu treeview-menu">
+          <!--
+          <li class="">
+            <a href=""><i class="fa fa-circle-o"></i> Unit, TK, SD, SMP, SMA</a>
+          </li>
+          -->
+          <li class="<?php echo ($this->uri->segment(2) == 'payout') ? 'active' : '' ?> ">
+            <a href="<?php echo site_url('manage/payout') ?>">
+            <i class="fa  <?php echo ($this->uri->segment(2) == 'payout') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>
+              Pembayaran Siswa</a>
+          </li>
+          <li class="<?php echo ($this->uri->segment(2) == 'bukti') ? 'active' : '' ?>">
+            <a href="<?php echo site_url('manage/bukti/add'); ?>">
+              <i class="fa  <?php echo ($this->uri->segment(2) == 'bukti') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>               
+              <span>Input Bukti Bayar</span>
+              <span class="pull-right-container"></span>
+            </a>
+          </li>
+          <li class="<?php echo ($this->uri->segment(2) == 'bukti') ? 'active' : '' ?>">
+            <a href="<?php echo site_url('manage/bukti'); ?>">
+              <i class="fa  <?php echo ($this->uri->segment(2) == 'bukti') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>               
+              <span>Konfirmasi Pembayaran</span>
+              <span class="pull-right-container"></span>
+            </a>
+          </li>
+          <li class="<?php echo ($this->uri->segment(2) == 'pos'
+            OR $this->uri->segment(2) == 'payment'
+            OR $this->uri->segment(2) == 'item'
+            ) ? 'active' : '' ?> treeview">
+            <a href="#">
+              <i class="fa fa-suitcase"></i> <span>Setting Pembayaran</span>
+              <span class="pull-right-container">              
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>              
+            <ul class="sidebar-submenu treeview-menu">
                           
                 <!--    <li class="<//?php echo ($this->uri->segment(2) == 'account') ? 'active' : '' ?>">
                   <a href="<//?php echo site_url('manage/account') ?>">
@@ -255,12 +185,12 @@
             </span>
           </a>
           
-          <ul class="treeview-menu">
+          <ul class="sidebar-submenu treeview-menu">
             
             <li class="<?php echo ($this->uri->segment(2) == 'jabatan') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/jabatan'); ?>">
               <i class="fa  <?php echo ($this->uri->segment(2) == 'jabatan') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i>
-               Jabatan pegawai
+              Jabatan pegawai
               </a>
             </li>
             <li class="<?php echo ($this->uri->segment(2) == 'pegawai') ? 'active' : '' ?>">
@@ -293,14 +223,14 @@
           ) 
           ? 'active' 
           : '' ?> treeview">
-          <a href="#">
+          <a href="javascript:;">
             <i class="fa fa-lightbulb-o"></i> <span>Perpustakaan</span>
             <span class="pull-right-container">              
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           
-          <ul class="treeview-menu">
+          <ul class="sidebar-submenu treeview-menu">
                 
             <li class="<?php echo ($this->uri->segment(2) == 'buku') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/buku'); ?>">
@@ -340,14 +270,14 @@
           ) 
           ? 'active' 
           : '' ?> treeview">
-          <a href="#">
+          <a href="javascript:;">
             <i class="fa fa-upload"></i> <span>Asset</span>
             <span class="pull-right-container">              
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           
-          <ul class="treeview-menu">
+          <ul class="sidebar-submenu treeview-menu">
             <li class="<?php echo ($this->uri->segment(2) == 'aset') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/aset'); ?>">
               <i class="fa <?php echo ($this->uri->segment(2) == 'aset') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
@@ -422,52 +352,52 @@
 
 
         <?php if(aturan(8,$this->session->userdata('uroleid'))){ ?>
-        <li class="<?php echo ($this->uri->segment(2) == 'satuan' 
-              OR $this->uri->segment(2) == 'jenis'
-              OR $this->uri->segment(2) == 'warna'
-              OR $this->uri->segment(2) == 'merek'
-              OR $this->uri->segment(2) == 'rasa'
-              OR $this->uri->segment(2) == 'gudang'
-              OR $this->uri->segment(2) == 'supplier'
-              OR $this->uri->segment(2) == 'barang'
-              OR $this->uri->segment(2) == 'stokin'
-              OR $this->uri->segment(2) == 'stokout'
-              OR $this->uri->segment(2) == 'laporan'
-              OR $this->uri->segment(2) == 'kartu'
+        <li class="<?php echo ($this->uri->segment(7) == 'satuan' 
+              OR $this->uri->segment(7) == 'jenis'
+              OR $this->uri->segment(7) == 'warna'
+              OR $this->uri->segment(7) == 'merek'
+              OR $this->uri->segment(7) == 'rasa'
+              OR $this->uri->segment(7) == 'gudang'
+              OR $this->uri->segment(7) == 'supplier'
+              OR $this->uri->segment(7) == 'barang'
+              OR $this->uri->segment(7) == 'stokin'
+              OR $this->uri->segment(7) == 'stokout'
+              OR $this->uri->segment(7) == 'laporan'
+              OR $this->uri->segment(7) == 'kartu'
               ) 
               ? 'active' 
               : '' ?> treeview">
-          <a href="#">
+          <a href="javascript:;">
             <i class="fa fa-download"></i> <span>Kantin</span>
             <span class="pull-right-container">              
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           
-          <ul class="treeview-menu">
+          <ul class="sidebar-submenu treeview-menu">
             <li class="<?php echo ($this->uri->segment(2) == 'barang') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/barang'); ?>">
               <i class="fa <?php echo ($this->uri->segment(2) == 'barang') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
-               Inventori</a>
+              Inventori</a>
             </li>
 
-            <li class="<?php echo ($this->uri->segment(2) == 'satuan' 
-              OR $this->uri->segment(2) == 'jenis'
-              OR $this->uri->segment(2) == 'warna'
-              OR $this->uri->segment(2) == 'merek'
-              OR $this->uri->segment(2) == 'rasa'
-              OR $this->uri->segment(2) == 'gudang'
-              OR $this->uri->segment(2) == 'supplier'
+            <li class="<?php echo ($this->uri->segment(7) == 'satuan' 
+              OR $this->uri->segment(7) == 'jenis'
+              OR $this->uri->segment(7) == 'warna'
+              OR $this->uri->segment(7) == 'merek'
+              OR $this->uri->segment(7) == 'rasa'
+              OR $this->uri->segment(7) == 'gudang'
+              OR $this->uri->segment(7) == 'supplier'
               ) 
               ? 'active' 
               : '' ?> treeview">
-              <a href="">
+              <a href="javascript:;">
                 <i class="fa fa-database"></i> <span>Master Data</span>
                 <span class="pull-right-container">              
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>              
-              <ul class="treeview-menu">
+              <ul class="sidebar-submenu treeview-menu">
                 <li class="<?php echo ($this->uri->segment(2) == 'satuan') ? 'active' : '' ?>">
                   <a href="<?php echo site_url('manage/satuan'); ?>">
                   <i class="fa <?php echo ($this->uri->segment(2) == 'satuan') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
@@ -509,7 +439,7 @@
             <li class="<?php echo ($this->uri->segment(2) == 'stokin') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/stokin'); ?>">
                   <i class="fa <?php echo ($this->uri->segment(2) == 'stokin') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
-                   Barang Masuk</a>
+                  Barang Masuk</a>
             </li>
             <li class="<?php echo ($this->uri->segment(2) == 'stokout') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/stokout'); ?>">
@@ -524,7 +454,7 @@
             <li class="<?php echo ($this->uri->segment(2) == 'kartu') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/kartu'); ?>">
                   <i class="fa <?php echo ($this->uri->segment(2) == 'kartu') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
-                   Kartu Kendali</a>
+                  Kartu Kendali</a>
             </li>
           </ul>
         </li>
@@ -532,14 +462,14 @@
         <?php } ?>
 
         <?php if(aturan(9,$this->session->userdata('uroleid'))){ ?>
-        <li class="">
+        <!--li class="">
           <a href="">
             <i class="fa fa-th"></i> <span>BP-BK</span>
             <span class="pull-right-container"></span>
           </a>
-        </li>
+        </li-->
         <?php } ?>
-        
+
         <?php if(aturan(10,$this->session->userdata('uroleid'))){ ?>
         <li class="<?php echo ($this->uri->segment(2) == 'obat' 
             OR $this->uri->segment(2) == 'obatin'
@@ -556,7 +486,7 @@
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>              
-              <ul class="treeview-menu">
+              <ul class="sidebar-submenu treeview-menu">
                     
                 <li class="<?php echo ($this->uri->segment(2) == 'konseling') ? 'active' : '' ?>">
                   <a href="<?php echo site_url('manage/konseling'); ?>">
@@ -585,12 +515,8 @@
                   Keterangan Siswa Sakit</a>
                 </li>
               </ul>
-          </li> 
+        </li> 
 
-
-        
-        
-        
         <li class="<?php echo ($this->uri->segment(2) == 'inventori' 
           OR $this->uri->segment(2) == 'inventoriin'
           OR $this->uri->segment(2) == 'inventoriout'
@@ -606,21 +532,21 @@
           ) 
           ? 'active' 
           : '' ?> treeview">
-          <a href="#">
+          <a href="javascript:;">
             <i class="fa fa-upload"></i> <span>Gudang</span>
             <span class="pull-right-container">              
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           
-          <ul class="treeview-menu">
+          <ul class="sidebar-submenu treeview-menu">
             <li class="<?php echo ($this->uri->segment(2) == 'inventori') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/inventori'); ?>">
               <i class="fa <?php echo ($this->uri->segment(2) == 'inventori') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
-               Inventori Gudang</a>
+              Inventori Gudang</a>
             </li>
 
-            <li class="<?php echo ($this->uri->segment(2) == 'isatuan' 
+            <li class="<?php echo ($this->uri->segment(8) == 'isatuan' 
               OR $this->uri->segment(2) == 'ijenis'
               OR $this->uri->segment(2) == 'iwarna'
               OR $this->uri->segment(2) == 'imerek'
@@ -630,13 +556,13 @@
               ) 
               ? 'active' 
               : '' ?> treeview">
-              <a href="">
+              <a href="javascript:;">
                 <i class="fa fa-database"></i> <span>Master Data</span>
                 <span class="pull-right-container">              
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>              
-              <ul class="treeview-menu">
+              <ul class="sidebar-submenu treeview-menu">
                 <li class="<?php echo ($this->uri->segment(2) == 'isatuan') ? 'active' : '' ?>">
                   <a href="<?php echo site_url('manage/isatuan'); ?>">
                   <i class="fa <?php echo ($this->uri->segment(2) == 'isatuan') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
@@ -678,7 +604,7 @@
             <li class="<?php echo ($this->uri->segment(2) == 'inventoriin') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/inventoriin'); ?>">
                   <i class="fa <?php echo ($this->uri->segment(2) == 'inventoriin') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
-                   Gudang Masuk</a>
+                  Gudang Masuk</a>
             </li>
             <li class="<?php echo ($this->uri->segment(2) == 'inventoriout') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/inventoriout'); ?>">
@@ -693,72 +619,11 @@
             <li class="<?php echo ($this->uri->segment(2) == 'ikartu') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/ikartu'); ?>">
                   <i class="fa <?php echo ($this->uri->segment(2) == 'ikartu') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> 
-                   Kartu Kendali</a>
+                  Kartu Kendali</a>
             </li>
           </ul>
         </li>
         <?php } ?>
-
-        <!-- KEUANGAN
-        
-        <?php if ($this->session->userdata('uroleid') == SUPERUSER) { ?>
-        <li class="<?php echo ($this->uri->segment(2) == 'pos' OR $this->uri->segment(2) == 'payment') ? 'active' : '' ?> treeview">
-          <a href="#">
-            <i class="fa fa-money text-stock"></i> <span>Keuangan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="<?php echo ($this->uri->segment(2) == 'pos') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/pos') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'pos') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Pos Keuangan</a>
-            </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'payment') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/payment') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'payment') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Jenis Pembayaran</a>
-            </li>
-          </ul>
-        </li>
-        <?php } ?>
-         -->
-       <!-- JURNAL UMUM
-        <li class="<?php echo ($this->uri->segment(2) == 'kredit' OR $this->uri->segment(2) == 'debit') ? 'active' : '' ?> treeview">
-          <a href="#">
-            <i class="fa fa-edit text-stock"></i> <span>Pemasukan/Pengeluaran</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="<?php echo ($this->uri->segment(2) == 'kredit') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/kredit') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'kredit') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Pengeluaran</a>
-            </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'debit') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/debit') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'debit') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Pemasukan</a>
-            </li>
-          </ul>
-        </li>
--->
-        
-
-        <!-- LAPORAN
-
-        <li class="<?php echo ($this->uri->segment(2) == 'report' OR $this->uri->segment(3) == 'report_bill') ? 'active' : '' ?> treeview">
-          <a href="#">
-            <i class="fa fa-file-text-o text-stock"></i> <span>Laporan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="<?php echo ($this->uri->segment(2) == 'report' AND $this->uri->segment(3) != 'report_bill') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/report') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'report' AND $this->uri->segment(3) != 'report_bill') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Laporan Keuangan</a>
-            </li>
-            <li class="<?php echo ($this->uri->segment(3) == 'report_bill') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/report/report_bill') ?>"><i class="fa  <?php echo ($this->uri->segment(3) == 'report_bill') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Rekapitulasi</a>
-            </li>
-          </ul>
-        </li>
-        -->
 
         <?php if ($this->session->userdata('uroleid') == SUPERUSER) { ?>
         <!-- PENGATURAN-->
@@ -774,7 +639,7 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
+          <ul class="sidebar-submenu treeview-menu">
             <li class="<?php echo ($this->uri->segment(2) == 'setting') ? 'active' : '' ?>">
               <a href="<?php echo site_url('manage/setting') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'setting') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Sekolah</a>
             </li>
@@ -814,9 +679,7 @@
         </li>
 
 
-        <?php } ?>
+      <?php } ?>
+    </ul>
 
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+</div>

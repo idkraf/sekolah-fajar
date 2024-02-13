@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="box box-success">
-					<div class="box-header">
+					<div class="card-header">
 						<?php echo form_open(current_url(), array('method' => 'get')) ?>
 						<div class="row">
 							<div class="col-md-3">  
@@ -62,7 +62,7 @@
 				</div>
 				<?php if ($q AND !empty($py)) { ?>
 				<div class="box box-info">
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-responsive table-hover table-bordered" style="white-space: nowrap;">
 							<tr>
 								<th rowspan="2">Kelas</th> 

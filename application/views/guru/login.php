@@ -35,7 +35,7 @@
       <?php } ?> 
     </div>
     <div class="col-md-7">
-      <div class="box">
+      <div class="card">
         <?php echo form_open('guru/auth', array('class'=>'login100-form validate-form')); ?>
 
         <div class="col-md-12">

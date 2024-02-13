@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="box box-success">		
-					<div class="box-header table-responsive">
+					<div class="card-header table-responsive">
 						<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
 						<table style="width:100%">
 							<tbody>
@@ -56,7 +56,7 @@
 						<?php echo form_close() ?>
 					</div>
 					<!-- /.box-header -->
-					<div class="box-body table-responsive">
+					<div class="card-body table-responsive">
 						<table class="table table-hover table-striped table-bordered">
 							<tr class="bg-success">
 								<th>Nama Siswa</th>

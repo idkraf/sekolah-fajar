@@ -32,7 +32,7 @@ if (isset($information)) {
 			<div class="col-md-9">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<?php if (isset($information)): ?>
 							<input type="hidden" name="information_id" value="<?php echo $information['information_id']; ?>" />
 						<?php endif; ?>
@@ -64,7 +64,7 @@ if (isset($information)) {
 			<div class="col-md-3">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="form-group">
 							<label>Status Publikasi</label>
 							<div class="radio">

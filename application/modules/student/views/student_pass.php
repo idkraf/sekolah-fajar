@@ -21,13 +21,13 @@
 		<!-- /.box-header -->
 		<div class="row">
 			<div class="col-md-5">
-				<div class="box">
-					<div class="box-body">
+				<div class="card">
+					<div class="card-body">
 						<?php echo form_open(current_url(), array('method' => 'get')) ?>
 						
 						<div class="form-group">
 							<div class="input-group">
-								<div class="input-group-addon alert-success">Unit</div>
+								<div class="input-group-addon alert-success p-2">Unit</div>
 								<select name="m" class="form-control" onchange="this.form.submit()">
 									<option value="all">---Pilih Unit---</option>
 									<?php foreach ($majors as $row): ?>
@@ -38,7 +38,7 @@
 						</div>
 						<div class="form-group">
 							<div class="input-group">
-								<div class="input-group-addon alert-info">Pilih kelas</div>
+								<div class="input-group-addon alert-info p-2">Pilih kelas</div>
 								<select class="form-control" name="pr" onchange="this.form.submit()">
 									<option value="all">-- Pilih Kelas  --</option>
 									<?php foreach ($class as $row): ?>
@@ -104,8 +104,8 @@
 						</div>
 					</div>
 					<div class="col-md-5">
-						<div class="box">
-							<div class="box-body">
+						<div class="card">
+							<div class="card-body">
 								<h4>Data Kelulusan</h4>
 								<table class="table table-hover table-bordered table-responsive">
 									<form action="<?php echo site_url('manage/student/multiple'); ?>" method="post" id="kembali">

@@ -72,7 +72,7 @@ if (isset($pegawai)) {
 			<div class="col-md-9">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
             
                         <?php echo validation_errors(); ?>
                         <?php if (isset($pegawai)) { ?>
@@ -235,7 +235,7 @@ if (isset($pegawai)) {
 			<div class="col-md-3">
 				<div class="box box-primary">
 					<!-- /.box-header -->
-					<div class="box-body">
+					<div class="card-body">
 						<div class="form-group">
 							<label>Status</label>
 							<div class="radio">
