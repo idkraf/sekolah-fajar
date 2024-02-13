@@ -166,9 +166,9 @@ if (isset($student)) {
 			<?php echo isset($title) ? '' . $title : null; ?>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
+			<li  class="breadcrumb-item"><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
 			<li><a href="<?php echo site_url('manage/student') ?>">Kelola Siswa</a></li>
-			<li class="active"><?php echo isset($title) ? '' . $title : null; ?></li>
+			<li class="active breadcrumb-item"><?php echo isset($title) ? '' . $title : null; ?></li>
 		</ol>
 	</section>
 

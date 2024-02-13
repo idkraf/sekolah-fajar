@@ -45,7 +45,7 @@ if (isset($student)) {
 		<ol class="breadcrumb">
 			<li><a href="<?php echo site_url('student') ?>"><i class="fa fa-th"></i> Home</a></li>
 			<li><a href="<?php echo site_url('student/profile') ?>">Profile</a></li>
-			<li class="active"><?php echo isset($title) ? '' . $title : null; ?></li>
+			<li class="active breadcrumb-item"><?php echo isset($title) ? '' . $title : null; ?></li>
 		</ol>
 	</section>
 
