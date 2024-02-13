@@ -98,7 +98,7 @@
 				html+='<div class="modal-header">';
 				html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 				if(b.title.length>0){
-					html+='<h4 class="modal-title">'+b.title+"</h4>"
+					html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
 				}
 				html+="</div>";
 				html+='<div class="modal-body" '+c+">";

@@ -109,7 +109,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Tambah Pengeluaran</h4>
+						<h4 class="modal-title text-primary">Tambah Pengeluaran</h4>
 					</div>
 					<?php echo form_open('manage/kredit/add_glob', array('method'=>'post')); ?>
 					<div class="modal-body">

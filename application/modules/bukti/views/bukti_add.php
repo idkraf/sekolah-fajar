@@ -31,7 +31,7 @@ if (isset($payment)) {
 		</h1>
 		<ol class="breadcrumb">
 			<li  class="breadcrumb-item"><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
-			<li><a href="<?php echo site_url('manage/bukti') ?>"> Bukti Bayar</a></li>
+			<li class="breadcrumb-item"><a href="<?php echo site_url('manage/bukti') ?>"> Bukti Bayar</a></li>
 			<li class="active breadcrumb-item"><?php echo isset($title) ? '' . $title : null; ?></li>
 		</ol>
 	</section>
@@ -42,21 +42,24 @@ if (isset($payment)) {
 		
 	<div class="box box-info">
 		<div class="card-header with-border">
-			<h3 class="box-title">Filter Bukti Bayar</h3>
+			<h3 class="card-title">Filter Bukti Bayar</h3>
 		</div><!-- /.box-header -->
 		<div class="card-body">
 			<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
-				<div class="form-group">						
-					<label for="" class="col-sm-2 control-label">Tahun Pelajaran</label>
-					<div class="col-sm-2">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">	
+						<label for="" class="control-label">Tahun Pelajaran</label>
 						<select class="form-control" name="n" id="th_ajar">
 							<?php foreach ($period as $row): ?>
 								<option <?php echo (isset($f['n']) AND $f['n'] == $row['period_id']) ? 'selected' : '' ?> value="<?php echo $row['period_id'] ?>"><?php echo $row['period_start'].'/'.$row['period_end'] ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
-					<label for="" class="col-sm-2 control-label">NIS Siswa</label>
-					<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="" class="control-label">NIS Siswa</label>
 						<div class="input-group">
 							<input type="text" class="form-control" autofocus name="r" <?php echo (isset($f['r'])) ? 'placeholder="'.$f['r'].'"' : 'placeholder="Masukan NIS Siswa"' ?> required>
 							<span class="input-group-btn">
@@ -74,6 +77,7 @@ if (isset($payment)) {
 						</div>
 					</div>
 				</div>
+			</div>
 			</form>
 		</div><!-- /.box-body -->
 	</div><!-- /.box -->
@@ -190,12 +194,12 @@ if (isset($payment)) {
 	<?php if (isset($payment['id'])) { ?>
 		<div class="modal fade" id="deletePayment">
 			<div class="modal-dialog">
-				<div class="modal-content">
+				<div class="modal-content text-secondary">
+					<h4 class="modal-title text-primary">Konfirmasi Hapus</h4>
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title">Konfirmasi Hapus</h4>
 					</div>
 					<form action="<?php echo site_url('manage/bukti/delete') ?>" method="POST">
 						<div class="modal-body">
@@ -217,22 +221,22 @@ if (isset($payment)) {
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
+				<h4 class="modal-title text-primary">Cari Data Siswa</h4>
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title">Cari Data Siswa</h4>
 			</div>
 			<div class="modal-body">
-				<div class="form-group">
-					<div class="col-sm-3">
-						<select id="us" class="form-control">
+				<div class="row form-group">
+					<div class="col-sm-6">
+						<select id="us" class="form-control text-primary">
 							<option value="0">---Pilih Unit---</option>
 							<?php foreach ($majors as $row): ?>
 								<option value="<?php echo $row['majors_id'] ?>"><?php echo $row['majors_name'] ?></option>
 							<?php endforeach ?>
 						</select>
 					</div>
-					<div id="div_class">
-						<div class="col-sm-3">
-							<select id="pr" class="form-control">
+					<div id="div_class col-sm-6">
+						<div class="col-sm-12">
+							<select id="pr" class="form-control text-primary">
 								<option value="0">-- Pilih Kelas --</option>
 								<?php foreach ($kelas as $row): ?>
 									<option value="<?php echo $row['class_id'] ?>"><?php echo $row['class_name'] ?></option>

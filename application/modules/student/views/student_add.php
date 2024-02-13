@@ -166,8 +166,8 @@ if (isset($student)) {
 			<?php echo isset($title) ? '' . $title : null; ?>
 		</h1>
 		<ol class="breadcrumb">
-			<li  class="breadcrumb-item"><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
-			<li><a href="<?php echo site_url('manage/student') ?>">Kelola Siswa</a></li>
+			<li class="breadcrumb-item"><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
+			<li class="breadcrumb-item"><a href="<?php echo site_url('manage/student') ?>">Kelola Siswa</a></li>
 			<li class="active breadcrumb-item"><?php echo isset($title) ? '' . $title : null; ?></li>
 		</ol>
 	</section>
@@ -623,7 +623,7 @@ if (isset($student)) {
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title">Konfirmasi Hapus</h4>
+					<h4 class="modal-title text-primary">Konfirmasi Hapus</h4>
 				</div>
 				<form action="<?php echo site_url('manage/student/delete') ?>" method="POST">
 					<div class="modal-body">

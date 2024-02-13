@@ -53,7 +53,7 @@
 											<span class="input-group-btn">
 											</span>
 											<span class="input-group-btn">
-												<button type="button" class="btn btn-default" data-toggle="modal" data-target="#dataPegawai"><b>Data Pegawai</b></button>
+												<button type="button" class="form-control btn btn-default" data-toggle="modal" data-target="#dataPegawai"><b>Data Pegawai</b></button>
 											</span>
 										</div>
 									</div>
@@ -160,7 +160,7 @@
 
 					<div class="box box-success">
 						<div class="card-header with-border">
-							<h3 class="box-title">Informasi Pegawai</h3>
+							<h3 class="card-title">Informasi Pegawai</h3>
 						</div><!-- /.box-header -->
 						<div class="card-body">
 							<div class="col-md-9">
@@ -241,7 +241,7 @@
 						<div class="col-md-12">
 							<div class="box box-primary">
 								<div class="card-header with-border">
-									<h3 class="box-title">History Penggajian</h3>
+									<h3 class="card-title">History Penggajian</h3>
 												<a href="" class="btn btn-info btn-xs"><i class="fa fa-refresh"></i> Refresh</a>
 								</div><!-- /.box-header -->
 								
@@ -270,7 +270,7 @@
 					</div>
 					<div class="box box-primary">
 						<div class="card-header with-border">
-							<h3 class="box-title">Kelola Penggajian</h3>
+							<h3 class="card-title">Kelola Penggajian</h3>
 						</div><!-- /.box-header -->
 						<!--form action="slip/add_slip" method="post" target="_blank"-->
 			
@@ -860,7 +860,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title">Cari Data Pegawai</h4>
+				<h4 class="modal-title text-primary">Cari Data Pegawai</h4>
 			</div>
 			<div class="modal-body">
 				<div id="div_student">

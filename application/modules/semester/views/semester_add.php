@@ -22,7 +22,7 @@ if (isset($semester)) {
 		</h1>
 		<ol class="breadcrumb">
 			<li  class="breadcrumb-item"><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
-			<li><a href="<?php echo site_url('manage/semester') ?>">Semester</a></li>
+			<li class="breadcrumb-item"><a href="<?php echo site_url('manage/semester') ?>">Semester</a></li>
 			<li class="active breadcrumb-item"><?php echo isset($title) ? '' . $title : null; ?></li>
 		</ol>
 	</section>

@@ -22,7 +22,7 @@
 									<!--td><a href="<?php echo site_url('manage/bukti/add') ?>" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Data</a></td-->
 									<td> 
 										<div class="input-group" style="margin-right:10px">
-											<div class="input-group-addon alert-success">Unit</div>
+											<div class="input-group-addon alert-success p-2">Unit</div>
 											<select name="m" class="form-control" onchange="this.form.submit()">
 												<option value="all">---Pilih Unit---</option>
 												<?php foreach ($majors as $row): ?>
@@ -33,7 +33,7 @@
 									</td>
 									<td>
 										<div class="input-group" style="margin-right:10px">
-											<div class="input-group-addon alert-info">Kelas</div>
+											<div class="input-group-addon alert-info p-2">Kelas</div>
 											<select class="form-control" name="pr" onchange="this.form.submit()">
 												<option value="all">-- Pilih Kelas  --</option>
 												<?php foreach ($class as $row): ?>

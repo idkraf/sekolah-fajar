@@ -16,7 +16,7 @@
 				<div class="card"> 
 					<div class="card-header">
 													
-						<div class="card-body table-responsive">
+						<div class="card-body table-responsive p-0">
 							<form action="" class="form-horizontal" method="get" accept-charset="utf-8">
 								<table>
 									<tbody>
@@ -123,7 +123,7 @@
 				html+='<div class="modal-header">';
 				html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 				if(b.title.length>0){
-					html+='<h4 class="modal-title">'+b.title+"</h4>"
+					html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
 				}
 				html+="</div>";
 				html+='<div class="modal-body" '+c+">";

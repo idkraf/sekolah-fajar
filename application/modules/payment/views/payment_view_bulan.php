@@ -15,7 +15,7 @@
 			<div class="col-md-12"> 
 				<div class="box box-primary">
 					<div class="card-header with-border">
-						<h3 class="box-title">Tarif - <?php echo $payment['pos_name'].' - T.A '.$payment['period_start'].'/'.$payment['period_end'] ?></h3>
+						<h3 class="card-title">Tarif - <?php echo $payment['pos_name'].' - T.A '.$payment['period_start'].'/'.$payment['period_end'] ?></h3>
 					</div><!-- /.box-header -->
 					<div class="card-body">
 						<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>

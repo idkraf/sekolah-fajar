@@ -22,7 +22,7 @@
 					<div class="col-md-5">
 						<div class="box box-primary">
 							<div class="card-header">
-								<h3 class="box-title">Pilih Kelas</h3>
+								<h3 class="card-title">Pilih Kelas</h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -73,7 +73,7 @@
 						</div>
 						<div class="box box-warning">
 							<div class="card-header">
-								<h3 class="box-title">Tarif Setiap Bulan Sama</h3>
+								<h3 class="card-title">Tarif Setiap Bulan Sama</h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -90,7 +90,7 @@
 
 						<div class="box box-success">
 							<div class="card-header">
-								<h3 class="box-title">Tarif Setiap Bulan Tidak Sama</h3>
+								<h3 class="card-title">Tarif Setiap Bulan Tidak Sama</h3>
 							</div>
 							<div class="card-body">
 								<table class="table">

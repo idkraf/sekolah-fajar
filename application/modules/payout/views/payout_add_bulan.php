@@ -14,7 +14,7 @@
 			<div class="col-md-4"> 
 				<div class="box box-info">
 					<div class="card-header with-border">
-						<h3 class="box-title">Informasi Tagihan</h3>
+						<h3 class="card-title">Informasi Tagihan</h3>
 					</div><!-- /.box-header -->
 					<div class="card-body table-responsive">
 						<table class="table table-striped">
@@ -70,7 +70,7 @@
 				<div class="box box-warning">
 					<div class="card-header with-border">
 						<form action="<?php echo site_url('manage/payout/multiple'); ?>" method="post">
-							<h3 class="box-title">Pembayaran Tagihan Bulanan</h3>
+							<h3 class="card-title">Pembayaran Tagihan Bulanan</h3>
 
 							<input type="hidden" name="action" value="printAll">
 							<button type="submit" class="btn btn-success btn-xs pull-right" formtarget="_blank"><span class="fa fa-print"></span> Cetak yang dipilih</button>
@@ -126,7 +126,7 @@
 			html+='<div class="modal-header">';
 			html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 			if(b.title.length>0){
-				html+='<h4 class="modal-title">'+b.title+"</h4>"
+				html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
 			}
 			html+="</div>";
 			html+='<div class="modal-body" '+c+">";

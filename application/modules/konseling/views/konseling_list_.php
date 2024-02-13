@@ -14,7 +14,7 @@
 			<div class="col-md-12">
 				<div class="box box-info">
 					<div class="card-header with-border">
-						<h3 class="box-title">Filter Data Siswa</h3>
+						<h3 class="card-title">Filter Data Siswa</h3>
 					</div><!-- /.box-header -->
 					<div class="card-body">
 						<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
@@ -52,7 +52,7 @@
 				<?php if ($f) { ?>
 					<div class="box box-success">
 						<div class="card-header with-border">
-							<h3 class="box-title">Informasi Siswa</h3>
+							<h3 class="card-title">Informasi Siswa</h3>
 							<?php if ($f['n'] AND $f['r'] != NULL) { ?>
 								<a href="<?php echo site_url('manage/konseling/printBill' . '/?' . http_build_query($f)) ?>" target="_blank" class="btn btn-danger btn-xs pull-right">Cetak Buku Kesehatan</a>
 							<?php } ?>
@@ -138,7 +138,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title">Cari Data Siswa</h4>
+				<h4 class="modal-title text-primary">Cari Data Siswa</h4>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
@@ -341,7 +341,7 @@
 			html+='<div class="modal-header">';
 			html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 			if(b.title.length>0){
-				html+='<h4 class="modal-title">'+b.title+"</h4>"
+				html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
 			}
 			html+="</div>";
 			html+='<div class="modal-body" '+c+">";

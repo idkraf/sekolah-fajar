@@ -14,7 +14,7 @@
 			<div class="col-md-12">
 				<div class="box box-info">
 					<div class="card-header with-border">
-						<h3 class="box-title">Filter Data Pembayaran Siswa</h3>
+						<h3 class="card-title">Filter Data Pembayaran Siswa</h3>
 					</div><!-- /.box-header -->
 					<div class="card-body">
 						<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
@@ -52,7 +52,7 @@
 				<?php if ($f) { ?>
 					<div class="box box-success">
 						<div class="card-header with-border">
-							<h3 class="box-title">Informasi Siswa</h3>
+							<h3 class="card-title">Informasi Siswa</h3>
 							<?php if ($f['n'] AND $f['r'] != NULL) { ?>
 								<a href="<?php echo site_url('manage/payout/printBill' . '/?' . http_build_query($f)) ?>" target="_blank" class="btn btn-danger btn-xs pull-right">Cetak Semua Tagihan</a>
 							<?php } ?>
@@ -132,7 +132,7 @@
 						<div class="col-md-5">
 							<div class="box box-primary">
 								<div class="card-header with-border">
-									<h3 class="box-title">Transaksi Terakhir</h3>
+									<h3 class="card-title">Transaksi Terakhir</h3>
 								</div><!-- /.box-header -->
 								<div class="card-body">
 									<table class="table table-responsive table-bordered" style="white-space: nowrap;">
@@ -159,7 +159,7 @@
 						<div class="col-md-4">
 							<div class="box box-primary">
 								<div class="card-header with-border">
-									<h3 class="box-title">Pembayaran</h3>
+									<h3 class="card-title">Pembayaran</h3>
 								</div>
 								<div class="card-body">
 									<form id="calcu" name="calcu" method="post" action="">
@@ -189,7 +189,7 @@
 						<div class="col-md-3">
 							<div class="box box-primary">
 								<div class="card-header with-border">
-									<h3 class="box-title">Cetak Bukti Pembayaran</h3>
+									<h3 class="card-title">Cetak Bukti Pembayaran</h3>
 								</div><!-- /.box-header -->
 								<div class="card-body">
 									<form action="<?php echo site_url('manage/payout/cetakBukti') ?>" method="GET" class="view-pdf">
@@ -214,7 +214,7 @@
 					<!-- List Tagihan Bulanan --> 
 					<div class="box box-primary">
 						<div class="card-header with-border">
-							<h3 class="box-title">Jenis Pembayaran</h3>
+							<h3 class="card-title">Jenis Pembayaran</h3>
 						</div><!-- /.box-header -->
 						<div class="card-body">
 							<div class="nav-tabs-custom">
@@ -290,7 +290,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -341,7 +341,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -393,7 +393,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -446,7 +446,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -499,7 +499,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -552,7 +552,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -605,7 +605,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -659,7 +659,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -712,7 +712,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -765,7 +765,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -818,7 +818,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -871,7 +871,7 @@
 																						<div class="modal-content">
 																							<div class="modal-header">
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
+																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -958,7 +958,7 @@
 																	<div class="modal-content">
 																		<div class="modal-header">
 																			<button type="button" class="close" data-dismiss="modal">&times;</button>
-																			<h4 class="modal-title">Tambah Pembayaran/Cicilan</h4>
+																			<h4 class="modal-title text-primary">Tambah Pembayaran/Cicilan</h4>
 																		</div>
 																		<?php echo form_open('manage/payout/payout_bebas/', array('method'=>'post')); ?>
 																		<div class="modal-body">
@@ -1018,7 +1018,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title">Cari Data Siswa</h4>
+				<h4 class="modal-title text-primary">Cari Data Siswa</h4>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
@@ -1338,7 +1338,7 @@
 			html+='<div class="modal-header">';
 			html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 			if(b.title.length>0){
-				html+='<h4 class="modal-title">'+b.title+"</h4>"
+				html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
 			}
 			html+="</div>";
 			html+='<div class="modal-body" '+c+">";

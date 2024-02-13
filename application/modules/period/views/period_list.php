@@ -88,7 +88,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title">Konfirmasi Hapus</h4>
+				<h4 class="modal-title text-primary">Konfirmasi Hapus</h4>
 			</div>
 			<form action="<?php echo site_url('manage/period/delete') ?>" method="POST">
 				<div class="modal-body">

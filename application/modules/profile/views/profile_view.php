@@ -49,7 +49,7 @@
 				<!-- About Me Box -->
 				<div class="box box-primary">
 					<div class="card-header with-border">
-						<h3 class="box-title">About Me</h3>
+						<h3 class="card-title">About Me</h3>
 					</div>
 					<!-- /.box-header -->
 					<div class="card-body">

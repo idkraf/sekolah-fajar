@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
         <div class="card-header backg with-border">
-          <h3 class="box-title">Cek Data Pembayaran Siswa</h3>
+          <h3 class="card-title">Cek Data Pembayaran Siswa</h3>
         </div><!-- /.box-header -->
         <div class="card-body">
           <?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
@@ -35,7 +35,7 @@
       <div class="col-md-6">
         <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
           <div class="card-header backg with-border">
-            <h3 class="box-title">Informasi Siswa</h3>
+            <h3 class="card-title">Informasi Siswa</h3>
           </div><!-- /.box-header -->
           <div class="card-body">
             <table class="table table-striped">
@@ -98,7 +98,7 @@
           <!-- List Tagihan Bulanan --> 
           <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
             <div class="card-header backg with-border">
-              <h3 class="box-title">Tagihan Bulanan</h3>
+              <h3 class="card-title">Tagihan Bulanan</h3>
             </div><!-- /.box-header -->
             <div class="card-body table-responsive">
               <table class="table table-striped table-hover" style="cursor: pointer;">
@@ -161,7 +161,7 @@
         </div>
         <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
           <div class="card-header backg with-border">
-            <h3 class="box-title">Tagihan Lainnya</h3>
+            <h3 class="card-title">Tagihan Lainnya</h3>
           </div><!-- /.box-header -->
           <div class="card-body table-responsive">
             <table class="table table-striped table-hover">

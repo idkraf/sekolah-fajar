@@ -594,7 +594,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title">Tambah Riwayat Pendidikan</h4>
+					<h4 class="modal-title text-primary">Tambah Riwayat Pendidikan</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_education') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -636,7 +636,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title">Tambah Riwayat Seminar &amp; Pelatihan</h4>
+					<h4 class="modal-title text-primary">Tambah Riwayat Seminar &amp; Pelatihan</h4>
 				</div>
 				
 				<form action="<?php echo site_url('manage/pegawai/add_workshop') ?>" method="post" accept-charset="utf-8">
@@ -678,7 +678,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title">Tambah Data Keluarga</h4>
+					<h4 class="modal-title text-primary">Tambah Data Keluarga</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_family') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -719,7 +719,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title">Tambah Riwayat Jabatan</h4>
+					<h4 class="modal-title text-primary">Tambah Riwayat Jabatan</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_position') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -756,7 +756,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title">Tambah Riwayat Mengajar</h4>
+					<h4 class="modal-title text-primary">Tambah Riwayat Mengajar</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_teaching') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -797,7 +797,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title">Tambah Data Penghargaan</h4>
+					<h4 class="modal-title text-primary">Tambah Data Penghargaan</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_achievement') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">

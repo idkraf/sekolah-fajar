@@ -34,7 +34,7 @@ if (isset($bulan)) {
 				<div class="col-md-5">
 					<div class="box box-primary">
 						<div class="card-header with-border">
-							<h3 class="box-title">Informasi</h3>
+							<h3 class="card-title">Informasi</h3>
 						</div>
 						<div class="card-body">
 							<div class="form-group">
@@ -81,7 +81,7 @@ if (isset($bulan)) {
 					</div>
 					<div class="box box-warning">
 						<div class="card-header with-border">
-							<h3 class="box-title">Tarif Setiap Bulan Sama</h3>
+							<h3 class="card-title">Tarif Setiap Bulan Sama</h3>
 						</div>
 						<div class="card-body">
 							<div class="form-group">
@@ -96,7 +96,7 @@ if (isset($bulan)) {
 				<div class="col-md-7">
 					<div class="box box-success">
 						<div class="card-header with-border">
-							<h3 class="box-title">Tarif Setiap Bulan Tidak Sama</h3>
+							<h3 class="card-title">Tarif Setiap Bulan Tidak Sama</h3>
 						</div>
 						<div class="card-body">
 							<table class="table">

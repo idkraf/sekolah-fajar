@@ -90,7 +90,7 @@
 												<div class="modal-content">
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal">×</button>
-														<h4 class="modal-title">Edit Unit</h4>
+														<h4 class="modal-title text-primary">Edit Unit</h4>
 													</div>
 													<form action="<?php echo site_url('manage/item/update_unit') ?>" method="post" accept-charset="utf-8">
 														<div class="modal-body">
@@ -148,7 +148,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title">Tambah Jabatan Pegawai</h4>
+				<h4 class="modal-title text-primary">Tambah Jabatan Pegawai</h4>
 			</div>
 			<?php echo form_open('manage/item/add_unit', array('method'=>'post')); ?>
 				<div class="modal-body">
@@ -219,7 +219,7 @@
 				html+='<div class="modal-header">';
 				html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 				if(b.title.length>0){
-					html+='<h4 class="modal-title">'+b.title+"</h4>"
+					html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
 				}
 				html+="</div>";
 				html+='<div class="modal-body" '+c+">";

@@ -15,7 +15,7 @@
 			<div class="col-lg-12"> 
 				<div class="box box-primary">
 					<div class="card-header with-border">
-						<h3 class="box-title">Tarif - <?php echo $payment['pos_name'].' - T.A '.$payment['period_start'].'/'.$payment['period_end']; ?></h3>
+						<h3 class="card-title">Tarif - <?php echo $payment['pos_name'].' - T.A '.$payment['period_start'].'/'.$payment['period_end']; ?></h3>
 					</div><!-- /.box-header -->
 					<div class="card-body">
 						<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
@@ -117,7 +117,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title">Konfirmasi Hapus</h4>
+				<h4 class="modal-title text-primary">Konfirmasi Hapus</h4>
 			</div>
 			<form action="<?php echo site_url('manage/payment/delete_payment_bebas') ?>" method="POST">
 				<div class="modal-body">
