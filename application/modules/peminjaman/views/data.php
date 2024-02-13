@@ -88,16 +88,16 @@
             <div class="modal-body">
                     <div class="form-group">
                         <label>Tanggal Pinjam </label>
-                        <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input class="form-control" type="text" name="tgl_pinjam" readonly="readonly" placeholder="Tanggal" >
+                        <div class="input-group">
+                            <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                            <input class="form-control" type="date" name="tgl_pinjam" placeholder="Tanggal" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Tanggal Pengembalian</label>
-                        <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input class="form-control" type="text" name="tgl_kembali" readonly="readonly" placeholder="Tanggal">
+                        <div class="input-group">
+                            <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                            <input class="form-control" type="date" name="tgl_kembali" placeholder="Tanggal">
                         </div>
                     </div>
                     <div class="form-group">
@@ -177,16 +177,16 @@
 
                     <div class="form-group">
                         <label>Tanggal Pinjam </label>
-                        <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input class="form-control tgl_pinjam" type="text" name="tgl_pinjam" readonly="readonly" placeholder="Tanggal" >
+                        <div class="input-group">
+                            <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                            <input class="form-control tgl_pinjam" type="date" name="tgl_pinjam" placeholder="Tanggal" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Tanggal Pengembalian</label>
-                        <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input class="form-control tgl_kembali" type="text" name="tgl_kembali" readonly="readonly" placeholder="Tanggal">
+                        <div class="input-group">
+                            <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                            <input class="form-control tgl_kembali" type="date" name="tgl_kembali" placeholder="Tanggal">
                         </div>
                     </div>
                     <div class="form-group">

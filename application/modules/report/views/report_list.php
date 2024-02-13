@@ -20,17 +20,17 @@
 						<div class="row">
 							<div class="col-md-3">  
 								<div class="form-group">
-									<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-										<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-										<input class="form-control" type="text" name="ds" readonly="readonly" <?php echo (isset($q['ds'])) ? 'value="'.$q['ds'].'"' : '' ?> placeholder="Tanggal Awal">
+									<div class="input-group ">
+										<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+										<input class="form-control" type="date" name="ds" <?php echo (isset($q['ds'])) ? 'value="'.$q['ds'].'"' : '' ?> placeholder="Tanggal Awal">
 									</div>
 								</div>
 							</div>
 							<div class="col-md-3">  
 								<div class="form-group">
-									<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-										<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-										<input class="form-control" type="text" name="de" readonly="readonly" <?php echo (isset($q['de'])) ? 'value="'.$q['de'].'"' : '' ?> placeholder="Tanggal Akhir">
+									<div class="input-group ">
+										<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+										<input class="form-control" type="date" name="de" <?php echo (isset($q['de'])) ? 'value="'.$q['de'].'"' : '' ?> placeholder="Tanggal Akhir">
 										
 									</div>
 								</div>

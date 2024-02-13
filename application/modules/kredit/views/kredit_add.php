@@ -44,9 +44,9 @@ if (isset($kredit)) {
 						
 						<div class="form-group">
 							<label>Tanggal </label>
-							<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-								<input class="form-control" type="text" name="kredit_date" readonly="readonly" placeholder="Tanggal Pengeluaran" value="<?php echo $inputDateValue; ?>">
+							<div class="input-group">
+								<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+								<input class="form-control" type="date" name="kredit_date" placeholder="Tanggal Pengeluaran" value="<?php echo $inputDateValue; ?>">
 							</div>
 						</div>
 

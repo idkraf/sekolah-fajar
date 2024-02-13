@@ -116,9 +116,9 @@
 						<div id="p_scents_kredit">
 							<div class="form-group">
 								<label>Tanggal</label>
-								<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-									<input class="form-control" required="" type="text" name="kredit_date" placeholder="Tanggal Pengeluaran">
+								<div class="input-group">
+									<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+									<input class="form-control" required="" type="date" name="kredit_date" placeholder="Tanggal Pengeluaran">
 								</div>
 							</div>
 							<div class="row">

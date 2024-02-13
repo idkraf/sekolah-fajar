@@ -115,17 +115,17 @@ if (isset($pegawai)) {
 
                         <div class="form-group">
                             <label>Tanggal Lahir </label>
-                            <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                <input class="form-control" type="text" name="employee_born_date" readonly="readonly" placeholder="Tanggal" value="<?php echo $inputDateValue; ?>">
+                            <div class="input-group">
+                                <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                                <input class="form-control" type="date" name="employee_born_date" placeholder="Tanggal" value="<?php echo $inputDateValue; ?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>Tanggal Mulai Tugas </label>
-                            <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                <input class="form-control" type="text" name="employee_mulai_tugas" readonly="readonly" placeholder="Tanggal" value="<?php echo $inputTglTugasValue; ?>">
+                            <div class="input-group">
+                                <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                                <input class="form-control" type="date" name="employee_mulai_tugas" placeholder="Tanggal" value="<?php echo $inputTglTugasValue; ?>">
                             </div>
                         </div>
                         <div class="form-group">

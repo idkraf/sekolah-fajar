@@ -197,9 +197,9 @@
 										<input type="hidden" name="r" value="<?php echo $f['r'] ?>">
 										<div class="form-group">
 											<label>Tanggal Transaksi</label>
-											<div class="input-group date " data-date="<?php echo date('Y-m-d') ?>" data-date-format="yyyy-mm-dd">
-												<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-												<input class="form-control" readonly="" required="" type="text" name="d" value="<?php echo date('Y-m-d') ?>">
+											<div class="input-group" data-date="<?php echo date('Y-m-d') ?>" data-date-format="yyyy-mm-dd">
+												<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+												<input class="form-control" required="" type="text" name="d" value="<?php echo date('Y-m-d') ?>">
 											</div>
 										</div>
 										<button class="btn btn-success btn-block" formtarget="_blank" type="submit">Cetak</button>
@@ -303,9 +303,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group">
+																											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+																											<input class="form-control" required="" type="date" name="payout_date" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -354,9 +354,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group">
+																											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+																											<input class="form-control" required="" type="date" name="payout_date" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -406,9 +406,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group">
+																											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+																											<input class="form-control" required="" type="date" name="payout_date" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -459,9 +459,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group">
+																											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+																											<input class="form-control" required="" type="date" name="payout_date" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -512,9 +512,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group">
+																											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+																											<input class="form-control" type="date" name="payout_date"  placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -565,9 +565,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group" data-date="" data-date-format="yyyy-mm-dd">
+																											
+																											<input class="form-control" required="" type="date" name="payout_date"  placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -618,9 +618,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group" data-date="" data-date-format="yyyy-mm-dd">
+																											
+																											<input class="form-control" required="" type="date" name="payout_date"  placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -672,9 +672,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group" data-date="" data-date-format="yyyy-mm-dd">
+																											
+																											<input class="form-control" required="" type="date" name="payout_date"  placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -725,9 +725,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group" data-date="" data-date-format="yyyy-mm-dd">
+																											
+																											<input class="form-control" required="" type="date" name="payout_date"  placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -778,9 +778,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group" data-date="" data-date-format="yyyy-mm-dd">
+																											
+																											<input class="form-control" required="" type="date" name="payout_date"  placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -831,9 +831,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group" data-date="" data-date-format="yyyy-mm-dd">
+																											
+																											<input class="form-control" required="" type="date" name="payout_date"  placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">
@@ -884,9 +884,9 @@
 																								<?php if ($key['bulan_status'] == 0) { ?>
 																									<div class="form-group">
 																										<label>Tanggal</label>
-																										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-																											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-																											<input class="form-control" required="" type="text" name="payout_date" readonly="" placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
+																										<div class="input-group" data-date="" data-date-format="yyyy-mm-dd">
+																											
+																											<input class="form-control" required="" type="date" name="payout_date"  placeholder="Tanggal Bayar" value="<?php echo $key['bulan_date_pay'] ?>">
 																										</div>
 																									</div>
 																									<div class="form-group">

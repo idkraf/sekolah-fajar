@@ -39,9 +39,9 @@
                         <div class="row form-group">
                             <label class="col-lg-3 text-lg-right" for="tanggal">Tanggal</label>
                             <div class="col-lg-5">
-                                <div class="input-group date "data-date="" data-date-format="yyyy-mm-dd">
-								    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                    <input value="<?= set_value('tanggal'); ?>" name="tanggal" id="tanggal" type="text" class="form-control"  readonly="readonly" placeholder="Periode Tanggal">
+                                <div class="input-group">
+								    <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                                    <input value="<?= set_value('tanggal'); ?>" name="tanggal" id="tanggal" type="date" class="form-control" placeholder="Periode Tanggal">
                                     
                                 </div>
                                 <?= form_error('tanggal', '<small class="text-danger">', '</small>'); ?>

@@ -46,9 +46,9 @@
 
                 <div class="form-group">
                     <label>Tanggal</label>
-                    <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                        <input class="form-control" type="text" name="tanggal" readonly="readonly" placeholder="Tanggal" >
+                    <div class="input-group">
+                        <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                        <input class="form-control" type="date" name="tanggal" placeholder="Tanggal" >
                     </div>   
                 </div>               
                 <div class="form-group">
@@ -104,9 +104,9 @@
 
                         <div class="form-group">
                             <label>Tanggal</label>
-                            <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                <input class="form-control tanggal" type="text" name="tanggal" readonly="readonly" placeholder="Tanggal" >
+                            <div class="input-group">
+                                <!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+                                <input class="form-control tanggal" type="date" name="tanggal" placeholder="Tanggal" >
                             </div>        
                         </div>
                         

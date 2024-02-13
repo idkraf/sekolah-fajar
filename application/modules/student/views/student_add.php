@@ -230,9 +230,9 @@ if (isset($student)) {
 
 									<div class="form-group">
 										<label>Tanggal Lahir </label>
-										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-											<input class="form-control" type="text" name="student_born_date" readonly="readonly" placeholder="Tanggal" value="<?php echo $inputDateValue; ?>">
+										<div class="input-group">
+											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+											<input class="form-control" type="date" name="student_born_date" placeholder="Tanggal" value="<?php echo $inputDateValue; ?>">
 										</div>
 									</div>
 
@@ -346,16 +346,16 @@ if (isset($student)) {
 									</div>
 									<div class="form-group">
 										<label>Tanggal Masuk</label>
-										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-											<input class="form-control" type="text" name="student_tanggal_masuk" readonly="readonly" placeholder="Tanggal Masuk" value="<?php echo $inputTanggalMasukValue; ?>">
+										<div class="input-group">
+											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+											<input class="form-control" type="date" name="student_tanggal_masuk" placeholder="Tanggal Masuk" value="<?php echo $inputTanggalMasukValue; ?>">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Tanggal Keluar </label>
-										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-											<input class="form-control" type="text" name="student_tanggal_keluar" readonly="readonly" placeholder="Tanggal Keluar" value="<?php echo $inputTanggalKeluarValue; ?>">
+										<div class="input-group">
+											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+											<input class="form-control" type="date" name="student_tanggal_keluar" placeholder="Tanggal Keluar" value="<?php echo $inputTanggalKeluarValue; ?>">
 										</div>
 									</div>
 									<div class="form-group">
@@ -474,9 +474,9 @@ if (isset($student)) {
 
 									<div class="form-group">
 										<label>Tanggal Lahir Ayah</label>
-										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-											<input class="form-control" type="text" name="student_tanggal_lahir_ayah" readonly="readonly" placeholder="Tanggal" value="<?php echo $inputTanggalLahirAyahValue; ?>">
+										<div class="input-group">
+											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+											<input class="form-control" type="date" name="student_tanggal_lahir_ayah" placeholder="Tanggal" value="<?php echo $inputTanggalLahirAyahValue; ?>">
 										</div>
 									</div>
 
@@ -524,9 +524,9 @@ if (isset($student)) {
 
 									<div class="form-group">
 										<label>Tanggal Lahir Ibu</label>
-										<div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-											<input class="form-control" type="text" name="student_tanggal_lahir_ibu" readonly="readonly" placeholder="Tanggal" value="<?php echo $inputTanggalLahirIbuValue; ?>">
+										<div class="input-group">
+											<!--span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span-->
+											<input class="form-control" type="date" name="student_tanggal_lahir_ibu" placeholder="Tanggal" value="<?php echo $inputTanggalLahirIbuValue; ?>">
 										</div>
 									</div>
 
