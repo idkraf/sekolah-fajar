@@ -58,7 +58,7 @@
 										</tr>
 										<div class="modal modal-default fade" id="delModal<?php echo $row['kredit_id']; ?>">
 											<div class="modal-dialog">
-												<div class="modal-content">
+												<div class="modal-content bg-secondary">
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 															<span aria-hidden="true">&times;</span></button>
@@ -106,10 +106,10 @@
 		<!-- Modal -->
 		<div class="modal fade" id="addKredit" role="dialog">
 			<div class="modal-dialog modal-md">
-				<div class="modal-content">
+				<div class="modal-content bg-secondary">
 					<div class="modal-header">
+						<h4 class="modal-title">Tambah Pengeluaran</h4>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title text-primary">Tambah Pengeluaran</h4>
 					</div>
 					<?php echo form_open('manage/kredit/add_glob', array('method'=>'post')); ?>
 					<div class="modal-body">

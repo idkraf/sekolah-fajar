@@ -135,10 +135,10 @@
 
 <div class="modal fade" id="dataSiswa" role="dialog">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
+		<div class="modal-content bg-secondary">
 			<div class="modal-header">
+				<h4 class="modal-title">Cari Data Siswa</h4>
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title text-primary">Cari Data Siswa</h4>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
@@ -337,11 +337,11 @@
 			var c=(b.scrollable===true)?'style="max-height: 420px;overflow-y: auto;"':"";
 			html='<div class="modal fade" id="myModal">';
 			html+='<div class="modal-dialog">';
-			html+='<div class="modal-content">';
+			html+='<div class="modal-content bg-secondary">';
 			html+='<div class="modal-header">';
 			html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 			if(b.title.length>0){
-				html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
+				html+='<h4 class="modal-title">'+b.title+"</h4>"
 			}
 			html+="</div>";
 			html+='<div class="modal-body" '+c+">";

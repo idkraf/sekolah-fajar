@@ -287,10 +287,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -338,10 +338,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -390,10 +390,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -443,10 +443,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -496,10 +496,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -549,10 +549,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -602,10 +602,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -656,10 +656,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -709,10 +709,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -762,10 +762,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -815,10 +815,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -868,10 +868,10 @@
 																				</a>
 																				<div class="modal fade" id="<?php echo $row['pos_name']. $key['month_name'] ?>" role="dialog">
 																					<div class="modal-dialog modal-sm">
-																						<div class="modal-content">
+																						<div class="modal-content bg-secondary">
 																							<div class="modal-header">
+																								<h4 class="modal-title"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																								<button type="button" class="close" data-dismiss="modal">×</button>
-																								<h4 class="modal-title text-primary"><?php echo ($key['bulan_status'] ==1) ? 'Batalkan' : 'Pembayaran' ?> <?php echo $row['pos_name'] ?> Bulan <?php echo $key['month_name'] ?></h4>
 																							</div>
 																							<form action="<?php echo ($key['bulan_status'] ==0) ? site_url('manage/payout/pay') : site_url('manage/payout/not_pay') ?>" method="post" accept-charset="utf-8">
 																								<div class="modal-body">
@@ -955,10 +955,10 @@
 
 															<div class="modal fade" id="addCicilan<?php echo $row['bebas_id'] ?>" role="dialog">
 																<div class="modal-dialog modal-md">
-																	<div class="modal-content">
+																	<div class="modal-content bg-secondary">
 																		<div class="modal-header">
+																			<h4 class="modal-title">Tambah Pembayaran/Cicilan</h4>
 																			<button type="button" class="close" data-dismiss="modal">&times;</button>
-																			<h4 class="modal-title text-primary">Tambah Pembayaran/Cicilan</h4>
 																		</div>
 																		<?php echo form_open('manage/payout/payout_bebas/', array('method'=>'post')); ?>
 																		<div class="modal-body">
@@ -1015,10 +1015,10 @@
 
 <div class="modal fade" id="dataSiswa" role="dialog">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
+		<div class="modal-content bg-secondary">
 			<div class="modal-header">
+				<h4 class="modal-title">Cari Data Siswa</h4>
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title text-primary">Cari Data Siswa</h4>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
@@ -1314,11 +1314,11 @@
 			var c=(b.scrollable===true)?'style="max-height: 420px;overflow-y: auto;"':"";
 			html='<div class="modal fade" id="myModal">';
 			html+='<div class="modal-dialog">';
-			html+='<div class="modal-content">';
+			html+='<div class="modal-content bg-secondary">';
 			html+='<div class="modal-header">';
 			html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 			if(b.title.length>0){
-				html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
+				html+='<h4 class="modal-title">'+b.title+"</h4>"
 			}
 			html+="</div>";
 			html+='<div class="modal-body" '+c+">";

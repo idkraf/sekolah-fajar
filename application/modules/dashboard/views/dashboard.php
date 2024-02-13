@@ -170,7 +170,7 @@
 <div class="modal fade in" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <?php echo form_open(current_url()); ?>
-    <div class="modal-content">
+    <div class="modal-content bg-secondary">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="addModalLabel">Tambah Agenda</h4>
@@ -194,7 +194,7 @@
 <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <?php echo form_open(current_url()); ?>
-    <div class="modal-content">
+    <div class="modal-content bg-secondary">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="delModalLabel">Hapus Hari Libur</h4>

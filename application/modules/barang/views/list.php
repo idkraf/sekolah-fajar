@@ -46,10 +46,10 @@
 
 <div id="delete_model" class="modal fade">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content bg-secondary">
             <div class="modal-header">
 
-                <h4 class="modal-title text-primary">Hapus</h4>
+                <h4 class="modal-title">Hapus</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

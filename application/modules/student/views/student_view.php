@@ -492,7 +492,7 @@
 			<!-- /.row -->
 			<div class="modal modal-default fade" id="delModal<?php echo $student['student_id']; ?>">
 				<div class="modal-dialog">
-					<div class="modal-content">
+					<div class="modal-content bg-secondary">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-td="Close">
 								<span aria-hidden="true">&times;</span></button>

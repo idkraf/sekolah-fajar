@@ -312,7 +312,7 @@ if (isset($student)) {
 											<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												<div class="modal-dialog" role="document">
 													<div class="modal-dialog modal-sm"> 
-														<div class="modal-content">
+														<div class="modal-content bg-secondary">
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																<h4 class="modal-title" id="myModalLabel">Tambah Kelas</h4>
@@ -618,12 +618,12 @@ if (isset($student)) {
 <?php if (isset($student)) { ?>
 	<div class="modal fade" id="deleteStudent">
 		<div class="modal-dialog">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
+					<h4 class="modal-title">Konfirmasi Hapus</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title text-primary">Konfirmasi Hapus</h4>
 				</div>
 				<form action="<?php echo site_url('manage/student/delete') ?>" method="POST">
 					<div class="modal-body">

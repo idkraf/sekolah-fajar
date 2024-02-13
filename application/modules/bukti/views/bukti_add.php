@@ -195,7 +195,7 @@ if (isset($payment)) {
 		<div class="modal fade" id="deletePayment">
 			<div class="modal-dialog">
 				<div class="modal-content text-secondary">
-					<h4 class="modal-title text-primary">Konfirmasi Hapus</h4>
+					<h4 class="modal-title">Konfirmasi Hapus</h4>
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -219,9 +219,9 @@ if (isset($payment)) {
 
 <div class="modal fade" id="dataSiswa" role="dialog">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
+		<div class="modal-content bg-secondary">
 			<div class="modal-header">
-				<h4 class="modal-title text-primary">Cari Data Siswa</h4>
+				<h4 class="modal-title">Cari Data Siswa</h4>
 				<button type="button" class="close" data-dismiss="modal">×</button>
 			</div>
 			<div class="modal-body">
@@ -245,9 +245,8 @@ if (isset($payment)) {
 						</div>
 					</div>
 				</div>
-				<br>
 				<div id="div_student">
-					<div class="card-body table-responsive">
+					<div class="card-body table-responsive p-0 text-dark">
 						<table id="dtable" class="table table-hover dataTable no-footer" width="100%">
 							<thead>
 								<th>No</th>

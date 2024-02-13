@@ -112,12 +112,12 @@
 
 <div class="modal fade" id="deletePayBebas">
 	<div class="modal-dialog">
-		<div class="modal-content">
+		<div class="modal-content bg-secondary">
 			<div class="modal-header">
+				<h4 class="modal-title">Konfirmasi Hapus</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title text-primary">Konfirmasi Hapus</h4>
 			</div>
 			<form action="<?php echo site_url('manage/payment/delete_payment_bebas') ?>" method="POST">
 				<div class="modal-body">

@@ -86,10 +86,10 @@
 												<a data-toggle="modal" data-target="#<?php echo 'jb_'.$row['position_id'] ?>" class="btn btn-xs btn-success" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 												<div class="modal fade" id="<?php echo 'jb_'.$row['position_id'] ?>" role="dialog">
 													<div class="modal-dialog modal-sm">
-														<div class="modal-content">
+														<div class="modal-content bg-secondary">
 															<div class="modal-header">
+																<h4 class="modal-title">Edit Unit</h4>
 																<button type="button" class="close" data-dismiss="modal">×</button>
-																<h4 class="modal-title text-primary">Edit Unit</h4>
 															</div>
 															<form action="<?php echo site_url('manage/jabatan/update_jabatan') ?>" method="post" accept-charset="utf-8">
 																<div class="modal-body">
@@ -151,10 +151,10 @@
 </div>
 <div class="modal fade in" id="addPosition" role="dialog">
 	<div class="modal-dialog modal-md">
-		<div class="modal-content">
+		<div class="modal-content bg-secondary">
 			<div class="modal-header">
+				<h4 class="modal-title">Tambah Jabatan Pegawai</h4>
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title text-primary">Tambah Jabatan Pegawai</h4>
 			</div>
 			<?php echo form_open('manage/jabatan/add_jabatan', array('method'=>'post')); ?>
 				<div class="modal-body">
@@ -225,11 +225,11 @@
 				var c=(b.scrollable===true)?'style="max-height: 420px;overflow-y: auto;"':"";
 				html='<div class="modal fade" id="myModal">';
 				html+='<div class="modal-dialog">';
-				html+='<div class="modal-content">';
+				html+='<div class="modal-content bg-secondary">';
 				html+='<div class="modal-header">';
 				html+='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>';
 				if(b.title.length>0){
-					html+='<h4 class="modal-title text-primary">'+b.title+"</h4>"
+					html+='<h4 class="modal-title">'+b.title+"</h4>"
 				}
 				html+="</div>";
 				html+='<div class="modal-body" '+c+">";

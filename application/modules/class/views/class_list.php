@@ -92,7 +92,7 @@
 										</tr>
 										<div class="modal modal-default fade" id="delModal<?php echo $row['class_id']; ?>">
 											<div class="modal-dialog">
-												<div class="modal-content">
+												<div class="modal-content bg-secondary">
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 															<span aria-hidden="true">&times;</span></button>
@@ -140,10 +140,10 @@
 		<!-- Modal -->
 		<div class="modal fade" id="addClass" role="dialog">
 			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
+				<div class="modal-content bg-secondary">
 					<div class="modal-header">
+						<h4 class="modal-title">Tambah Kelas</h4>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title text-primary">Tambah Kelas</h4>
 					</div>
 					<?php echo form_open('manage/class/add_glob', array('method'=>'post')); ?>
 					<div class="modal-body">

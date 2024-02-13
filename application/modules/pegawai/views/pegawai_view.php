@@ -165,7 +165,7 @@
     							            <a href="#delEdu<?php echo $row['id']?>" data-toggle="modal" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" title="" data-original-title="Hapus"></i></a>
 											<div class="modal modal-default fade" id="delEdu<?php echo $row['id']?>">
 												<div class="modal-dialog">
-													<div class="modal-content">
+													<div class="modal-content bg-secondary">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">×</span></button>
@@ -240,7 +240,7 @@
     							            <a href="#delWork<?php echo $row['id']?>" data-toggle="modal" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" title="" data-original-title="Hapus"></i></a>
 											<div class="modal modal-default fade" id="delWork<?php echo $row['id']?>">
 												<div class="modal-dialog">
-													<div class="modal-content">
+													<div class="modal-content bg-secondary">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">×</span></button>
@@ -318,7 +318,7 @@
     							            <a href="#delFam<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" title="" data-original-title="Hapus"></i></a>
 											<div class="modal modal-default fade" id="delFam<?php echo $row['id']; ?>">
 												<div class="modal-dialog">
-													<div class="modal-content">
+													<div class="modal-content bg-secondary">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">×</span></button>
@@ -392,7 +392,7 @@
     							            <a href="#delPosition<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" title="" data-original-title="Hapus"></i></a>
 											<div class="modal modal-default fade" id="delPosition<?php echo $row['id']; ?>">
 												<div class="modal-dialog">
-													<div class="modal-content">
+													<div class="modal-content bg-secondary">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">×</span></button>
@@ -473,7 +473,7 @@
     							            <a href="#delTeaching<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" title="" data-original-title="Hapus"></i></a>
 											<div class="modal modal-default fade" id="delTeaching<?php echo $row['id']?>">
 												<div class="modal-dialog">
-													<div class="modal-content">
+													<div class="modal-content bg-secondary">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">×</span></button>
@@ -544,7 +544,7 @@
     							            <a href="#delPenghargaa<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" title="" data-original-title="Hapus"></i></a>
 											<div class="modal modal-default fade" id="delPenghargaa<?php echo $row['id']; ?>">
 												<div class="modal-dialog">
-													<div class="modal-content">
+													<div class="modal-content bg-secondary">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">×</span></button>
@@ -591,10 +591,10 @@
 
 	<div class="modal fade" id="addEducation<?php echo $pegawai['employee_id']; ?>" role="dialog">
 		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
+					<h4 class="modal-title">Tambah Riwayat Pendidikan</h4>
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title text-primary">Tambah Riwayat Pendidikan</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_education') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -633,10 +633,10 @@
 
 	<div class="modal fade" id="addWorkshop<?php echo $pegawai['employee_id']; ?>" role="dialog" style="display: none;">
 		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
+					<h4 class="modal-title">Tambah Riwayat Seminar &amp; Pelatihan</h4>
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title text-primary">Tambah Riwayat Seminar &amp; Pelatihan</h4>
 				</div>
 				
 				<form action="<?php echo site_url('manage/pegawai/add_workshop') ?>" method="post" accept-charset="utf-8">
@@ -675,10 +675,10 @@
 
 	<div class="modal fade" id="addFamily<?php echo $pegawai['employee_id']; ?>" role="dialog" style="display: none;">
 		<div class="modal-dialog modal-md">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
+					<h4 class="modal-title">Tambah Data Keluarga</h4>
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title text-primary">Tambah Data Keluarga</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_family') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -716,10 +716,10 @@
 
 	<div class="modal fade" id="addPosition<?php echo $pegawai['employee_id']; ?>" role="dialog" style="display: none;">
 		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
+					<h4 class="modal-title">Tambah Riwayat Jabatan</h4>
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title text-primary">Tambah Riwayat Jabatan</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_position') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -753,10 +753,10 @@
 
 	<div class="modal fade" id="addTeaching<?php echo $pegawai['employee_id']; ?>" role="dialog" style="display: none;">
 		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
+					<h4 class="modal-title">Tambah Riwayat Mengajar</h4>
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title text-primary">Tambah Riwayat Mengajar</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_teaching') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -794,10 +794,10 @@
 
 	<div class="modal fade" id="addAchievement<?php echo $pegawai['employee_id']; ?>" role="dialog" style="display: none;">
 		<div class="modal-dialog modal-md">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
+					<h4 class="modal-title">Tambah Data Penghargaan</h4>
 					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title text-primary">Tambah Data Penghargaan</h4>
 				</div>
 				<form action="<?php echo site_url('manage/pegawai/add_achievement') ?>" method="post" accept-charset="utf-8">
 				<div class="modal-body">
@@ -827,7 +827,7 @@
 
 	<div class="modal modal-default fade" id="delModal<?php echo $pegawai['employee_id']; ?>">
 		<div class="modal-dialog">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button>

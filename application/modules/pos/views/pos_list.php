@@ -79,10 +79,10 @@
 	<!-- Modal -->
 	<div class="modal fade" id="addPos" role="dialog">
 		<div class="modal-dialog modal-md">
-			<div class="modal-content">
+			<div class="modal-content bg-secondary">
 				<div class="modal-header">
+					<h4 class="modal-title">Tambah POS Pembayaran</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title text-primary">Tambah POS Pembayaran</h4>
 				</div>
 				<?php echo form_open('manage/pos/add_glob', array('method'=>'post')); ?>
 				<div class="modal-body">
